@@ -1,24 +1,24 @@
 NAME = megaphone
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I inc
-SRC =  src/megaphone.cpp
-OBJS = $(SRC:%.cpp=objs/%.o)
-
-all: $(NAME)
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+SRCS =  srcs/megaphone.cpp
+OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
 # Construction of the executable and update obj if necessary
 $(NAME): objs $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-objs:
-	@mkdir -p	objs/src
+all: $(NAME)
 
 # Construction of object files (.o) from source files (.cpp)
-objs/%.o: src%.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+objs/%.o: srcs/%.cpp
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+objs:
+	@mkdir -p	objs/
 
 clean:
-	@rm -rf objs
+	@rm -rf	objs
 
 fclean: clean
 	@rm -f $(NAME)
