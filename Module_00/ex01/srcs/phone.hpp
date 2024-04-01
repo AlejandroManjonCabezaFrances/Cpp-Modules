@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+// using namespace std; // no es necesario (std::string firstName;//string firstName;)
 
 class	Contact
 {
@@ -14,7 +15,7 @@ class	Contact
 		std::string	phoneNumber;
 		std::string	darkestSecret;
 
-		// Constructor
+		// Constructor : lista de inicialización
 		Contact(const std::string &firstName, const std::string &lastName,
 			const std::string &nickName, const std::string &phoneNumber,
 			const std::string &darkestSecret)
@@ -25,14 +26,17 @@ class	Contact
 class	Phonebook
 {
 	private:
-		static const int	MaxContacts = 8;
-		Contact				Contact[MaxContacts];
+		static const int	maxContacts = 8;
+		Contact				contacts[maxContacts];
 		int					numContacts;
 
 	public:
 		// Constructor
-		PhoneBook() : numContacts(0) {}
+		Phonebook(int, Contact, int) : numContacts(numContacts) {}
 		// Métodos
 			// add, search and exit
+			void	add();
+			void	search();
+			void	exit();
 };
 #endif
