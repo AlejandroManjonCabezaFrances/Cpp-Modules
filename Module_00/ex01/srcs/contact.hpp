@@ -32,9 +32,8 @@ class	Phonebook
 
 	public:
 		// Constructor
-		Phonebook(int, Contact, int) : numContacts(numContacts) {}
-		// Métodos
-			// add, search and exit
+		Phonebook(int, Contact, int);
+
 			void	add();
 			void	search();
 			void	exit();
