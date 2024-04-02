@@ -1,41 +1,49 @@
-#ifndef PHONE_H
-#define PHONE_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/02 10:33:42 by amanjon-          #+#    #+#             */
+/*   Updated: 2024/04/02 11:12:36 by amanjon-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <iostream>
 #include <string>
-// using namespace std; // no es necesario (std::string firstName;//string firstName;)
 
 class	Contact
 {
-	public:
-		// Variables
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickName;
-		std::string	phoneNumber;
-		std::string	darkestSecret;
-
-		// Constructor : lista de inicialización
-		Contact(const std::string &firstName, const std::string &lastName,
-			const std::string &nickName, const std::string &phoneNumber,
-			const std::string &darkestSecret)
-		: firstName(firstName), lastName(lastName), nickName(nickName),
-			phoneNumber(phoneNumber), darkestSecret(darkestSecret) {}
-};
-
-class	Phonebook
-{
 	private:
-		static const int	maxContacts = 8;
-		Contact				contacts[maxContacts];
-		int					numContacts;
-
+		// Variables
+		std::string	FirstName;
+		std::string	LastName;
+		std::string	NickName;
+		std::string	PhoneNumber;
+		std::string	DarkestSecret;
 	public:
-		// Constructor
-		Phonebook(int, Contact, int);
+		// Método Constructor
+		Contact();
+		// Método Destructor
+		~Contact();
 
-			void	add();
-			void	search();
-			void	exit();
+		// Métodos getters prototype
+		std::string	getFirstName();
+		std::string	getLastName();
+		std::string	getNickName();
+		std::string	getPhoneNumber();
+		std::string	getDarkestSecret();
+
+		// Métodos setter
+		void	setFirstName(std::string _FirstName);
+		void	setLastName(std::string _LastName);
+		void	setNickName(std::string _NickName);
+		void	setPhoneNumber(std::string _PhoneNumber);
+		void	setDarkestSecret(std::string _DarkestSecret);
 };
+
 #endif
