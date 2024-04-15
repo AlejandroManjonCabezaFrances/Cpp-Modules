@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:33:42 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/02 11:12:36 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:07:17 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ class	Contact
 		// Método Destructor
 		~Contact();
 
-		// Métodos getters prototype
+		// Métodos getters --> obtener valor
 		std::string	getFirstName();
 		std::string	getLastName();
 		std::string	getNickName();
 		std::string	getPhoneNumber();
 		std::string	getDarkestSecret();
 
-		// Métodos setter
+		// Métodos setter --> asignar valor a variable
 		void	setFirstName(std::string _FirstName);
 		void	setLastName(std::string _LastName);
 		void	setNickName(std::string _NickName);

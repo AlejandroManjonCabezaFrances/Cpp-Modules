@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:11 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/02 11:54:40 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:52:00 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #define PHONEBOOK_HPP
 
 #include "contact.hpp"
-#include <iostream>
-#include <string>
+#include <iomanip> // Manipula entrada/salida de datos formateados
 
 class	Phonebook
 {
@@ -32,8 +31,8 @@ class	Phonebook
 		~Phonebook();
 
 		// Métodos prototype
-		void	add();
-		void	search();
+		void	add_contact();
+		void	search_contact();
 		void	exit();
 };
 
