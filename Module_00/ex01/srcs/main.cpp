@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:32:00 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/15 18:51:56 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:27:17 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@ int main()
 	{
 		std::cout << "write ADD, SEARCH OR EXIT" << std::endl;
 		std::cin >> input;
+		
+		if (std::cin.eof())
+			break;
 		if (input == "ADD")
 			phonebook.add_contact();
 		if (input == "SEARCH")
 			phonebook.search_contact();
 		if (input == "EXIT")
+		{
+			phonebook.exit();
 			break;
+		}
 	}
 	return (0);
 }

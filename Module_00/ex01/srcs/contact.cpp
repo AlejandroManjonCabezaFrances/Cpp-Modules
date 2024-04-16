@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/15 18:45:58 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:05:50 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,50 +23,50 @@ Contact::~Contact()
 
 std::string	Contact::getFirstName(void)
 {
-	return (this->FirstName);
+	return (this->firstName);
 }
 
-void	Contact::setFirstName(std::string _FirstName)
+void	Contact::setFirstName(std::string _firstName)
 {
-	this->FirstName = _FirstName;
+	this->firstName = _firstName;
 }
 
 std::string	Contact::getLastName(void)
 {
-	return (this->LastName);
+	return (this->lastName);
 }
 
-void	Contact::setLastName(std::string _LastName)
+void	Contact::setLastName(std::string _lastName)
 {
-	this->LastName = _LastName;
+	this->lastName = _lastName;
 }
 
 std::string	Contact::getNickName(void)
 {
-	return (this->NickName);
+	return (this->nickName);
 }
 
-void	Contact::setNickName(std::string _NickName)
+void	Contact::setNickName(std::string _nickName)
 {
-	this->NickName = _NickName;
+	this->nickName = _nickName;
 }
 
 std::string	Contact::getPhoneNumber(void)
 {
-	return (this->PhoneNumber);
+	return (this->phoneNumber);
 }
 
-void	Contact::setPhoneNumber(std::string _PhoneNumber)
+void	Contact::setPhoneNumber(std::string _phoneNumber)
 {
-	this->PhoneNumber = _PhoneNumber;
+	this->phoneNumber = _phoneNumber;
 }
 
 std::string	Contact::getDarkestSecret(void)
 {
-	return (this->DarkestSecret);	
+	return (this->darkestSecret);
 }
 
-void	Contact::setDarkestSecret(std::string _DarkestSecret)
+void	Contact::setDarkestSecret(std::string _darkestSecret)
 {
-	this->DarkestSecret = _DarkestSecret;
+	this->darkestSecret = _darkestSecret;
 }
