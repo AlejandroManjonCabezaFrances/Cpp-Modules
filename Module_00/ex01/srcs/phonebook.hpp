@@ -6,15 +6,15 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:11 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/16 16:25:13 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/17 10:54:24 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include "contact.hpp"
-#include <iomanip> // Manipula entrada/salida de datos formateados
+#include "Contact.hpp"
+#include <iomanip> // Manipula entrada/salida de datos formateados std::setw(10)
 
 class	Phonebook
 {
