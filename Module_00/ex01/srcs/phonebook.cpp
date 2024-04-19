@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/17 15:43:41 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:08:03 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Phonebook::Phonebook()
 {
 	this->numContacts = 0;
-	this->index = 1;
+	this->index = 0;
 }
 
 Phonebook::~Phonebook()
@@ -24,23 +24,28 @@ Phonebook::~Phonebook()
 
 void	Phonebook::add_contact()
 {
-	std::string	input;
+	std::string	firstName;
+	std::string	lastName;
+	std::string	nickName;
+	std::string	phoneNumber;
+	std::string	darkestSecret;
 
 	std::cout << "Enter first name: " << std::endl;
-	std::cin >> input;
-	this->contacts[this->index].setFirstName(input);
+	std::cin >> firstName;
+	this->contacts[this->index].setFirstName(firstName);
 	std::cout << "Enter last name: " << std::endl;
-	std::cin >> input;
-	this->contacts[this->index].setLastName(input);
+	std::cin >> lastName;
+	std::cout << "lastName = " << &lastName << std::endl;
+	this->contacts[this->index].setLastName(lastName);
 	std::cout << "Enter nick name: " << std::endl;
-	std::cin >> input;
-	this->contacts[this->index].setNickName(input);
+	std::cin >> nickName;
+	this->contacts[this->index].setNickName(nickName);
 	std::cout << "Enter phone number: " << std::endl;
-	std::cin >> input;
-	this->contacts[this->index].setPhoneNumber(input);
+	std::cin >> phoneNumber;
+	this->contacts[this->index].setPhoneNumber(phoneNumber);
 	std::cout << "Enter darkest secret: " << std::endl;
-	std::cin >> input;
-	this->contacts[this->index].setDarkestSecret(input);
+	std::cin >> darkestSecret;
+	this->contacts[this->index].setDarkestSecret(darkestSecret);
 	std::cout << "contact add correctly." << std::endl;
 	this->index++;
 	if (this->index == 9)
@@ -62,9 +67,9 @@ void	Phonebook::search_contact()
 	while (i < this->index)
 	{
 		std::cout << " | " << std::setw(10) << i << " | ";
-		std::string firstName = this->contacts[i].getFirstName();
-		std::string lastName = this->contacts[i].getLastName();
-		std::string nickName = this->contacts[i].getNickName();
+		std::string firstName = this->contacts[i].getFirstName().substr(0, 10);
+		std::string lastName = this->contacts[i].getLastName().substr(0, 10);
+		std::string nickName = this->contacts[i].getNickName().substr(0, 10);
 		if (firstName.length() > 9)
 			firstName[9] = '.';
 		if (lastName.length() > 9)
