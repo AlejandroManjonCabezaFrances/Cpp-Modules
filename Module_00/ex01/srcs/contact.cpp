@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/19 11:12:24 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:00:14 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ std::string	Contact::getLastName(void)
 
 void	Contact::setLastName(std::string _lastName)
 {
-	std::cout << "_lstName = " << &_lastName << std::endl;
-	std::cout << "this->lstName = " << &lastName << std::endl;
 	this->lastName = _lastName;
 }
 

@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/19 11:08:03 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:00:27 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	Phonebook::add_contact()
 	this->contacts[this->index].setFirstName(firstName);
 	std::cout << "Enter last name: " << std::endl;
 	std::cin >> lastName;
-	std::cout << "lastName = " << &lastName << std::endl;
 	this->contacts[this->index].setLastName(lastName);
 	std::cout << "Enter nick name: " << std::endl;
 	std::cin >> nickName;
@@ -48,20 +47,19 @@ void	Phonebook::add_contact()
 	this->contacts[this->index].setDarkestSecret(darkestSecret);
 	std::cout << "contact add correctly." << std::endl;
 	this->index++;
-	if (this->index == 9)
-		this->index = 1;
+	if (this->index == 8)
+		this->index = 0;
 }
 
 void	Phonebook::search_contact()
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	std::cout << "  ===================================================" << std::endl;
 	std::cout << " | " << std::setw(10) << "index" << " | ";
 	std::cout << std::setw(10) << "first name" << " | ";
 	std::cout << std::setw(10) << "last name" << " | ";
-	// index 8 --> hasta aqui printea, luego SEGV
 	std::cout << std::setw(10) << "nick name" << " | " << std::endl;
 	std::cout << "  ===================================================" << std::endl;
 	while (i < this->index)
