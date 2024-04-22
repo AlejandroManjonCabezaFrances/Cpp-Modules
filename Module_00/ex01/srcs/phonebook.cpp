@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/22 13:00:27 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:11:44 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,46 +23,56 @@ Phonebook::~Phonebook()
 }
 
 void	Phonebook::add_contact()
-{
-	std::string	firstName;
-	std::string	lastName;
-	std::string	nickName;
-	std::string	phoneNumber;
-	std::string	darkestSecret;
-
-	std::cout << "Enter first name: " << std::endl;
-	std::cin >> firstName;
-	this->contacts[this->index].setFirstName(firstName);
-	std::cout << "Enter last name: " << std::endl;
-	std::cin >> lastName;
-	this->contacts[this->index].setLastName(lastName);
-	std::cout << "Enter nick name: " << std::endl;
-	std::cin >> nickName;
-	this->contacts[this->index].setNickName(nickName);
-	std::cout << "Enter phone number: " << std::endl;
-	std::cin >> phoneNumber;
-	this->contacts[this->index].setPhoneNumber(phoneNumber);
-	std::cout << "Enter darkest secret: " << std::endl;
-	std::cin >> darkestSecret;
-	this->contacts[this->index].setDarkestSecret(darkestSecret);
-	std::cout << "contact add correctly." << std::endl;
-	this->index++;
+{	
+	std::string	input;
+	
 	if (this->index == 8)
 		this->index = 0;
+
+	while(1)
+	{
+		std::cout << "Enter first name: " << std::endl;
+		std::cin.ignore();
+		std::getline(std::cin, input);
+		if (!(input.empty()))
+		{
+			this->contacts[this->index].setFirstName(input);
+			break;
+		}
+	}
+
+
+	if (input.empty())
+		std::cout << "ha entrado en el if por input esta vacio" << std::endl;
+	
+	std::cout << "Enter last name: " << std::endl;
+	std::getline(std::cin, input);
+	this->contacts[this->index].setLastName(input);
+	std::cout << "Enter nick name: " << std::endl;
+	std::getline(std::cin, input);
+	this->contacts[this->index].setNickName(input);
+	std::cout << "Enter phone number: " << std::endl;
+	std::getline(std::cin, input);
+	this->contacts[this->index].setPhoneNumber(input);
+	std::cout << "Enter darkest secret: " << std::endl;
+	std::getline(std::cin, input);
+	this->contacts[this->index].setDarkestSecret(input);
+	std::cout << "Contact add correctly." << std::endl;
+	this->index++;
 }
 
 void	Phonebook::search_contact()
 {
 	int	i;
 
-	i = 0;
+	std::cout << "index = " << this->index << std::endl;
+	
 	std::cout << "  ===================================================" << std::endl;
-	std::cout << " | " << std::setw(10) << "index" << " | ";
-	std::cout << std::setw(10) << "first name" << " | ";
-	std::cout << std::setw(10) << "last name" << " | ";
-	std::cout << std::setw(10) << "nick name" << " | " << std::endl;
+	std::cout << " | " << std::setw(10) << "Index" << " | " << "First name | ";
+	std::cout << std::setw(10) << "Last name  | ";
+	std::cout << std::setw(10) << "Nick name  | " << std::endl;
 	std::cout << "  ===================================================" << std::endl;
-	while (i < this->index)
+	for(i = 0; i < this->index; i++)
 	{
 		std::cout << " | " << std::setw(10) << i << " | ";
 		std::string firstName = this->contacts[i].getFirstName().substr(0, 10);
@@ -74,11 +84,10 @@ void	Phonebook::search_contact()
 			lastName[9] = '.';
 		if (nickName.length() > 9)
 			nickName[9] = '.';	
-		std::cout << std::setw(10) << firstName << " | ";;
-		std::cout << std::setw(10) << lastName << " | ";;
-		std::cout << std::setw(10) << nickName << " | " << std::endl;;
+		std::cout << std::setw(10) << firstName << " | ";
+		std::cout << std::setw(10) << lastName << " | ";
+		std::cout << std::setw(10) << nickName << " | " << std::endl;
 		std::cout << "  ---------------------------------------------------" << std::endl;
-		i++;
 	}
 }
 
