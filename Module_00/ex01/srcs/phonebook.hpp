@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:11 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/17 10:54:24 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:26:05 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class	Phonebook
 	private:
 		static const int	maxContacts = 8;
 		Contact				contacts[maxContacts];
-		int					numContacts;
 		int					index;
+		// int					secondRound;
 
 	public:
 		// Constructor
@@ -31,8 +31,9 @@ class	Phonebook
 		~Phonebook();
 
 		// Métodos prototype
-		void	add_contact();
-		void	search_contact();
+		void	addContact();
+		void	searchContact();
+		void	indexSearch();
 		void	exit();
 };
 
