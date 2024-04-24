@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:32:00 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/23 15:31:59 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/04/24 10:34:51 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int main()
 			phonebook.addContact();
 		if (input == "SEARCH")
 			phonebook.searchContact();
-			// phonebook.indexSearch();
 		if (input == "EXIT")
 		{
 			phonebook.exit();
