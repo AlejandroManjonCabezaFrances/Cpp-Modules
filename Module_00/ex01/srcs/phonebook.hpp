@@ -13,8 +13,9 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include "Contact.hpp"
+#include "contact.hpp"
 #include <iomanip> // Manipula entrada/salida de datos formateados std::setw(10)
+#include <cstdlib> // Para atoi
 
 class	Phonebook
 {

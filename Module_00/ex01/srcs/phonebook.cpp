@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "phonebook.hpp"
 
 Phonebook::Phonebook()
 {
@@ -90,22 +90,17 @@ void	Phonebook::indexSearch()
 {
 	int 		i;
 	std::string	inputIndex;
-	
-	std::cout << "Enter a number between 0 and 9" << std::endl;
+
+	i = -1;
+	std::cout << "Enter a number between 0 and 8" << std::endl;
 	while (true)
 	{
-		std::getline(std::cin, inputIndex);
-		// std::cin.ignore();
-		std::cout << "inputIndex_1 = " << inputIndex << std::endl;
+		std::cin >> inputIndex;
 		if (!inputIndex.empty() && isdigit(inputIndex[0]))
-		{
-			std::cout << "entra en el stdstoi" << std::endl;
-			i = std::stoi(inputIndex);
-		}
-		std::cout << "i = " << i << std::endl;
-		std::cout << "inputIndex_2 = " << inputIndex << std::endl;
-		std::cout << "index = " << this->index << std::endl;
-		if (!this->contacts[i].getFirstName().empty())
+			i = atoi(inputIndex.c_str());
+		else
+			std::cout << "Empty index or invalid input entered (0-8)" << std::endl;
+		if (!this->contacts[i].getFirstName().empty()/*  && isdigit(inputIndex[0]) && i != -1 */)
 		{
 				std::cout << "First name: " << this->contacts[i].getFirstName() << std::endl;
 				std::cout << "Last name: " << this->contacts[i].getLastName() << std::endl;
@@ -114,9 +109,7 @@ void	Phonebook::indexSearch()
 				std::cout << "Darkest secret: " << this->contacts[i].getDarkestSecret() << std::endl;
 				break;
 		}
-		std::cout << "inputIndex_3 = " << inputIndex << std::endl;
 	}
-	std::cout << "inputIndex_4 = " << inputIndex << std::endl;
 }
 
 void	Phonebook::searchContact()

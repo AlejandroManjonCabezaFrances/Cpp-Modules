@@ -13,7 +13,7 @@
 NAME = phone
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/Main.cpp srcs/Phonebook.cpp srcs/Contact.cpp
+SRCS =  srcs/main.cpp srcs/phonebook.cpp srcs/contact.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
