@@ -88,6 +88,7 @@
         "bitset": "cpp",
         "complex": "cpp",
         "ios": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "ranges": "cpp"
     }
 }

@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/24 15:35:17 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/14 08:46:29 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	Phonebook::addContact()
 	if (this->index == 8)
 	{
 		this->index = 0;
-		this->upDateTable = 8;
+		this->upDateTable = 8;	// no lo uso
 	}
 	std::cin.ignore();
 	spaceHandler("Enter first name: ", input);
@@ -96,19 +96,23 @@ void	Phonebook::indexSearch()
 	while (true)
 	{
 		std::cin >> inputIndex;
-		if (!inputIndex.empty() && isdigit(inputIndex[0]))
-			i = atoi(inputIndex.c_str());
-		else
-			std::cout << "Empty index or invalid input entered (0-8)" << std::endl;
-		if (!this->contacts[i].getFirstName().empty()/*  && isdigit(inputIndex[0]) && i != -1 */)
+		if (inputIndex.size() == 1 && inputIndex[0] >= '0' && inputIndex[0] <= '8')
 		{
+			if (!inputIndex.empty() && isdigit(inputIndex[0]))
+				i = atoi(inputIndex.c_str());
+			else
+				std::cout << "Empty index or invalid input entered (0-8)" << std::endl;
+			if (!this->contacts[i].getFirstName().empty() && isdigit(inputIndex[0]) && i != -1)
+			{
 				std::cout << "First name: " << this->contacts[i].getFirstName() << std::endl;
 				std::cout << "Last name: " << this->contacts[i].getLastName() << std::endl;
 				std::cout << "Nick name: " << this->contacts[i].getNickName() << std::endl;
 				std::cout << "Phone number: " << this->contacts[i].getPhoneNumber() << std::endl;
 				std::cout << "Darkest secret: " << this->contacts[i].getDarkestSecret() << std::endl;
 				break;
+			}
 		}
+		std::cout << "Empty guide / only numbers please" << std::endl;
 	}
 }
 
@@ -121,7 +125,7 @@ void	Phonebook::searchContact()
 	std::cout << std::setw(10) << "Last name  | ";
 	std::cout << std::setw(10) << "Nick name  | " << std::endl;
 	std::cout << "  ===================================================" << std::endl;
-	for(i = 0; i < this->index || i < upDateTable; i++)
+	for(i = 0; i < 8/* this->index */ /* || i < upDateTable */; i++)
 	{
 		std::cout << " | " << std::setw(10) << i << " | ";
 		std::string firstName = this->contacts[i].getFirstName().substr(0, 10);
@@ -138,7 +142,7 @@ void	Phonebook::searchContact()
 		std::cout << std::setw(10) << nickName << " | " << std::endl;
 		std::cout << "  ---------------------------------------------------" << std::endl;
 	}
-	indexSearch();
+		indexSearch();
 }
 
 void	Phonebook::exit()
