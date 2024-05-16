@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/14 08:46:29 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/16 07:49:24 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,16 @@ void	Phonebook::indexSearch()
 	while (true)
 	{
 		std::cin >> inputIndex;
-		if (inputIndex.size() == 1 && inputIndex[0] >= '0' && inputIndex[0] <= '8')
+		if (inputIndex.size() == 1 && inputIndex[0] >= '0' && inputIndex[0] < '8')
 		{
 			if (!inputIndex.empty() && isdigit(inputIndex[0]))
+			{
 				i = atoi(inputIndex.c_str());
+			}
 			else
+			{
 				std::cout << "Empty index or invalid input entered (0-8)" << std::endl;
+			}
 			if (!this->contacts[i].getFirstName().empty() && isdigit(inputIndex[0]) && i != -1)
 			{
 				std::cout << "First name: " << this->contacts[i].getFirstName() << std::endl;
@@ -125,7 +129,7 @@ void	Phonebook::searchContact()
 	std::cout << std::setw(10) << "Last name  | ";
 	std::cout << std::setw(10) << "Nick name  | " << std::endl;
 	std::cout << "  ===================================================" << std::endl;
-	for(i = 0; i < 8/* this->index */ /* || i < upDateTable */; i++)
+	for(i = 0; i < 8 /* this->index */ /* || i < upDateTable */; i++)
 	{
 		std::cout << " | " << std::setw(10) << i << " | ";
 		std::string firstName = this->contacts[i].getFirstName().substr(0, 10);
