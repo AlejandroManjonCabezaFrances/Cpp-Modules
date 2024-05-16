@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/16 07:49:24 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/16 08:00:46 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Phonebook::Phonebook()
 {
 	this->index = 0;
-	this->upDateTable = 0;
 }
 
 Phonebook::~Phonebook()
@@ -68,7 +67,7 @@ void	Phonebook::addContact()
 	if (this->index == 8)
 	{
 		this->index = 0;
-		this->upDateTable = 8;	// no lo uso
+		this->upDateTable = 8;
 	}
 	std::cin.ignore();
 	spaceHandler("Enter first name: ", input);
@@ -129,7 +128,7 @@ void	Phonebook::searchContact()
 	std::cout << std::setw(10) << "Last name  | ";
 	std::cout << std::setw(10) << "Nick name  | " << std::endl;
 	std::cout << "  ===================================================" << std::endl;
-	for(i = 0; i < 8 /* this->index */ /* || i < upDateTable */; i++)
+	for(i = 0; i < 8; i++)
 	{
 		std::cout << " | " << std::setw(10) << i << " | ";
 		std::string firstName = this->contacts[i].getFirstName().substr(0, 10);
