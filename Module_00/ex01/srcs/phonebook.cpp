@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/16 08:00:46 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/16 08:32:26 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,7 @@ void	Phonebook::addContact()
 	std::string	input;
 	
 	if (this->index == 8)
-	{
 		this->index = 0;
-		this->upDateTable = 8;
-	}
 	std::cin.ignore();
 	spaceHandler("Enter first name: ", input);
 	this->contacts[this->index].setFirstName(input);
@@ -91,7 +88,7 @@ void	Phonebook::indexSearch()
 	std::string	inputIndex;
 
 	i = -1;
-	std::cout << "Enter a number between 0 and 8" << std::endl;
+	std::cout << "Enter a number between 0 and 7" << std::endl;
 	while (true)
 	{
 		std::cin >> inputIndex;
@@ -125,8 +122,8 @@ void	Phonebook::searchContact()
 
 	std::cout << "  ===================================================" << std::endl;
 	std::cout << " | " << std::setw(10) << "Index" << " | " << "First name | ";
-	std::cout << std::setw(10) << "Last name  | ";
-	std::cout << std::setw(10) << "Nick name  | " << std::endl;
+	std::cout << std::setw(10) << " Last name | ";
+	std::cout << std::setw(10) << " Nick name | " << std::endl;
 	std::cout << "  ===================================================" << std::endl;
 	for(i = 0; i < 8; i++)
 	{
