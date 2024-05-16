@@ -91,6 +91,8 @@ void	Phonebook::indexSearch()
 	std::cout << "Enter a number between 0 and 7" << std::endl;
 	while (true)
 	{
+		if(std::cin.eof())
+			break;
 		std::cin >> inputIndex;
 		if (inputIndex.size() == 1 && inputIndex[0] >= '0' && inputIndex[0] < '8')
 		{
