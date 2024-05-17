@@ -27,7 +27,9 @@ void	spaceHandler(const std::string &prompt, std::string &input)
 	{
 		std::cout << prompt << std::endl;
 		std::getline(std::cin, input);
-		if (!(input.empty()))
+		if (std::cin.eof())
+			break;
+		if (!(input.empty())) 
 			break;
 	}
 }
@@ -42,6 +44,8 @@ void	numberSpaceHandler(const std::string &prompt, std::string &input)
 	{
 		std::cout << prompt << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			break;
 		for (i = 0; i < input.size(); i++)
 		{
 			if (!isdigit(input[i]))
