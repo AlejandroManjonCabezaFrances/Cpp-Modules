@@ -6,11 +6,11 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/04/22 13:00:14 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/20 07:05:44 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 // Inicializar el constructor
 Contact::Contact()
 {
