@@ -6,14 +6,14 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 08:15:09 by amanjon-          #+#    #+#              #
-#    Updated: 2024/05/20 06:57:07 by amanjon-         ###   ########.fr        #
+#    Updated: 2024/05/20 07:36:50 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = zombie
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/main.cpp 
+SRCS =  srcs/main.cpp srcs/Zombie.hpp srcs/Zombie.cpp srcs/newZombie.cpp srcs/randomChamp.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
