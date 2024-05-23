@@ -6,14 +6,14 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/02 10:33:59 by amanjon-          #+#    #+#              #
-#    Updated: 2024/05/20 07:04:53 by amanjon-         ###   ########.fr        #
+#    Updated: 2024/05/22 07:02:26 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phone
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/Main.cpp srcs/Phonebook.cpp srcs/Contact.cpp
+SRCS =  srcs/main.cpp srcs/Phonebook.cpp srcs/Contact.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
