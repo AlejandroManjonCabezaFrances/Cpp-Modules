@@ -20,5 +20,7 @@ Zombie *zombieHorde(int N, std::string name)
     for (i = 0; i < N; i++)
     {
         horde = new Zombie[N];
+        horde[i].nameZombie(name);
     }
+    return (horde);
 }

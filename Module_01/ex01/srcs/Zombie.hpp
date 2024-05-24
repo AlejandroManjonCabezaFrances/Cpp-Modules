@@ -18,11 +18,12 @@
 class Zombie
 {
 private:
-    std::string	name;
+	std::string	name;
 public:
-    Zombie();
-    ~Zombie();
-    void announce(void);
+	Zombie();
+	~Zombie();
+	void announce(void);
+	void nameZombie(std::string _name);
 };
 Zombie *zombieHorde(int N, std::string name);
 

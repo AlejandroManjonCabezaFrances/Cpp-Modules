@@ -14,11 +14,19 @@
 
 int	main()
 {
+	Zombie *zombiesHomer;
 	int N;
+	int i;
 
 	std::cout << "Enter a number to create Zombies horder" << std::endl;
 	std::cin >> N;
 	
+	zombiesHomer = zombieHorde(N, "Homer");
+	for (i = 0; i < N; i++)
+	{
+		zombiesHomer[i].announce();
+		delete (zombiesHomer);
+	}
 	std::cout << N << std::endl;
 	return (0);
 }

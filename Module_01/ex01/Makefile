@@ -13,7 +13,7 @@
 NAME = zombie
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/main.cpp srcs/Zombie.cpp zombieHorde.cpp
+SRCS =  srcs/main.cpp srcs/Zombie.cpp srcs/zombieHorde.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
