@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 08:06:48 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/23 08:07:08 by amanjon-         ###   ########.fr       */
+/*   Created: 2024/05/23 08:04:26 by amanjon-          #+#    #+#             */
+/*   Updated: 2024/05/23 09:08:27 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 
 class Zombie
 {
-	private:
-		std::string	name;	
-	public:
-		Zombie(std::string _name);
-		~Zombie();
-		void announce(void);
+private:
+    std::string	name;
+public:
+    Zombie();
+    ~Zombie();
+    void announce(void);
 };
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif
