@@ -16,7 +16,9 @@ int	main()
 {
 	int N;
 
+	std::cout << "Enter a number to create Zombies horder" << std::endl;
 	std::cin >> N;
 	
+	std::cout << N << std::endl;
 	return (0);
 }
