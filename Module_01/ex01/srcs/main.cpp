@@ -6,14 +6,17 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 08:02:53 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/23 08:13:29 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/24 08:43:12 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main()
+int	main()
 {
-    
-    return (0);
+	int N;
+
+	std::cin >> N;
+	
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 08:04:31 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/23 09:12:51 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/24 08:35:49 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie *zombieHorde(int N, std::string name)
     Zombie *horde;
     int i;
     
-    for (i = 0; i > N; i++)
+    for (i = 0; i < N; i++)
     {
         horde = new Zombie[N];
     }
