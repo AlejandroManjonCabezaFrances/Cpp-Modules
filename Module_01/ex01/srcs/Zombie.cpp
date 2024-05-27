@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 08:04:20 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/23 08:35:12 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/27 08:22:10 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Zombie::Zombie()
 
 Zombie::~Zombie()
 {   
-    std::cout << "destructor in action" << std::endl;
+    // std::cout << "destructor in action" << std::endl;
 }
 
 void Zombie::announce(void)
