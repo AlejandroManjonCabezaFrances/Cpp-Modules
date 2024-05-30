@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 08:06:48 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/27 08:12:51 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/05/30 06:56:06 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class Zombie
 {
 	private:
-		std::string	name;	
+		std::string	name;
 	public:
 		Zombie(std::string _name);
 		~Zombie();

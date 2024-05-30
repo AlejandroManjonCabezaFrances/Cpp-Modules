@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/23 07:51:27 by amanjon-          #+#    #+#              #
-#    Updated: 2024/05/30 08:59:04 by amanjon-         ###   ########.fr        #
+#    Created: 2024/05/30 08:18:16 by amanjon-          #+#    #+#              #
+#    Updated: 2024/05/30 08:30:58 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = pointer_reference
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/main.cpp srcs/Zombie.cpp srcs/zombieHorde.cpp
-# DEBUG = -g3 -fsanitize=address
+SRCS =  srcs/main.cpp 
+DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
 # Construction of the executable and update obj if necessary
