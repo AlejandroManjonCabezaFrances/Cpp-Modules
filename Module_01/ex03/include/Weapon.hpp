@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:39 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/05 07:31:46 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/10 07:02:16 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,19 @@
 class Weapon
 {
 	private:
-	std::string	str;
+	std::string	type;
 	public:
 	Weapon();
 	~Weapon();
-	getType();
-	setType();
 	
+	/* getters */
+	std::string getType();
+	
+	/* setters */
+	void 		setType(std::string _type);
 };
+
+
+
 
 #endif

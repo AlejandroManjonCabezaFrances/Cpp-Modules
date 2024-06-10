@@ -6,8 +6,16 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/05 18:24:12 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/10 06:53:41 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
+
+HumanA::HumanA()
+{
+}
+
+HumanA::~HumanA()
+{
+}
