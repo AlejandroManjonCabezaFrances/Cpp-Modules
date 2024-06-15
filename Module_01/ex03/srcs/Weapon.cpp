@@ -6,14 +6,15 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:55 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/10 07:48:47 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/15 21:56:32 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon()
+Weapon::Weapon(std::string _type)
 {
+	this->type = _type;
 }
 
 Weapon::~Weapon()

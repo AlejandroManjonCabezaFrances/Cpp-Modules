@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:30 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/10 08:17:48 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/15 22:28:43 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class HumanA
 		std::string	name;
 		Weapon&		weapon;
 	public:
-		HumanA();
+		HumanA(std::string name, Weapon& weapon);
 		~HumanA();
-		attack();
-}:
+		void attack(void);
+};
 
 
 

@@ -6,16 +6,24 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/10 06:53:41 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/15 22:31:13 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA()
+// Las referencias "&" deben inicializarse en el momento de su creación en "listas de inicialización"
+HumanA::HumanA(std::string _name, Weapon& _weapon) : weapon(weapon)
 {
+   this->name = _name;    
 }
+
 
 HumanA::~HumanA()
 {
+}
+
+void HumanA::attack(void)
+{
+    std::cout << this->name << "attacking with " << weapon.getType() << std::endl;
 }
