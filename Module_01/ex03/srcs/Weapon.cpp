@@ -6,11 +6,11 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:55 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/15 21:56:32 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/17 19:01:41 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "../include/Weapon.hpp"
 
 Weapon::Weapon(std::string _type)
 {

@@ -6,15 +6,15 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:30 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/15 22:28:43 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/17 19:05:40 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA.HPP
-#define HUMANA.HPP
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include <iostream>
-#include "Weapon.hpp"
+#include "../include/Weapon.hpp"
 
 class HumanA
 {

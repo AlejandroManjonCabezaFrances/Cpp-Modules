@@ -6,14 +6,14 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 08:27:58 by amanjon-          #+#    #+#              #
-#    Updated: 2024/06/05 18:25:29 by amanjon-         ###   ########.fr        #
+#    Updated: 2024/06/17 17:49:32 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = humans
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/main.cpp, srcs/HumanA.cpp, srcs/HumanB.cpp, Weapon.cpp
+SRCS =  srcs/main.cpp srcs/HumanA.cpp srcs/HumanB.cpp srcs/Weapon.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
