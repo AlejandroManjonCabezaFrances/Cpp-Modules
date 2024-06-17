@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/15 22:31:13 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/17 06:58:02 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ HumanA::~HumanA()
 {
 }
 
-void HumanA::attack(void)
+void    HumanA::attack(void)
 {
-    std::cout << this->name << "attacking with " << weapon.getType() << std::endl;
+    std::cout << this->name << "attacking with " << this->weapon.getType() << std::endl;
 }
