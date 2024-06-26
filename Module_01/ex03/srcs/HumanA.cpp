@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/17 19:06:23 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/26 00:03:08 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ HumanA::HumanA(std::string _name, Weapon& _weapon) : weapon(_weapon)
 {
    this->name = _name;    
 }
-
 
 HumanA::~HumanA()
 {

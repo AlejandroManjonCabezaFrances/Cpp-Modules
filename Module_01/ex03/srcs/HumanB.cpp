@@ -6,13 +6,13 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:47 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/17 19:02:18 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/26 01:35:57 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/HumanB.hpp"
 
-HumanB::HumanB(std::string	name/*, Weapon* weapon*/)
+HumanB::HumanB(std::string	name)
 {
 	this->name = name;
 	this->weapon = NULL;
@@ -22,7 +22,15 @@ HumanB::~HumanB()
 {
 }
 
+void	HumanB::setWeapon(Weapon& _weapon)
+{
+	this->weapon = &_weapon;
+}
+
 void	HumanB::attack(void)
 {
-	std::cout << this->name << "attacking with " << this->weapon->getType() << std::endl;
+	if (weapon != NULL)
+		std::cout << this->name << " attacking with " << this->weapon->getType() << std::endl;
+	else
+		std::cout << " Oh Jesus Chrits, nobody gaven " << this->name << " a weapon!!!" << std::endl;
 }
