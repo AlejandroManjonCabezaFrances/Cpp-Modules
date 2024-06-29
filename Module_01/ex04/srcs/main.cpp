@@ -6,29 +6,81 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 00:59:00 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/28 05:44:55 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/06/29 05:12:30 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include <iostream> // Entrada/salida en consola
 #include <fstream> // Para gestionar archivos .txt
 #include <iomanip>
-#include <string>
+#include <string> // Para trabajar con std::string
+#include <algorithm> // To use std::replace "forbidden"
+
+/* int main()
+{ 
+	std::string str;
+
+	str = "Lo que diga el papi";
+	std::replace(str.begin(), str.end(), 'a', 'X');
+	std::cout << str << std::endl;
+	
+	return (0);
+} */
+
+int	parsingArgv(int argc, char **argv)
+{
+	if (argc != 4)
+	{
+		std::cerr << "Enter 4 arguments." << std::endl;
+		return (1);
+	}
+	if (argv[2][1] || argv[3][1])
+		std::cout << "2º and 3º arguments should be one character. " << std::endl
+		<< "The first character of each argument will be taken, " << std::endl
+		<< "like the replace function" << std::endl;
+	return (0);
+}
+
+void	replaceText(char **argv, std::ifstream& infile, std::ofstream& outfile)
+{
+	std::string line;
+	size_t i;
+	while (std::getline(infile, line))
+	{
+		i = 0;
+		while (i < line.size())
+		{
+			if (line[i] == *argv[2])
+				line[i] = *argv[3];
+			i++;
+		}
+		outfile << line << std::endl;
+	}
+}
 
 int main(int argc, char **argv)
 {
-	if (argc != 2)
-	{
-		std::cerr << "Enter 2 arguments." << std::endl;
-		return (1);
-	}
-	std::ifstream infile(argv[1]);
-	if (!infile.is_open())
-	{
-		std::cerr << "don `t open infile" << std::endl;
-		return (1);
-	}
+	parsingArgv(argc, argv);
 	
+	std::string infileStr = argv[1];
+	std::string oldStr = argv[2];
+	std::string newStr = argv[3];
+											
+	std::ifstream infile(infileStr.c_str()); // el constructor del objeto ifstream necesita un const char *.
+	if (!infile.is_open())					 // Prepara el archivo solo en escritura, poniendo un puntero al principio del mismo 
+	{
+		std::cerr << "Error: don `t open infile" << std::endl;
+		return (1);
+	}
+	std::string outfileStr = infileStr + ".replace";
+	
+	std::ofstream outfile(outfileStr.c_str()); // Peprara el archivo en modo escritura, si no existe lo crea, si existe lo trunca.
+	if (!outfile.is_open())
+	{
+		std::cerr << "Error: don `t open outfile" << std::endl;
+		return(1);
+	}
+	replaceText(argv, infile, outfile);
 	
 	return (0);
 }
