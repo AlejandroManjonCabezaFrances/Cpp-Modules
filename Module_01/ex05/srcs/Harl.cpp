@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:18:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/04 17:44:36 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:23:18 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,54 @@ void    Harl::error()
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+/**
+ * When the string is equal to what I am looking for, it returns an int so that
+ * it can be treated in the switch statement
+ * @param	std::string level
+ * @return	int
+*/
+int	getLevel(std::string level)
+{
+	if (level == "debug")
+		return (DEBUG);
+	if (level == "info")
+		return(INFO);
+	if (level == "warning")
+		return (WARNING);
+	if (level == "error")
+		return (ERROR);
+	return (-1);
+}
+
+/**
+ * A value is given to the pointer, which points to each corresponding member function.
+ * Then this auxiliary function that contains the pointer is called.
+ * @param	std::string level
+ * @return	void
+*/
 void   Harl::complain(std::string level)
 {
-	std::cout << "level = " << level << std::endl;
-} 
+	void (Harl::*pointerFunction)() = NULL;
+	switch(getLevel(level))
+	{
+		case DEBUG:
+			pointerFunction = &Harl::debug;
+			(this->*pointerFunction)();
+			break;
+		case INFO:
+			pointerFunction = &Harl::info;
+			(this->*pointerFunction)();
+			break;
+		case WARNING:
+			pointerFunction = &Harl::warning;
+			(this->*pointerFunction)();
+			break;
+		case ERROR:
+			pointerFunction = &Harl::error;
+			(this->*pointerFunction)();
+			break;
+		default:
+			std::cout << "Error: method switch" << std::endl;
+			break;
+	}
+}
