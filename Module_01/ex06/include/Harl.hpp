@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/06 07:47:25 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/06 08:44:50 by amanjon-         ###   ########.fr       */
+/*   Created: 2024/07/06 07:47:21 by amanjon-          #+#    #+#             */
+/*   Updated: 2024/07/06 07:53:02 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Harl.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-/**
- * The object is created and parse arguments
- * @param	void
- * @return	int
-*/
-int main(int argc, char **argv)
+#include <iostream>
+
+class Harl
 {
-	Harl harl;
-	std::string input;
-	
-	if (argc != 2)
-	{
-		std::cout << "Error: Just 2 arguments (DEBUG, INFO, WARNING, ERROR)";
-		return (1);
-	}
-	input = argv[1];
-	harl.complain(input);
-		
-	return(0);
-}
+	private:
+		std::string level;
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+	public:
+		Harl();
+		~Harl();
+		void complain(std::string level);
+};
+
+enum Level
+{
+	DEBUG,
+	INFO,
+	WARNING,
+	ERROR	
+};
+
+#endif
