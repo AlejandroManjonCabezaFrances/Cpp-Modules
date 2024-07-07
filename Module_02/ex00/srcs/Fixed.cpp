@@ -6,25 +6,46 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 11:54:54 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/06 14:43:35 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/07 12:04:21 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Fixed.hpp"
 
-Fixed::Fixed(int store)
+Fixed::Fixed(/* int fixedPoint */)
 {
-	store = 0;
+	std::cout << "Default constructor called" << std::endl;
+	this->fixedPoint = 0;
+}
+
+// Copy constructor
+Fixed::Fixed(const Fixed& constrCopy)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	this->fixedPoint = constrCopy.fixedPoint;
+}
+
+// Copy assignment operator copy/overload
+Fixed& Fixed::operator=(const Fixed& constrCopy)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &constrCopy)
+		this->fixedPoint = constrCopy.fixedPoint;
+	return (*this);
 }
 
 Fixed::~Fixed()
 {
+	std::cout << "Destructor called" << std::endl;
 }
 
-int	getRawBits(void)
+int		Fixed::getRawBits(void)
 {
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->fixedPoint);
 }
 
-void	setRawBits(int const raw)
+void	Fixed::setRawBits(int const raw)
 {
+	this->fixedPoint = raw;
 }
