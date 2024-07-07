@@ -6,13 +6,13 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 11:54:54 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/07 12:04:21 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/07 12:39:25 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Fixed.hpp"
 
-Fixed::Fixed(/* int fixedPoint */)
+Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->fixedPoint = 0;

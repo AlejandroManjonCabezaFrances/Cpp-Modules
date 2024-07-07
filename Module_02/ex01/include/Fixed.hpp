@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/06 11:54:51 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/07 12:39:19 by amanjon-         ###   ########.fr       */
+/*   Created: 2024/07/07 12:43:59 by amanjon-          #+#    #+#             */
+/*   Updated: 2024/07/07 12:45:08 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-
-/**
- * All instances of Fixed will have access to this same constant bit.
- * Class in Orthodox Canonical Form:
- * 1. Constructor 
- * 2. Copy constructor
- * 3. Copy assignment operator copy/overload
- * 4. Destructor
-*/
 
 class Fixed
 {
