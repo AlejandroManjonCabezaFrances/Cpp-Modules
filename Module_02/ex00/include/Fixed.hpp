@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 11:54:51 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/07 12:39:19 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/09 08:02:11 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 
 /**
+ * 
  * All instances of Fixed will have access to this same constant bit.
  * Class in Orthodox Canonical Form:
  * 1. Constructor 
