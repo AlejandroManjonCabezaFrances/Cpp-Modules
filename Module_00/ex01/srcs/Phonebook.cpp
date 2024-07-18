@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/18 09:46:16 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/18 10:12:34 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,7 @@ void	Phonebook::indexSearch()
 		if (inputIndex.size() == 1 && inputIndex[0] >= '0' && inputIndex[0] < '8')
 		{
 			if (!inputIndex.empty() && isdigit(inputIndex[0]))
-			{
 				i = atoi(inputIndex.c_str());
-			}
 			else
 			{
 				std::cout << "Empty index or invalid input entered (0-8)" << std::endl;
@@ -117,8 +115,10 @@ void	Phonebook::indexSearch()
 				std::cout << "Darkest secret: " << this->contacts[i].getDarkestSecret() << std::endl;
 				break;
 			}
+			else
+				break;
 		}
-		std::cout << "Empty guide / only numbers / Only numbers from 0 to 7" << std::endl;
+		/* std::cout << "Empty guide / only numbers / Only numbers from 0 to 7" << std::endl; */
 	}
 }
 
