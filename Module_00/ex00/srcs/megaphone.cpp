@@ -1,6 +1,6 @@
 #include <iostream>
 
-void    Toupper(char *str)
+void    toUpper(char *str)
 {
     int i;
 
@@ -22,9 +22,11 @@ int main(int argc, char **argv)
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *"<< std::endl;
     while (argv[i])
     {
-        Toupper(argv[i]);
-        std::cout << " " << argv[i];
+        toUpper(argv[i]);
+        std::cout << argv[i];
         i++;
     }
+    if (argc != 1)
+        std::cout << std::endl;
     return (0);
 }

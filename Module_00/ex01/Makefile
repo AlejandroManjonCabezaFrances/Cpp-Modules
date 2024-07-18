@@ -6,7 +6,7 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/02 10:33:59 by amanjon-          #+#    #+#              #
-#    Updated: 2024/05/22 07:02:26 by amanjon-         ###   ########.fr        #
+#    Updated: 2024/07/18 09:46:07 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,4 +38,14 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+
+r: run
+run: all
+	@./$(NAME)
+
+# without -fsanitize=address to valgrind
+v: valgrind
+valgrind: all
+	@valgrind --leak-check=full ./$(NAME)
+
+.PHONY: all clean fclean re r run v valgrind

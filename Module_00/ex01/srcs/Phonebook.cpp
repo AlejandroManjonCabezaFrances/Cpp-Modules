@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:34:16 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/20 07:05:23 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:46:16 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	Phonebook::indexSearch()
 				break;
 			}
 		}
-		std::cout << "Empty guide / only numbers please" << std::endl;
+		std::cout << "Empty guide / only numbers / Only numbers from 0 to 7" << std::endl;
 	}
 }
 
