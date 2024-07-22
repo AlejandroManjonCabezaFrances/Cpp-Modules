@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 11:54:54 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/07 12:39:25 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/22 03:00:35 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Fixed::Fixed(const Fixed& constrCopy)
 }
 
 // Copy assignment operator copy/overload
+// Check current object is different than object passed by arguments
 Fixed& Fixed::operator=(const Fixed& constrCopy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;

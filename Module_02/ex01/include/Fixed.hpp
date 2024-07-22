@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 12:43:59 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/08 08:54:39 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/22 02:16:05 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ Una sobrecarga del operador de inserción («) que inserta una representación e
 class Fixed
 {
 	private:
+		int 				number;
+		float				num;
 		static const int	bit = 8;
 		int					fixedPoint;
 	public:
