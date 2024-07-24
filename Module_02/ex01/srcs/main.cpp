@@ -6,20 +6,48 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 12:42:45 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/07 12:45:58 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/24 19:55:35 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Fixed.hpp"
 
+/* *** OUTPUT ***
+$> ./a.out
+Default constructor called
+Int constructor called
+Float constructor called
+Copy constructor called
+Copy assignment operator called
+Float constructor called
+Copy assignment operator called
+Destructor called
+a is 1234.43
+b is 10
+c is 42.4219
+d is 10
+a is 1234 as integer
+b is 10 as integer
+c is 42 as integer
+d is 10 as integer
+Destructor called
+Destructor called
+Destructor called
+Destructor called
+$> */
+
+
 int main(void)
 {
 	Fixed a;
+	
+	// Se usa constructor en copia, se crea objeto y copia valores de uno que ya existe
 	Fixed const b(10);
 	Fixed const c(42.42f);
 	Fixed const d(b);
 	
-	a = Fixed(1234.4321f);
+	// Se usa operador de asignación (Copiar de un objeto ya existente a otro que ya existe)
+	a = Fixed(1234.4321f); 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;

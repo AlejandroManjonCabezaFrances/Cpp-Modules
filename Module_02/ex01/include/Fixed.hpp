@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 12:43:59 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/22 02:16:05 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/24 19:59:52 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ class Fixed
 {
 	private:
 		int 				number;
-		float				num;
+		/* float				num; */
 		static const int	bit = 8;
-		int					fixedPoint;
+		/* int					fixedPoint; */
 	public:
 		// Constructors
 		Fixed();
@@ -54,8 +54,8 @@ class Fixed
 		// Assigned operator
 		Fixed& operator=(const Fixed& constrCopy);
 		~Fixed();
-/* 		int		getRawBits(void);
-		void	setRawBits(int const raw); */
+		int		getRawBits(void);
+		void	setRawBits(int const raw);
 		int		toInt(void) const;
 		float	toFloat(void) const;
 };
