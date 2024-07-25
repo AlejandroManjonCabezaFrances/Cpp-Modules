@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 12:43:59 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/24 19:59:52 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/25 20:36:19 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,7 @@ class Fixed
 		int		toInt(void) const;
 		float	toFloat(void) const;
 };
+
+std::ostream& operator<<(std::ostream& output, const Fixed& constrCopy);
 
 #endif
