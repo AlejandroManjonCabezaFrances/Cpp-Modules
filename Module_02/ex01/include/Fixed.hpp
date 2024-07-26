@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 12:43:59 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/25 20:36:19 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/26 20:42:23 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ class Fixed
 		int 				number;
 		/* float				num; */
 		static const int	bit = 8;
-		/* int					fixedPoint; */
 	public:
 		// Constructors
 		Fixed();
-		Fixed(const int number);
+		Fixed(const int num);
 		Fixed(const float num);
 		// Copy constructor
 		Fixed(const Fixed& constrCopy);
@@ -60,6 +59,6 @@ class Fixed
 		float	toFloat(void) const;
 };
 
-std::ostream& operator<<(std::ostream& output, const Fixed& constrCopy);
+std::ostream& operator<<(std::ostream &output, const Fixed& constrCopy);
 
 #endif

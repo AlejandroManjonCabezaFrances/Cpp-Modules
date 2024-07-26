@@ -6,13 +6,13 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 12:42:45 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/24 19:55:35 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/07/26 20:48:29 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Fixed.hpp"
 
-/* *** OUTPUT ***
+/* *** OUTPUT SUBJECT ***
 $> ./a.out
 Default constructor called
 Int constructor called
