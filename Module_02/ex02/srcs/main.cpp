@@ -6,11 +6,11 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 07:15:06 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/31 07:56:42 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/17 12:48:37 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "../include/Fixed.hpp"
 
 /* *** OUTPUT ***
 $> ./a.out
@@ -38,3 +38,16 @@ int main( void )
     
     return 0;
 }
+
+/* int main( void )
+{
+    Fixed a;
+    Fixed b;
+
+    std::cout << "a = " << a.getNumber() << std::endl;
+    std::cout << "b = " << b.getNumber() << std::endl;
+    std::cout << "a == b = " << (a == b) << std::endl;
+    
+    
+    return (0);
+} */
