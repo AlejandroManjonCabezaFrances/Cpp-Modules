@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 08:16:02 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/17 13:25:09 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/18 13:26:46 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,36 @@
 // Constructors
 Fixed::Fixed()
 {
-	this->number = 3;
-	std::cout << "Default constructor called" << std::endl;
+	this->number = 0;
+	
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+}
+
+Fixed::Fixed(const int _num)
+{
+	this->number = /* roundf */(_num << bit);
+}
+
+Fixed::Fixed(const float _num)
+{
+	this->number = roundf(_num * (1 << bit));
+}
+
+// Copy constructor
+Fixed::Fixed(const Fixed& constrCopy)
+{
+	this->number = constrCopy.number;
+}
+
+// Assigned operator
+Fixed& Fixed::operator=(const Fixed& constrCopy)
+{
+	if (this != &constrCopy)
+		this->number = constrCopy.number;
+	return (*this);
 }
 
 int Fixed::getNumber()
@@ -36,7 +59,7 @@ La expresión 1 << 8 significa "desplazar el bit 1 a la izquierda 8 posiciones",
 Desplazar 8 posiciones a la izquierda: 1 << 8 = 0000 0001 0000 0000 = 256 en decimal = 2 elevado a 8.*/
 int Fixed::toInt() const
 {
-	return ((this->number)) / int(1 << bit);
+	return (this->number) / (int(1 << bit));
 }
 
 /* Convierte un número en punto fijo a un número en coma flotante
@@ -45,34 +68,6 @@ La división (float(this->number) / (float(1 << 8))) ajusta el valor entero para
 float Fixed::toFloat() const
 {
 	return (float(this->number) / (float(1 << bit)));
-}
-
-Fixed::Fixed(const int _num)
-{
-	this->number = /* roundf */(_num << bit);
-	std::cout << "Int constructor called" << std::endl;
-}
-
-Fixed::Fixed(const float _num)
-{
-	this->number = roundf(_num * (1 << bit));
-	std::cout << "Float constructor called" << std::endl;
-}
-
-// Copy constructor
-Fixed::Fixed(const Fixed& constrCopy)
-{
-	std::cout << "Copy contructor called" << std::endl;
-	this->number = constrCopy.number;
-}
-
-// Assigned operator
-Fixed& Fixed::operator=(const Fixed& constrCopy)
-{
-	std::cout << "Copy assigned operator called" << std::endl;
-	if (this != &constrCopy)
-		this->number = constrCopy.number;
-	return (*this);
 }
 
 bool Fixed::operator>(const Fixed& other)
@@ -120,6 +115,7 @@ Fixed& Fixed::operator-(const Fixed& other)
 Fixed& Fixed::operator*(const Fixed& other)
 {
 	this->number *= other.number;
+	this->number = this->toFloat();
 	return (*this);
 }
 
@@ -129,9 +125,60 @@ Fixed& Fixed::operator/(const Fixed& other)
 	return (*this);
 }
 
+// Pre +
+Fixed& Fixed::operator++()
+{
+	++this->number;
+	return (*this);
+}
 
-/* std::ostream& operator<<(std::ostream &output, const Fixed& constrCopy)
+//Post +
+Fixed Fixed::operator++(int)
+{
+	Fixed copy;
+
+	copy = *this;
+	this->number++;
+	return (copy);
+}
+
+//Pre -
+Fixed& Fixed::operator--()
+{
+	--this->number;
+	return (*this);
+}
+
+//Post -
+Fixed Fixed::operator--(int)
+{
+	Fixed copy;
+
+	copy = *this;
+	return (copy);
+}
+
+Fixed& Fixed::min(Fixed& first, Fixed& second)
+{
+	return (first.number < second.number ? first : second);
+}
+
+Fixed& Fixed::max(Fixed& first, Fixed& second)
+{
+	return (first.number > second.number ? first : second);
+}
+
+Fixed Fixed::min(const Fixed& first, const Fixed& second)
+{
+	return (first.number < second.number ? first : second);
+}
+Fixed Fixed::max(const Fixed& first, const Fixed& second)
+{
+	return (first.number > second.number ? first : second);
+}
+
+std::ostream& operator<<(std::ostream &output, const Fixed& constrCopy)
 {
 	output << constrCopy.toFloat();
 	return (output);
-} */
+}

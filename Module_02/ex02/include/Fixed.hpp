@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 07:14:58 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/17 13:08:06 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/18 11:21:18 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,19 @@ class Fixed
 		Fixed& operator-(const Fixed& other);
 		Fixed& operator*(const Fixed& other);
 		Fixed& operator/(const Fixed& other);
-		
+
+		Fixed& operator++();
+		Fixed operator++(int);
+		Fixed& operator--();
+		Fixed operator--(int);
+
+		static Fixed& min(Fixed& first, Fixed& second);		
+		static Fixed& max(Fixed& first, Fixed& second);
+		// return copy obj to work other instance (obj received not change)
+		static Fixed min(const Fixed& first, const Fixed& second);
+		static Fixed max(const Fixed& first, const Fixed& second);
 };
 
-/* std::ostream& operator<<(std::ostream &output, const Fixed& constrCopy); */
+std::ostream& operator<<(std::ostream &output, const Fixed& constrCopy);
 
 #endif
