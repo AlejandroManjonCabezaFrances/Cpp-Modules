@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 07:14:58 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/18 11:21:18 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/19 13:14:28 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 
 class Fixed
@@ -32,7 +33,7 @@ class Fixed
 		Fixed& operator=(const Fixed& constrCopy);
 		~Fixed();
 
-		int getNumber(); //pruebas
+		int getNumber();
 		int		toInt(void) const;
 		float	toFloat(void) const;
 		
@@ -47,7 +48,7 @@ class Fixed
 		Fixed& operator-(const Fixed& other);
 		Fixed& operator*(const Fixed& other);
 		Fixed& operator/(const Fixed& other);
-
+		// Pre - Post
 		Fixed& operator++();
 		Fixed operator++(int);
 		Fixed& operator--();
