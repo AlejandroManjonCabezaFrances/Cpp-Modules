@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 08:16:02 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/19 13:14:13 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/24 16:24:21 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,32 @@
 // Constructors
 Fixed::Fixed()
 {
-	/* std::cout << "1" << std::endl; */
 	this->number = 0;
 }
 
 Fixed::~Fixed()
 {
-	/* std::cout << "6" << std::endl; */
 }
 
 Fixed::Fixed(const int _num)
 {
-	/* std::cout << "2" << std::endl; */
 	this->number = /* roundf */(_num << bit);
 }
 
 Fixed::Fixed(const float _num)
 {
-	/* std::cout << "3" << std::endl; */
 	this->number = roundf(_num * (1 << bit));
 }
 
 // Copy constructor
 Fixed::Fixed(const Fixed& constrCopy)
 {
-	/* std::cout << "4" << std::endl; */
 	this->number = constrCopy.number;
 }
 
 // Assigned operator
 Fixed& Fixed::operator=(const Fixed& constrCopy)
 {
-	/* std::cout << "5" << std::endl; */
 	if (this != &constrCopy)
 		this->number = constrCopy.number;
 	return (*this);
@@ -54,7 +48,6 @@ Fixed& Fixed::operator=(const Fixed& constrCopy)
 
 int Fixed::getNumber()
 {
-	/* std::cout << "7" << std::endl; */
 	return(this->number);
 }
 
@@ -67,7 +60,6 @@ Desplazar 8 posiciones a la izquierda: 1 << 8 = 0000 0001 0000 0000 = 256 en dec
 */
 int Fixed::toInt() const
 {
-	/* std::cout << "8" << std::endl; */
 	return (this->number) / (int(1 << bit));
 }
 
@@ -78,7 +70,6 @@ La división (float(this->number) / (float(1 << 8))) ajusta el valor entero para
 */
 float Fixed::toFloat() const
 {
-	/* std::cout << "9" << std::endl; */
 	return (float(this->number) / (float(1 << bit)));
 }
 
