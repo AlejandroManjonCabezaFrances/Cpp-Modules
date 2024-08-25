@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/24 20:45:40 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/25 19:05:56 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+#include <cstdlib>
+#include <algorithm> // para std::all_of
+#include <cctype>    // para isdigit
 
 class ClapTrap
 {
 	private:
 		std::string name;
-		int         hit;
-		int         energy;
-		int         damage;
+		int         hitPoints;
+		int         energyPoints;
+		int         attackDamage;
 	public:
 		ClapTrap();
 		ClapTrap(std::string _name);
