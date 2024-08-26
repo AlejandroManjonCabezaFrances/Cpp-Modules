@@ -6,12 +6,14 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/25 19:05:56 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:14:53 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP
 #define CLAPTRAP
+
+#include "../include/Colors.hpp"
 
 #include <iostream>
 #include <iomanip>
@@ -20,10 +22,12 @@
 #include <algorithm> // para std::all_of
 #include <cctype>    // para isdigit
 
+
 class ClapTrap
 {
 	private:
 		std::string name;
+		std::string nameTarget;
 		int         hitPoints;
 		int         energyPoints;
 		int         attackDamage;
@@ -33,6 +37,8 @@ class ClapTrap
 		ClapTrap(const ClapTrap& constrCopy);
 		ClapTrap& operator=(const ClapTrap& constrCopy);
 		~ClapTrap();
+
+		int getAttackDamage();
 		
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);

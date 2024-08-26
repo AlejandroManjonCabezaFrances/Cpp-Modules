@@ -6,12 +6,12 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:59:02 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/24 21:01:43 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:10:49 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS.HPP
-#define COLORS.HPP
+#ifndef COLORS_HPP
+#define COLORS_HPP
 
 #define BLACK   "\x1B[30m"
 #define RED     "\x1b[31m"

@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:23 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/25 19:05:51 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:24:04 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 ClapTrap::ClapTrap()
 {
 	this->name = "Superman";
-	std::cout << "ClapTrap " << this->name << " Creating a new person" << std::endl;
+	std::cout << "ClapTrap " << this->name << " New person has been created." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string _name)
 	: name(_name), hitPoints(10), energyPoints(10), attackDamage(0) 
 {
-	std::cout << "ClapTrap " << this->name << " Creating a new person" << std::endl;
+	std::cout << "ClapTrap " << this->name << " New person has been created." << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << this->name << " Destruction Total" << std::endl;
+	std::cout << "ClapTrap " << this->name << " has finished the mision !" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& constrCopy)
@@ -49,12 +49,17 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& constrCopy)
 	return (*this);
 }
 
+int ClapTrap::getAttackDamage()
+{
+	return (this->attackDamage);
+}
+
 bool areAllDigits(const std::string& str)
 {
 	size_t i;
-	for (i = 0; i > str.size(); i++)
+	for (i = 0; i < str.size(); i++)
 	{
-		if(str[i] >= '1' && str[i] <= '9')
+		if(str[i] >= '1' && str[i] <= '9' && str[1] == '\0')
 			return (true);
 	}
 	return (false);
@@ -62,43 +67,53 @@ bool areAllDigits(const std::string& str)
 
 void ClapTrap::attack(const std::string& target)
 {
-	this->hitPoints -= 1;
-	
 	std::string inputDamage;
-	int			inputDamageInt;
-	
-	std::cout << "Enter attackDamage do you want: " << std::endl;
+	int			countDamage;
+
+	this->nameTarget = target;
+	this->energyPoints -= 1;
+	std::cout << std::endl << "                *** ATTACK ***" << std::endl;
+	std::cout << "Enter attackDamage do you want (1-9): " << std::endl;
 	while (1)
 	{
 		if (std::cin.eof())
 			break;
-		std::cin >> inputDamage;
-		if (!inputDamage.empty() && !areAllDigits(inputDamage))
+		if (this->energyPoints == 0 || this->hitPoints == 0)
 		{
-			std::cout << "input is ok" << std::endl;
-			inputDamageInt = atoi(inputDamage.c_str());
-			this->attackDamage -= inputDamageInt;
+			std::cout << this->name << " hasn `t energy points" << std::endl;
+			std::cout << this->nameTarget << " or hasn `t hit points" << std::endl;
+			break;
+		}
+		std::cin >> inputDamage;
+		if (!inputDamage.empty() && areAllDigits(inputDamage))
+		{
+			countDamage = atoi(inputDamage.c_str());
+			this->attackDamage += countDamage; 
 			break;
 		}
 		else
-			std::cout << "input is empty or not number" << std::endl;
+			std::cout << "Enter only numbers from 1 to 9, please !" << std::endl;
 	}
-	
-	std::cout << "ClapTrap " << this->name << " Attacking " << target << " causing " << this->attackDamage << " points of damage!" << std::endl;
-	std::cout << "hitPoints = " << this->hitPoints << std::endl;
+	std::cout << RED << "ClapTrap " << this->name << " Attacking " << target << " causing " << this->attackDamage << " points of damage!" << RESET << std::endl;
+	std::cout << MAGENTA << "ClapTrap " << this->name << " has " << this->energyPoints << " energy points, due to his attack" << RESET << std::endl << std::endl;;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->hitPoints -= amount;
-	std::cout << "ClapTrap " << this->name << " has " << this->hitPoints << " energyPoints" << std::endl;
-	
+	if (hitPoints != 0)
+	{
+		std::cout << "                *** TAKE DAMAGE ***" << std::endl;
+		this->hitPoints -= amount;
+		std::cout << MAGENTA << "ClapTrap " << this->nameTarget << " has " << this->hitPoints << " hit points" << RESET << std::endl << std::endl;
+	}
 }
+
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << this->name << " Win +1 health point" << std::endl;	
-	std::cout << this->name << " have " << this->energyPoints << " health points" << std::endl;
-	this->energyPoints += amount;
+	std::cout << "                *** BE REPAIRED ***" << std::endl;
+	this->hitPoints += amount;
+	std::cout << GREEN << "ClapTrap " << this->nameTarget << " Win +1 hit points" << RESET << std::endl;	
+	std::cout << MAGENTA << "ClapTrap " << this->nameTarget << " has " << this->hitPoints << " hit points" << RESET << std::endl << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &output, const ClapTrap& constrCopy)
