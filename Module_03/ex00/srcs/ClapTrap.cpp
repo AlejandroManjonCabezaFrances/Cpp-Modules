@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:23 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/26 20:24:04 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:03:54 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 ClapTrap::ClapTrap()
 {
-	this->name = "Superman";
-	std::cout << "ClapTrap " << this->name << " New person has been created." << std::endl;
+	std::cout << YELLOW << "ClapTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string _name)
 	: name(_name), hitPoints(10), energyPoints(10), attackDamage(0) 
 {
-	std::cout << "ClapTrap " << this->name << " New person has been created." << std::endl;
+	std::cout << YELLOW << "ClapTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << this->name << " has finished the mision !" << std::endl;
+	std::cout << YELLOW << "ClapTrap " << this->name << " has finished the mision !" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& constrCopy)
@@ -73,7 +72,7 @@ void ClapTrap::attack(const std::string& target)
 	this->nameTarget = target;
 	this->energyPoints -= 1;
 	std::cout << std::endl << "                *** ATTACK ***" << std::endl;
-	std::cout << "Enter attackDamage do you want (1-9): " << std::endl;
+	std::cout << "Enter attackDamage value you want (1-9): " << std::endl;
 	while (1)
 	{
 		if (std::cin.eof())
@@ -112,7 +111,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << "                *** BE REPAIRED ***" << std::endl;
 	this->hitPoints += amount;
-	std::cout << GREEN << "ClapTrap " << this->nameTarget << " Win +1 hit points" << RESET << std::endl;	
+	std::cout << GREEN << "ClapTrap " << this->nameTarget << " Win + " << amount << " hit points" << RESET << std::endl;	
 	std::cout << MAGENTA << "ClapTrap " << this->nameTarget << " has " << this->hitPoints << " hit points" << RESET << std::endl << std::endl;
 }
 

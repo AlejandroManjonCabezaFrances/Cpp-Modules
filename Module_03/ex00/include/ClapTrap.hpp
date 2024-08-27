@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/26 18:14:53 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:05:03 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@
 #include <iomanip>
 #include <cmath>
 #include <cstdlib>
-#include <algorithm> // para std::all_of
 #include <cctype>    // para isdigit
-
 
 class ClapTrap
 {
