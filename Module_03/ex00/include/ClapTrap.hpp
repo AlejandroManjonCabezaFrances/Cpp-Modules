@@ -6,12 +6,12 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/27 17:05:03 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:10:18 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP
-#define CLAPTRAP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include "../include/Colors.hpp"
 
