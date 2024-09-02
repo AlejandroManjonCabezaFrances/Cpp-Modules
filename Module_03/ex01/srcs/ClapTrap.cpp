@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:23 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/02 04:19:07 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:26:12 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ void ClapTrap::attack(const std::string& target)
 		if (!inputDamage.empty() && areAllDigits(inputDamage))
 		{
 			countDamage = atoi(inputDamage.c_str());
-			this->attackDamage = countDamage; 
+			std::cout << "countDamage = " << countDamage << std::endl;
+			this->attackDamage = countDamage;
+			std::cout << "attackDamage = " << attackDamage << std::endl;
 			break;
 		}
 		else

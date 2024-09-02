@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 03:37:20 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/02 04:35:54 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:40:22 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void ScavTrap::attack(const std::string& target)
 		if (!inputDamage.empty() && areAllDigits(inputDamage))
 		{
 			countDamage = atoi(inputDamage.c_str());
-			this->attackDamage += countDamage; 
+			this->attackDamage = countDamage; 
 			break;
 		}
 		else
@@ -86,4 +86,12 @@ void ScavTrap::attack(const std::string& target)
 void ScavTrap::guardGate()
 {
     std::cout << TEAL << "ScavTrap " << this->name << " is now in Gate keeper mode" << RESET << std::endl << std::endl;
+}
+
+void ScavTrap::print()
+{
+	std::cout << ORANGE << "ScavTrap " << this->name << RESET << std::endl
+	<< BLUE << "hitPoints " << this->hitPoints << std::endl
+	<< "energyPoints " << this->energyPoints << std::endl
+	<< "attackDamage " << this->attackDamage << RESET << std::endl << std::endl;
 }
