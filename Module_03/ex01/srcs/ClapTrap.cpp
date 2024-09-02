@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:23 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/27 17:03:54 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/02 01:05:54 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap()
 	std::cout << YELLOW << "ClapTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string _name)
+ClapTrap::ClapTrap(const std::string& _name)
 	: name(_name), hitPoints(10), energyPoints(10), attackDamage(0) 
 {
 	std::cout << YELLOW << "ClapTrap " << this->name << " New person has been created." << RESET << std::endl;

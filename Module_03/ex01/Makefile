@@ -6,14 +6,14 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/01 03:35:22 by amanjon-          #+#    #+#              #
-#    Updated: 2024/09/01 03:35:29 by amanjon-         ###   ########.fr        #
+#    Updated: 2024/09/02 00:40:58 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/main.cpp srcs/ClapTrap.cpp
+SRCS =  srcs/main.cpp srcs/ClapTrap.cpp srcs/ScavTrap.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 

@@ -6,14 +6,14 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/08/27 18:10:18 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/02 02:31:00 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
-#include "../include/Colors.hpp"
+#include "Colors.hpp"
 
 #include <iostream>
 #include <iomanip>
@@ -23,7 +23,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string name;
 		std::string nameTarget;
 		int         hitPoints;
@@ -31,7 +31,7 @@ class ClapTrap
 		int         attackDamage;
 	public:
 		ClapTrap();
-		ClapTrap(std::string _name);
+		ClapTrap(const std::string &_name);
 		ClapTrap(const ClapTrap& constrCopy);
 		ClapTrap& operator=(const ClapTrap& constrCopy);
 		~ClapTrap();
@@ -44,5 +44,6 @@ class ClapTrap
 };
 
 std::ostream& operator<<(std::ostream &output, const ClapTrap& constrCopy);
+bool areAllDigits(const std::string& str);
 
 #endif
