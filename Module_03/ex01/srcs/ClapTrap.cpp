@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:23 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/02 16:26:12 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/04 17:36:18 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << YELLOW << "ClapTrap " << this->name << " New person has been created." << RESET << std::endl;
+	std::cout << YELLOW << "ClapTrap " << this->name << " 1New person has been created." << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& _name)
 	: name(_name), hitPoints(10), energyPoints(10), attackDamage(0) 
 {
-	std::cout << YELLOW << "ClapTrap " << this->name << " New person has been created." << RESET << std::endl;
-}
-
-ClapTrap::~ClapTrap()
-{
-	std::cout << YELLOW << "ClapTrap " << this->name << " has finished the mision !" << RESET << std::endl;
+	std::cout << YELLOW << "ClapTrap " << this->name << " 2New person has been created." << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& constrCopy)
@@ -46,6 +41,11 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& constrCopy)
 		this->attackDamage = constrCopy.attackDamage;
 	}
 	return (*this);
+}
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << YELLOW << "ClapTrap " << this->name << " has finished the mision !" << RESET << std::endl;
 }
 
 int ClapTrap::getAttackDamage()
@@ -117,8 +117,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << MAGENTA << "ClapTrap " << this->nameTarget << " has " << this->hitPoints << " hit points" << RESET << std::endl << std::endl;
 }
 
-std::ostream& operator<<(std::ostream &output, const ClapTrap& constrCopy)
+/* std::ostream& operator<<(std::ostream &output, const ClapTrap& constrCopy)
 {
 	output << constrCopy;
 	return (output);
 }
+ */

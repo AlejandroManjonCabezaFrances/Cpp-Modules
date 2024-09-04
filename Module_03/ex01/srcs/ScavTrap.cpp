@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 03:37:20 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/04 15:48:26 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/04 17:38:57 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
+	
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;
+	std::cout << YELLOW << "ScavTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
 // Call to the constructor in a copy of the base class, to initialize the corresponding
