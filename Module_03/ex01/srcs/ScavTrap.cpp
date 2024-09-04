@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 03:37:20 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/02 16:40:22 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:48:26 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,24 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string& target)
 {
-	std::string inputDamage;
-	int			countDamage;
+/* 	std::string inputDamage;
+	int			countDamage; */
 
 	this->nameTarget = target;
 	this->energyPoints -= 1;
 	std::cout << std::endl << "                *** ATTACK ***" << std::endl;
-	std::cout << "Enter attackDamage value you want (1-9): " << std::endl;
-	while (1)
+	/* std::cout << "Enter attackDamage value you want (1-9): " << std::endl; */
+/* 	while (1)
 	{
 		if (std::cin.eof())
-			break;
+			break; */
 		if (this->energyPoints == 0 || this->hitPoints == 0)
 		{
 			std::cout << this->name << " hasn `t energy points" << std::endl;
 			std::cout << this->nameTarget << " or hasn `t hit points" << std::endl;
-			break;
+			/* break; */
 		}
-		std::cin >> inputDamage;
+/* 		std::cin >> inputDamage;
 		if (!inputDamage.empty() && areAllDigits(inputDamage))
 		{
 			countDamage = atoi(inputDamage.c_str());
@@ -77,8 +77,8 @@ void ScavTrap::attack(const std::string& target)
 			break;
 		}
 		else
-			std::cout << "Enter only numbers from 1 to 9, please !" << std::endl;
-	}
+			std::cout << "Enter only numbers from 1 to 9, please !" << std::endl; */
+	/* } */
 	std::cout << RED << "ScavTrap " << this->name << " Attacking " << target << " causing " << this->attackDamage << " points of damage!" << RESET << std::endl;
 	std::cout << MAGENTA << "ScavTrap " << this->name << " has " << this->energyPoints << " energy points, due to his attack" << RESET << std::endl << std::endl;;
 }
