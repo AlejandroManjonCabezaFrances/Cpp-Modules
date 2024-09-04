@@ -29,4 +29,6 @@ class ScavTrap : public ClapTrap
         void print();
 };
 
+/* std::ostream& operator<<(std::ostream &output, const ScavTrap& constrCopy);
+ */
 #endif

@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 03:37:20 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/04 18:29:48 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:27:47 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ ScavTrap::~ScavTrap()
 void ScavTrap::attack(const std::string& target)
 {
 	this->nameTarget = target;
-	/* this->energyPoints -= 1; */
 	std::cout << std::endl << "                *** ATTACK ***" << std::endl;
 
 	if (this->energyPoints == 0 || this->hitPoints == 0)

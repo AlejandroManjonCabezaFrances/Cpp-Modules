@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:23 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/04 18:30:00 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:28:28 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,3 +118,10 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << GREEN << "ClapTrap " << this->nameTarget << " Win + " << amount << " hit points" << RESET << std::endl;	
 	std::cout << MAGENTA << "ClapTrap " << this->nameTarget << " has " << this->hitPoints << " hit points" << RESET << std::endl << std::endl;
 }
+
+/* std::ostream& operator<<(std::ostream &output, const ClapTrap& constrCopy)
+{
+	output << constrCopy;
+	return (output);
+}
+ */

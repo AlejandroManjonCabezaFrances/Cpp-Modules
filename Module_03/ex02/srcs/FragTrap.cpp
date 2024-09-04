@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/01 03:37:20 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/04 18:29:48 by amanjon-         ###   ########.fr       */
+/*   Created: 2024/09/04 18:13:41 by amanjon-          #+#    #+#             */
+/*   Updated: 2024/09/04 19:50:00 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ScavTrap.hpp"
+#include "../include/FragTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-    std::cout << YELLOW << "ScavTrap " << this->name << " New person has been created." << RESET << std::endl;
+    std::cout << YELLOW << "FragTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
 	
     this->hitPoints = 100;
-    this->energyPoints = 50;
-    this->attackDamage = 20;
-	std::cout << YELLOW << "ScavTrap " << this->name << " New person has been created." << RESET << std::endl;
+    this->energyPoints = 100;
+    this->attackDamage = 30;
+	std::cout << YELLOW << "FragTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
 // Call to the constructor in a copy of the base class, to initialize the corresponding
-ScavTrap::ScavTrap(const ScavTrap& constrCopy) : ClapTrap(constrCopy)
+FragTrap::FragTrap(const FragTrap& constrCopy) : ClapTrap(constrCopy)
 {
     this->name = constrCopy.name;
 	this->hitPoints = constrCopy.hitPoints;
@@ -35,7 +35,7 @@ ScavTrap::ScavTrap(const ScavTrap& constrCopy) : ClapTrap(constrCopy)
 	this->attackDamage = constrCopy.attackDamage;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& constrCopy)
+FragTrap& FragTrap::operator=(const FragTrap& constrCopy)
 {
     if (this != &constrCopy)
     {
@@ -47,15 +47,14 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& constrCopy)
     return (*this);
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-    std::cout << YELLOW << "ScavTrap " << this->name << " has finished the mision !" << RESET << std::endl;
+    std::cout << YELLOW << "FragTrap " << this->name << " has finished the mision !" << RESET << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target)
+void FragTrap::attack(const std::string& target)
 {
 	this->nameTarget = target;
-	/* this->energyPoints -= 1; */
 	std::cout << std::endl << "                *** ATTACK ***" << std::endl;
 
 	if (this->energyPoints == 0 || this->hitPoints == 0)
@@ -65,19 +64,20 @@ void ScavTrap::attack(const std::string& target)
 	}
 	else
 		this->energyPoints -= 1;
-	std::cout << RED << "ScavTrap " << this->name << " Attacking " << target << " causing " << this->attackDamage << " points of damage!" << RESET << std::endl;
-	std::cout << MAGENTA << "ScavTrap " << this->name << " has " << this->energyPoints << " energy points, due to his attack" << RESET << std::endl << std::endl;;
+	std::cout << RED << "FragTrap " << this->name << " Attacking " << target << " causing " << this->attackDamage << " points of damage!" << RESET << std::endl;
+	std::cout << MAGENTA << "FragTrap " << this->name << " has " << this->energyPoints << " energy points, due to his attack" << RESET << std::endl << std::endl;;
 }
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys()
 {
-    std::cout << TEAL << "ScavTrap " << this->name << " is now in Gate keeper mode" << RESET << std::endl << std::endl;
+    std::cout << PINK << HIGHFIVE << "    Come on, high five guys !!   " << HIGHFIVE << RESET << std::endl << std::endl;;
 }
 
-void ScavTrap::print()
+void FragTrap::print()
 {
-	std::cout << ORANGE << "ScavTrap " << this->name << RESET << std::endl
+	std::cout << ORANGE << "FragTrap " << this->name << RESET << std::endl
 	<< BLUE << "hitPoints " << this->hitPoints << std::endl
 	<< "energyPoints " << this->energyPoints << std::endl
 	<< "attackDamage " << this->attackDamage << RESET << std::endl << std::endl;
 }
+

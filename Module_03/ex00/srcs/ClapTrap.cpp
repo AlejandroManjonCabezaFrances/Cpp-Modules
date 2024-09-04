@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:23 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/02 04:16:51 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:30:43 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void ClapTrap::attack(const std::string& target)
 	int			countDamage;
 
 	this->nameTarget = target;
-	this->energyPoints -= 1;
+	/* this->energyPoints -= 1; */
 	std::cout << std::endl << "                *** ATTACK ***" << std::endl;
 	std::cout << "Enter attackDamage value you want (1-9): " << std::endl;
 	while (1)
@@ -83,6 +83,8 @@ void ClapTrap::attack(const std::string& target)
 			std::cout << this->nameTarget << " or hasn `t hit points" << std::endl;
 			break;
 		}
+		else
+			this->energyPoints -= 1;
 		std::cin >> inputDamage;
 		if (!inputDamage.empty() && areAllDigits(inputDamage))
 		{
@@ -113,10 +115,4 @@ void ClapTrap::beRepaired(unsigned int amount)
 	this->hitPoints += amount;
 	std::cout << GREEN << "ClapTrap " << this->nameTarget << " Win + " << amount << " hit points" << RESET << std::endl;	
 	std::cout << MAGENTA << "ClapTrap " << this->nameTarget << " has " << this->hitPoints << " hit points" << RESET << std::endl << std::endl;
-}
-
-std::ostream& operator<<(std::ostream &output, const ClapTrap& constrCopy)
-{
-	output << constrCopy;
-	return (output);
 }

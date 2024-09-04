@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:48:32 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/04 18:31:14 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/04 17:36:10 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };
+
+/* std::ostream& operator<<(std::ostream &output, const ClapTrap& constrCopy); */
 bool areAllDigits(const std::string& str);
 
 #endif
