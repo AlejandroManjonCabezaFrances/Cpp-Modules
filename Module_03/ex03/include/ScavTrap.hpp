@@ -15,7 +15,7 @@ void guardGate();
 This member function will display a message informing that ScavTrap is now in Gate
 keeper mode. */
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
     public:
         ScavTrap();
