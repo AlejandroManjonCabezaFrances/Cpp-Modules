@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:33:44 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/06 19:47:49 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/09 08:34:59 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,20 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& constrCopy)
     if (this != &constrCopy)
         this->name = constrCopy.name;
     return (*this);
+}
+
+DiamondTrap::~DiamondTrap()
+{
+	std::cout << YELLOW << "FragTrap " << this->name << " has finished the mision !" << RESET << std::endl;
+}
+
+void DiamondTrap::attack(const std::string& target)
+{
+	ScavTrap::attack(target);
+}
+
+void DiamondTrap::whoAmI()
+{
+	std::cout << "DiamondTrap ** My name recently is: " << this->name << std::endl;
+	std::cout << "ClapTrap ** My name is this class is: " << ClapTrap::name << std::endl;
 }
