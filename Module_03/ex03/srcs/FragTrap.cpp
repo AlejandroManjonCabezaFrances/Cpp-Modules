@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:13:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/06 16:22:57 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/10 11:59:40 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ FragTrap::FragTrap() : ClapTrap()
     std::cout << YELLOW << "FragTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string& name_example) : ClapTrap(name_example)
 {
-	
+	this->name = name_example;
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
@@ -29,10 +29,10 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 // Call to the constructor in a copy of the base class, to initialize the corresponding
 FragTrap::FragTrap(const FragTrap& constrCopy) : ClapTrap(constrCopy)
 {
-    this->name = constrCopy.name;
-	this->hitPoints = constrCopy.hitPoints;
-	this->energyPoints = constrCopy.energyPoints;
-	this->attackDamage = constrCopy.attackDamage;
+    	this->name = constrCopy.name;
+		this->hitPoints = constrCopy.hitPoints;
+		this->energyPoints = constrCopy.energyPoints;
+		this->attackDamage = constrCopy.attackDamage;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& constrCopy)

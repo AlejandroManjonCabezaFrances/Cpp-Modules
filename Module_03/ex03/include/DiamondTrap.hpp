@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:33:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/09 08:16:24 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:36:14 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 
 	void attack(const std::string& target);
 	void whoAmI();
-	/* void print(); */
+	void print();
 };
 
 #endif

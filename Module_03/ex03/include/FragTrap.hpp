@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:13:38 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/06 19:32:54 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:36:29 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ class FragTrap : virtual public ClapTrap
 
 	void attack(const std::string& target);
 	void highFivesGuys();
-;	void print();
+	void print();
 };
-
 
 #endif

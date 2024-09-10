@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:33:44 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/09 08:34:59 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:38:44 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap()
 }
 
 DiamondTrap::DiamondTrap(const std::string& _name)
-	:  ScavTrap(_name + "_clap_name"), FragTrap(_name + "_clap_name")
+	: ScavTrap(_name + "_clap_name"), FragTrap(_name + "_clap_name")
 {
 	this->name = _name;
 	this->hitPoints = FragTrap::hitPoints;
@@ -26,7 +26,8 @@ DiamondTrap::DiamondTrap(const std::string& _name)
 	this->attackDamage = FragTrap::ClapTrap::attackDamage;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& constrCopy) : ScavTrap(constrCopy), FragTrap(constrCopy)
+DiamondTrap::DiamondTrap(const DiamondTrap& constrCopy)
+	: ClapTrap(constrCopy), ScavTrap(constrCopy), FragTrap(constrCopy), name(constrCopy.name)
 {
 	this->name = constrCopy.name;
 }
@@ -51,5 +52,13 @@ void DiamondTrap::attack(const std::string& target)
 void DiamondTrap::whoAmI()
 {
 	std::cout << "DiamondTrap ** My name recently is: " << this->name << std::endl;
-	std::cout << "ClapTrap ** My name is this class is: " << ClapTrap::name << std::endl;
+	std::cout << "ClapTrap ** My name is this class is: " << FragTrap::name << std::endl;
+}
+
+void DiamondTrap::print()
+{
+	std::cout << ORANGE << "DiamondTrap " << this->name << RESET << std::endl
+	<< BLUE << "hitPoints " << this->hitPoints << std::endl
+	<< "energyPoints " << this->energyPoints << std::endl
+	<< "attackDamage " << this->attackDamage << RESET << std::endl << std::endl;
 }
