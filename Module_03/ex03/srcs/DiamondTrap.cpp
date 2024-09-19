@@ -6,11 +6,18 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:33:44 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/10 12:38:44 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/19 05:27:42 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/DiamondTrap.hpp"
+
+/* • ClapTrap::name (parameter of the constructor + "_clap_name" suffix)
+• Hit points (FragTrap)
+• Energy points (ScavTrap)
+• Attack damage (FragTrap)
+• attack() (Scavtrap)
+ */
 
 DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap()
 {
@@ -23,7 +30,7 @@ DiamondTrap::DiamondTrap(const std::string& _name)
 	this->name = _name;
 	this->hitPoints = FragTrap::hitPoints;
 	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDamage = FragTrap::ClapTrap::attackDamage;
+	this->attackDamage = FragTrap::attackDamage;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& constrCopy)

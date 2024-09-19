@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:13:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/10 11:59:40 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/19 05:17:44 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
+	this->hitPoints = 100;
+    this->energyPoints = 100;
+    this->attackDamage = 30;
     std::cout << YELLOW << "FragTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
