@@ -6,14 +6,14 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/24 16:48:11 by amanjon-          #+#    #+#              #
-#    Updated: 2024/09/01 03:35:08 by amanjon-         ###   ########.fr        #
+#    Updated: 2024/09/20 01:40:05 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = Polymorphism
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/main.cpp srcs/ClapTrap.cpp
+SRCS =  srcs/main.cpp srcs/Animal.cpp srcs/Dog.cpp srcs/Cat.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
