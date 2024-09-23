@@ -15,6 +15,8 @@ void guardGate();
 This member function will display a message informing that ScavTrap is now in Gate
 keeper mode. */
 
+// virtual public --> Multiple inheritance and possible polymorphism
+
 class ScavTrap : virtual public ClapTrap
 {
     public:
