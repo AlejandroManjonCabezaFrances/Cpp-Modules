@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:15 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/23 11:59:35 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:30:55 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 #include <iostream>
 #include <iomanip>
 
 class Dog : virtual public Animal
 {
+    private:
+        Brain* dogy;
     public:
         Dog();
         Dog(const Dog& constrCopy);
@@ -27,6 +30,7 @@ class Dog : virtual public Animal
         ~Dog();
 
         virtual void makeSound() const;
+        
 };
 
 #endif

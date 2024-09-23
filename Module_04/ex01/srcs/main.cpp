@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:26 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/23 13:46:19 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:32:05 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 } */
 
 // Trying classes "Wrong" without Poliforfism, just Inheritance 
-int main()
+/* int main()
 {
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
@@ -61,4 +61,15 @@ int main()
     delete (orco);
     delete (orcoInheritance);
     return (0);
+} */
+
+int main()
+{
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+
+    delete j;//should not create a leak
+    delete i;
+
+    return 0;
 }
