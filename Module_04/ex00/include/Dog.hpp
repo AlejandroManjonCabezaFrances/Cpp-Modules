@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:15 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/20 04:38:29 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:59:35 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog : virtual public Animal
         Dog& operator=(const Dog& constrCopy);
         ~Dog();
 
-        virtual void makeSound();
+        virtual void makeSound() const;
 };
 
 #endif

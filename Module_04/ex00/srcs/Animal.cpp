@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+    /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
@@ -42,12 +42,12 @@ Animal::~Animal()
     std::cout << "Bye bye Animal class" << std::endl;
 }
 
-std::string Animal::getType()
+std::string Animal::getType() const
 {
     return (this->type);
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
     std::cout << "Animals make noise" << std::endl;
 }

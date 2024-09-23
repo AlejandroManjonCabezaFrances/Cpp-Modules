@@ -6,16 +6,11 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/20 04:18:07 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/23 12:29:02 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Dog.hpp"
-
-Dog::Dog() : Animal()
-{
-    std::cout << "The dog leaves to the street" << std::endl;
-}
 
 Dog::Dog() : Animal()
 {
@@ -42,7 +37,7 @@ Dog::~Dog()
     std::cout << "Bye bye, GUAU Dog class" << std::endl;
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
     std::cout << "GUAU GUAU GUAUUUUUU !!!!" << std::endl;
 }

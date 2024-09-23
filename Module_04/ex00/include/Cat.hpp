@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:24 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/20 04:38:14 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:59:38 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cat : virtual public Animal
         Cat& operator=(const Cat& constrCopy);
         ~Cat();
 
-        virtual void makeSound();
+        virtual void makeSound() const;
 };
 
 #endif
