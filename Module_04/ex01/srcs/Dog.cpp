@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/23 12:29:02 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/26 17:03:36 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
     std::cout << "GUAU GUAU GUAUUUUUU !!!!" << std::endl;
+}
+
+std::string Dog::getType()
+{
+    return (this->type);
 }

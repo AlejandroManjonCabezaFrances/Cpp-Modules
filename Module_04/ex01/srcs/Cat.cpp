@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:38:04 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/23 12:28:58 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/26 17:03:56 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
     std::cout << "MIAU MIAU MIAUUUUUUU !!!" << std::endl;
+}
+
+std::string Cat::getType()
+{
+    return (this->type);
 }

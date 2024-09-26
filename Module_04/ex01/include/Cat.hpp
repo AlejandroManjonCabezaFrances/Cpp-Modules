@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:24 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/23 18:30:00 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/26 17:20:15 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 class Cat : virtual public Animal
 {
 	private:
-        Brain* caty;
+        Brain* catBrain;
 	public:
 		Cat();
 		Cat(const Cat& constrCopy);
@@ -30,6 +30,7 @@ class Cat : virtual public Animal
 		~Cat();
 
 		virtual void makeSound() const;
+		virtual std::string getType();
 };
 
 #endif
