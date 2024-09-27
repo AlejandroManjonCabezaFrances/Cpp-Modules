@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/26 17:03:36 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:32:50 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 Dog::Dog() : Animal()
 {
-    std::cout << "The dog leaves to the street" << std::endl;
+    this->dogBrain = new Brain();
+    this->type = "Dog";
+    std::cout << GREEN <<"The dog leaves to the street" << RESET << std::endl;
 }
 
-Dog::Dog(const Dog& constrCopy)
+Dog::Dog(const Dog& constrCopy) : Animal()
 {
     this->type = constrCopy.type;
 }
@@ -34,7 +36,8 @@ Dog& Dog::operator=(const Dog& constrCopy)
 
 Dog::~Dog()
 {
-    std::cout << "Bye bye, GUAU Dog class" << std::endl;
+    delete this->dogBrain;
+    std::cout << RED << "Bye bye, GUAU Dog class" << RESET << std::endl;
 }
 
 void Dog::makeSound() const
@@ -45,4 +48,10 @@ void Dog::makeSound() const
 std::string Dog::getType()
 {
     return (this->type);
+}
+
+std::ostream& operator<<(std::ostream &output, const Dog& constrCopy)
+{
+	output << constrCopy;
+	return (output);
 }

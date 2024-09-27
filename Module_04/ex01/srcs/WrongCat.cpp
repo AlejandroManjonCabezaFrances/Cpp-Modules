@@ -1,11 +1,11 @@
 #include "../include/WrongCat.hpp"
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal()
 {
-	std::cout << "The WrongCat leaves its cave" << std::endl;
+	std::cout << GREEN << "The WrongCat leaves its cave" << RESET << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& constrCopy)
+WrongCat::WrongCat(const WrongCat& constrCopy) : WrongAnimal()
 {
 	(void)constrCopy;
 }
@@ -22,7 +22,7 @@ WrongCat& WrongCat::operator=(const WrongCat& constrCopy)
 
 WrongCat::~WrongCat()
 {
-	std::cout << "Bye bye WrongCat class" << std::endl;
+	std::cout << RED << "Bye bye WrongCat class" << RESET << std::endl;
 }
 
 void WrongCat::makeSound() const

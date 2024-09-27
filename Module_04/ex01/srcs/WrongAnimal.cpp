@@ -2,7 +2,7 @@
 
 WrongAnimal::WrongAnimal()
 {
-	std::cout << "The WrongAnimals leaves its cave" << std::endl;
+	std::cout << GREEN << "The WrongAnimals leaves its cave" << RESET << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& constrCopy)
@@ -22,7 +22,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& constrCopy)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Bye bye WrongAnimal class" << std::endl;
+	std::cout << RED << "Bye bye WrongAnimal class" << RESET << std::endl;
 }
 
 void WrongAnimal::makeSound() const

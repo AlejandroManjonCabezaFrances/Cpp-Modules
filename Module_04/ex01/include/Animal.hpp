@@ -6,12 +6,14 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:05 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/23 12:26:49 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:26:35 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
+
+#include "Colors.hpp"
 
 #include <iostream>
 #include <iomanip>

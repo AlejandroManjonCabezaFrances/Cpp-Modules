@@ -14,7 +14,7 @@
 
 Animal::Animal()
 {
-    std::cout << "The animals leaves its cave" << std::endl;
+    std::cout << GREEN << "The animals leaves its cave" << RESET << std::endl;
 }
 
 Animal::Animal(const std::string& _type) : type(_type)
@@ -39,7 +39,7 @@ Animal& Animal::operator=(const Animal& constrCopy)
 
 Animal::~Animal()
 {
-    std::cout << "Bye bye Animal class" << std::endl;
+    std::cout << RED << "Bye bye Animal class" << RESET << std::endl;
 }
 
 std::string Animal::getType() const

@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:24 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/26 17:20:15 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:01:15 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ class Cat : virtual public Animal
 		virtual void makeSound() const;
 		virtual std::string getType();
 };
+std::ostream& operator<<(std::ostream &output, const Cat& constrCopy);
 
 #endif

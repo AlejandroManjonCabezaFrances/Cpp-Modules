@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:38:04 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/26 17:03:56 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:33:16 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 Cat::Cat() : Animal()
 {
-    std::cout << "The cat leaves for a walk" << std::endl;
+    this->catBrain = new Brain();
+    this->type = "Cat";
+    std::cout << GREEN << "The cat leaves for a walk" << RESET << std::endl;
 }
 
-Cat::Cat(const Cat& constrCopy)
+Cat::Cat(const Cat& constrCopy) : Animal()
 {
     this->type = constrCopy.type;
 }
@@ -34,7 +36,8 @@ Cat& Cat::operator=(const Cat& constrCopy)
 
 Cat::~Cat()
 {
-    std::cout << "Bye bye, MIAU Cat class" << std::endl;
+    delete this->catBrain;
+    std::cout << RED << "Bye bye, MIAU Cat class" << RESET << std::endl;
 }
 
 void Cat::makeSound() const
@@ -45,4 +48,10 @@ void Cat::makeSound() const
 std::string Cat::getType()
 {
     return (this->type);
+}
+
+std::ostream& operator<<(std::ostream &output, const Cat& constrCopy)
+{
+	output << constrCopy;
+	return (output);
 }

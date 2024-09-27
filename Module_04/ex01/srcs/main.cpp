@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:26 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/23 18:32:05 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:04:47 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,29 @@
 #include "../include/Cat.hpp"
 #include "../include/WrongAnimal.hpp"
 
-/* int main()
-{
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-
-    delete (meta);
-    delete (j);
-    delete (i);
-
-    return (0);
-} */
-
-// Trying classes "Wrong" without Poliforfism, just Inheritance 
-/* int main()
-{
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    
-    const WrongAnimal* orco = new WrongAnimal();
-    const WrongAnimal* orcoInheritance = new WrongAnimal();
-
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    
-    std::cout << std::endl << std::endl;
-    orco->makeSound();
-    orcoInheritance->makeSound();
-    std::cout << std::endl << std::endl;
-    
-    delete (meta);
-    delete (j);
-    delete (i);
-
-    delete (orco);
-    delete (orcoInheritance);
-    return (0);
-} */
-
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+	Animal* animals[20];
+	int i;
 
-    delete j;//should not create a leak
-    delete i;
+	for (i = 0; i < 10; i++)
+		animals[i] = new Dog();
+	
+	for (i = 10; i < 20; i++)
+		animals[i] = new Cat();
 
-    return 0;
+	for (i = 0; i < 20; i++)
+		delete animals[i];
+	
+	// Deep copy: Contructor(); & Copy Contructor
+	Dog originalDog;
+	Dog copiedDog = originalDog;
+
+	std::cout << "originalDog: " << originalDog << std::endl;
+	std::cout << "copiedDog: " << copiedDog << std::endl;
+	
+	Cat originalCat;
+	Cat copiedCat = originalCat;
+	
+	return (0);
 }
