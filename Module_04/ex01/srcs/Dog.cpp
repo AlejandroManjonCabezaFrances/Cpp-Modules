@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/27 12:32:50 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/27 13:54:20 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ std::string Dog::getType()
 
 std::ostream& operator<<(std::ostream &output, const Dog& constrCopy)
 {
-	output << constrCopy;
+	output << constrCopy.dogBrain;
 	return (output);
 }
