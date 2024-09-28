@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:08:52 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/26 13:08:55 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/28 08:30:24 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Brain::Brain()
 {
-	std::cout << "Brain has been created !!" << std::endl;
+	std::cout << GREEN << "Brain has been created !!" << RESET << std::endl;
 }
 
 Brain::Brain(const Brain& constrCopy)
@@ -48,6 +48,6 @@ Brain& Brain::operator=(const Brain& constrCopy)
 
 Brain::~Brain()
 {
-	std::cout << "Bye bye Brain class" << std::endl;
+	std::cout << RED << "Bye bye Brain class" << RESET << std::endl;
 }
 

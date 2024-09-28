@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:05 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/27 12:26:35 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/28 11:26:04 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@
 #include <iostream>
 #include <iomanip>
 
+/**
+ * Palabra clave "virtual"
+ * POLIMORFISMO: Se utiliza para indicar que una función miembro de una clase puede 
+ * ser sobreescrita en una clase derivada.
+ * Permite que un puntero o referencia a una clase base llame a la implementación de la 
+ * clase derivada correspondiente en tiempo de ejecución.
+ * MULTIHERENCIA: ayuda a resolver el problema del diamante.
+ * Este problema ocurre cuando dos clases derivadas heredan de la misma clase base,
+ *  y una clase derivada hereda de ambas. Usar virtual asegura que solo haya una única
+ *  instancia de la clase base, evitando confusiones y problemas de ambigüedad.
+*/
 class Animal
 {
     protected:

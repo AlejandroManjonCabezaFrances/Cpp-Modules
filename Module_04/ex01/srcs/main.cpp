@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:26 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/27 12:04:47 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/09/28 11:50:52 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,16 @@ int main()
 	Dog originalDog;
 	Dog copiedDog = originalDog;
 
+	std::cout << std:: endl << GOLD << "Checking that are different pointers, deep copies OK" << RESET << std::endl;
 	std::cout << "originalDog: " << originalDog << std::endl;
-	std::cout << "copiedDog: " << copiedDog << std::endl;
+	std::cout << "copiedDog: " << copiedDog << std::endl << std::endl;
 	
 	Cat originalCat;
 	Cat copiedCat = originalCat;
+
+	std::cout << GOLD << std::endl << "Checking that are different pointers, deep copies OK" << RESET << std::endl;
+	std::cout << "originalCat: " << originalCat << std::endl;
+	std::cout << "copiedCat: " << copiedCat << std::endl << std::endl;
 	
 	return (0);
 }
