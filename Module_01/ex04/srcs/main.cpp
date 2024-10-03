@@ -6,17 +6,18 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 00:59:00 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/07/04 12:23:21 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:25:40 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> // Entrada/salida en consola
-#include <fstream> // Para gestionar archivos .txt
+#include <iostream>
+#include <fstream> // To archives.txt
 #include <iomanip>
-#include <string> // Para trabajar con std::string
+#include <string> // To std::string
 //#include <algorithm> //To use std::replace "forbidden"
 
 /**
+ * INPUT: ./replace Makefile a x
  * Parses arguments, pointers to NULL and size of arguments 3 and 4.
  * @param	int argc, char **argv
  * @return	int

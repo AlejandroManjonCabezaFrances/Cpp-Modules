@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:51 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/10/03 14:02:13 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:11:11 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,23 @@
 
 int main()
 {
-    // Crear el objeto Weapon
     Weapon sword("knife");
 
-    // Crear el objeto HumanA con un arma en el constructor
-    HumanA arthur("Arthur", sword);
-    arthur.attack();  // Arthur debe atacar con la espada inicial "Longsword"
+    HumanA Arturo("Arturo", sword);
+    Arturo.attack();
 
-    // Cambiar el tipo de arma de Arthur
-    sword.setType("Greatsword");
-    arthur.attack();  // Arthur ahora debe atacar con "Greatsword"
+    sword.setType("fork");
+    Arturo.attack();
 
-    // Crear el objeto HumanB sin un arma asignada
-    HumanB lancelot("Lancelot");
-    lancelot.attack();  // Lancelot no tiene un arma inicialmente
+    HumanB Alvaro("Alvaro");
+    Alvaro.attack();
 
-    // Asignar el arma a Lancelot después de su creación
-    lancelot.setWeapon(sword);
-    lancelot.attack();  // Lancelot debe atacar con "Greatsword" ahora
+    Alvaro.setWeapon(sword);
+    Alvaro.attack();
 
-    // Cambiar el tipo de arma una vez más
-    sword.setType("Flaming Greatsword");
-    arthur.attack();    // Arthur debe atacar con "Flaming Greatsword"
-    lancelot.attack();  // Lancelot también debe atacar con "Flaming Greatsword"
+    sword.setType("Granade");
+    Arturo.attack();
+    Alvaro.attack();
 
     return (0);
 }
