@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 08:02:53 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/30 09:04:25 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/03 13:02:58 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	main()
 	for (i = 0; i < N; i++)
 		zombiesHomer[i].announce();
 
-		
 	delete[] zombiesHomer;
 	return (0);
 }

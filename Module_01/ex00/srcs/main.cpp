@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 07:59:59 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/27 07:11:32 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:08:17 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
     zombie2 = newZombie("Bart");
     zombie2->announce();
     
-    std::cout << "The winning Zombie is created" << std::endl;
+    std::cout << "RandomChump Zombie is created" << std::endl;
     randomChump("Lisa");
 
     delete (zombie2);

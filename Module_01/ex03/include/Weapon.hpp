@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:27:39 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/06/26 00:42:18 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/03 13:56:32 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define WEAPON_HPP
 
 #include <iostream>
-// #include "HumanA.hpp"
-// #include "HumanB.hpp"
 
 class Weapon
 {

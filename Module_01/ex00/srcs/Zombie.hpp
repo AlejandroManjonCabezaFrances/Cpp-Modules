@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 08:06:48 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/05/30 06:56:06 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:32:25 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #define ZOMBIE_HPP
 #include <iostream>
 
+
+/**
+ * *newZombie --> Crea un zombie en el heap dinámicamente
+ * randomChump --> Crea un zombie en la pila
+*/
 class Zombie
 {
 	private:
