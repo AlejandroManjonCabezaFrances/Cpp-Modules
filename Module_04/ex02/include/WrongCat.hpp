@@ -6,7 +6,7 @@
 #include <iostream>
 #include <iomanip>
 
-// Public --> Whitout Polimorfism / multi- inheritance, just inheritance
+// Whitout Polimorfism / multi- inheritance, just inheritance
 
 class WrongCat : public WrongAnimal
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/06 18:58:40 by amanjon           #+#    #+#             */
+/*   Updated: 2024/10/06 18:59:32 by amanjon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/WrongCat.hpp"
 
 WrongCat::WrongCat()
@@ -5,7 +17,7 @@ WrongCat::WrongCat()
 	std::cout << "The WrongCat leaves its cave" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& constrCopy)
+WrongCat::WrongCat(const WrongCat& constrCopy) : WrongAnimal()
 {
 	(void)constrCopy;
 }
