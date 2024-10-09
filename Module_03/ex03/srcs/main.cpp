@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 03:37:28 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/19 05:32:28 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:26:46 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@
 int main()
 {
     /* ClapTrap person2("ALVARO"); */
+    DiamondTrap test;
     DiamondTrap person("ALEX");
     FragTrap person3;
+    ScavTrap person4;
 
     person.whoAmI();
-    person.attack("LAURA");
+/*     person.attack("LAURA"); */
     person.print();
     person3.print();
+    person4.print();
+   /*  person.print(); */
 
     return (0);
 }

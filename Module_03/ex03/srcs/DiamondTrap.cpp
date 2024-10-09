@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:33:44 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/19 05:27:42 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:25:28 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 /* • ClapTrap::name (parameter of the constructor + "_clap_name" suffix)
 • Hit points (FragTrap)
-• Energy points (ScavTrap)
-• Attack damage (FragTrap)
-• attack() (Scavtrap)
+• Energy points (ScavTrap)ScavTrap::ScavTrap() : ClapTrap()
+{
+    std::cout << YELLOW << "ScavTrap " << this->name << " New person has been created." << RESET << std::endl;
+}
  */
 
-DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap()
 {
+	this->hitPoints = FragTrap::hitPoints;
+	this->energyPoints = ScavTrap::energyPoints;
+	this->attackDamage = FragTrap::attackDamage;
 	std::cout << YELLOW << "DiamondTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 

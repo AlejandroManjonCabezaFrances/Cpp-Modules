@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 03:37:20 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/06 19:28:05 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:21:37 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
+	this->hitPoints = 100;
+    this->energyPoints = 50;
+    this->attackDamage = 20;
     std::cout << YELLOW << "ScavTrap " << this->name << " New person has been created." << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
+ScavTrap::ScavTrap(const std::string& name_example) : ClapTrap(name_example)
 {
+	this->name = name_example;
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;

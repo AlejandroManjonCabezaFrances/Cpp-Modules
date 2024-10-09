@@ -6,11 +6,11 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:33:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/10 12:36:14 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:13:31 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
 #define DIAMONDTRAP_HPP
 
 #include "ScavTrap.hpp"
@@ -21,15 +21,15 @@ class DiamondTrap : public ScavTrap, public FragTrap
     private:
         std::string name;
 	public:
-	DiamondTrap();
-	DiamondTrap(const std::string& _name);
-	DiamondTrap(const DiamondTrap& constrCopy);
-	DiamondTrap& operator=(const DiamondTrap& constrCopy);
-	~DiamondTrap();
+		DiamondTrap();
+		DiamondTrap(const std::string& _name);
+		DiamondTrap(const DiamondTrap& constrCopy);
+		DiamondTrap& operator=(const DiamondTrap& constrCopy);
+		~DiamondTrap();
 
-	void attack(const std::string& target);
-	void whoAmI();
-	void print();
+		void attack(const std::string& target);
+		void whoAmI();
+		void print();
 };
 
 #endif
