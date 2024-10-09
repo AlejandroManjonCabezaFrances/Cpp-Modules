@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 08:06:48 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/10/03 12:32:25 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:06:58 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 
 /**
- * *newZombie --> Crea un zombie en el heap dinámicamente
- * randomChump --> Crea un zombie en la pila
+ * *newZombie --> Create zombie in the heap
+ * randomChump --> Crea un zombie en la pila Create zombie in the stack
 */
 class Zombie
 {
