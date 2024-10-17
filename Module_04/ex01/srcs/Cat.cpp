@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:38:04 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/28 11:29:22 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:48:29 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Cat::Cat(const Cat& constrCopy) : Animal()
 
 /**
  * Operador de asignación: evitamos la autoasignación.
- * Liberamos la memoria de la primera instancia del objeto: Cat copiedCat = originalCat;
+ * Liberamos memoria del objeto actual antes de copiar el nuevo: Cat copiedCat = originalCat;
  * Misma función que en contructor en copia.
 */
 Cat& Cat::operator=(const Cat& constrCopy)

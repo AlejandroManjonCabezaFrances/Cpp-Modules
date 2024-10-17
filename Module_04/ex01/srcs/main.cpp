@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:26 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/28 11:50:52 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:52:55 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ int main()
 	for (i = 0; i < 20; i++)
 		delete animals[i];
 	
-	// Deep copy: Contructor(); & Copy Contructor
+	/**
+	 * Deep copy: Contructor(); & Copy Contructor
+	 * Copy contructor: un objeto se inicializa con otro objeto del mismo tipo.
+	 * Esto ocurre al declarar un nuevo objeto y pasarlo como argumento a su propio constructor
+	*/
 	Dog originalDog;
 	Dog copiedDog = originalDog;
 

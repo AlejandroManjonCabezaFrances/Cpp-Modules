@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/28 11:16:45 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:48:08 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ Dog::Dog(const Dog& constrCopy) : Animal()
     if (constrCopy.dogBrain)
         this->dogBrain = new Brain(*(constrCopy.dogBrain));
     this->type = constrCopy.type;
-     std::cout << PURPLE << "Dog `s constructor copy" << RESET << std::endl;
+    std::cout << PURPLE << "Dog `s constructor copy" << RESET << std::endl;
 }
 
 /**
  * Operador de asignación: evitamos la autoasignación.
- * Liberamos la memoria de la primera instancia del objeto: Dog copiedDog = originalDog;
+ * Liberamos memoria del objeto actual antes de copiar el nuevo: Dog copiedDog = originalDog;
  * Misma función que en contructor en copia.
 */
 Dog& Dog::operator=(const Dog& constrCopy)
