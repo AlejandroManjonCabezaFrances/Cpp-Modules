@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:24 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/28 11:34:34 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:00:00 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
  *  instancia de la clase base, evitando confusiones y problemas de ambigüedad.
  * FRIEND: palabra clave para acceder a variable privada de la clase sin hacer un getter
 */
-class Cat : virtual public Animal
+class Cat : public Animal
 {
 	private:
         Brain* catBrain;

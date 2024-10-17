@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:38:04 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/10/06 18:57:57 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/10/17 11:55:51 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Cat::Cat() : Animal()
 {
     std::cout << "The cat leaves for a walk" << std::endl;
+    this->type = "Cat";
 }
 
 Cat::Cat(const Cat& constrCopy) : Animal()

@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:05 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/09/23 12:26:49 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:19:25 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Animal
         Animal& operator=(const Animal& constrCopy);
         virtual ~Animal();
 
-        virtual std::string getType() const;
+        std::string getType() const;
         virtual void makeSound() const;
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/10/06 18:57:44 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/10/17 11:55:40 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Dog::Dog() : Animal()
 {
     std::cout << "The dog leaves to the street" << std::endl;
+    this->type = "Dog";
 }
 
 Dog::Dog(const Dog& constrCopy) : Animal()

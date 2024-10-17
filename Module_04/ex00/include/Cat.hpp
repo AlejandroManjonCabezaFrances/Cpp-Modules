@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:24 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/10/06 19:09:06 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/10/17 11:20:06 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@
  *  instancia de la clase base, evitando confusiones y problemas de ambigüedad.
 */
 
-class Cat : virtual public Animal
+class Cat : public Animal
 {
 	public:
 		Cat();
 		Cat(const Cat& constrCopy);
 		Cat& operator=(const Cat& constrCopy);
-		~Cat();
+		virtual ~Cat();
 
 		virtual void makeSound() const;
 };
