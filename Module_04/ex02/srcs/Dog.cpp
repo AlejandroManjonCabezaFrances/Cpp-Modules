@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/10/06 20:14:00 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/10/21 14:11:54 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void Dog::makeSound() const
 	std::cout << PURPLE << "****************************************" << RESET << std::endl;
 }
 
-std::string Dog::getType()
+std::string Dog::getType() const
 {
 	return (this->type);
 }

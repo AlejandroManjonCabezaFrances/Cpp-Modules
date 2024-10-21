@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:38:04 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/10/06 20:14:19 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/10/21 14:12:01 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void Cat::makeSound() const
 	std::cout << PURPLE << "****************************************" << RESET << std::endl;
 }
 
-std::string Cat::getType()
+std::string Cat::getType() const
 {
 	return (this->type);
 }

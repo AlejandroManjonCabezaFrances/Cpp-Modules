@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 01:37:24 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/10/06 20:06:23 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/10/21 14:11:42 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Cat : virtual public AAnimal
 		~Cat();
 
 		virtual void makeSound() const;
-		virtual std::string getType();
+		virtual std::string getType() const;
 		friend std::ostream& operator<<(std::ostream &output, const Cat& constrCopy);
 };
 
