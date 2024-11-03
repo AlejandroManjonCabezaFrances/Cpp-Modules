@@ -7,7 +7,7 @@ Bureaucrat::Bureaucrat()
 	std::cout << this->name << " Default constructor" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::strin _name, int _grade)
+Bureaucrat::Bureaucrat(std::string _name, int _grade)
 	: name(_name), grade(_grade)
 {
 	std::cout << this->name << " Default parameterized constructor" << std::endl;
@@ -23,25 +23,26 @@ Bureaucrat::Bureaucrat(const Bureaucrat& constrCopy)
 			throw GradeTooLowExecption();
 	}
 
-	catch (const GradeTooHighExecption& excp)
+	this->name = constrCopy.name;
+	this->grade = constrCopy.grade;
+
+	catch (GradeTooHighException& excp)
 	{
-		std::cout >> "Caught exception" << excp.what() << std::endl;
+		std::cout << "Caught exception" << excp.what() << std::endl;
 	}
-	catch (const GradeTooLowExecption& excp)
+	catch (GradeTooLowException& excp)
 	{
-		std::cout >> "Caught exception" << excp.what() << std::endl;
+		std::cout << "Caught exception" << excp.what() << std::endl;
 	}
 
-	constrCopy.name = this->name;
-	constrCopy.grade = this->grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& constrCopy)
 {
 	if (this != &constrCopy)
 	{
-		constrCopy.name = this->name;
-		constrCopy.grade = this->grade;
+		this->name = constrCopy.name;
+		this->grade = constrCopy.grade;
 	}
 
 	return (*this);
@@ -49,7 +50,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& constrCopy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Default destructor" << est::endl;
+	std::cout << "Default destructor" << std::endl;
 }
 
 std::string getName() const
@@ -65,14 +66,14 @@ int getGrade() const
 
 int Bureaucrat::increment()
 {
-	this->grade - 1;
-	return (this);
+	this->grade--;
+	return (this->grade);
 }
 
 int Bureaucrat::decrement()
 {
-	this->grade + 1;
-	return (this);
+	this->grade++;
+	return (this->grade);
 }
 
 const char*	Bureaucrat::GradeTooHighExecption::what()
