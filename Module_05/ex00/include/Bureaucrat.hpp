@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
+/*   Updated: 2024/11/04 10:47:08 by amanjon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <iomanip>
+/* #include <stdexcept>  // Para std::runtime_error *prueba*  */
 
 class Bureaucrat
 {
@@ -22,10 +35,10 @@ class Bureaucrat
 
 		class GradeTooHighExecption : public std::exception{
 			const char* what() const throw();                        	// probar sin "const throw()"
-		}
+		};
 		class GradeTooLowExecption : public std::exception{
 			const char* what() const throw();                        	// probar sin "const throw()"
-		}
+		};
 };      
 
 std::ostream& operator<<(std::ostream &output, const Bureaucrat& constrCopy);
