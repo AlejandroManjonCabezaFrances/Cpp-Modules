@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/05 12:22:11 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/05 23:39:11 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,32 @@ int main()
 	
 	c = a;
 	
-	std::cout << "object a" << std::endl << std::endl;
+	std::cout << UNDERLINE << "object a" << RESET << std::endl;
 	a.printAttributes();
 	
-	std::cout << "object b" << std::endl << std::endl;
+	std::cout << UNDERLINE << std::endl << "object b" << RESET << std::endl;
 	b.printAttributes();
 	
-	std::cout << "object c" << std::endl << std::endl;
+	std::cout << UNDERLINE << std::endl << "object c" << RESET << std::endl;
 	c.printAttributes();
+	std::cout << std::endl;
 	
 	try
-	{
-		/* Bureaucrat a("Ironman", 2); */
+	{	
+		std::cout << "try ***************" << std::endl;
 		
-		a.decrement();	// 3
+		a.decrement();			// 3
 		a.printAttributes();
-		a.increment();	// 2
-		a.increment();	// 1
+		a.increment();			// 2
+		a.increment();			// 1
 		a.printAttributes();
-		a.increment();	// 0
-		a.printAttributes(); // No print for exception
+		a.increment();			// 0
+		a.printAttributes();	// No print for exception
 	}
 
 	catch (std::exception& error)
 	{
-		std::cout << std::endl << "Caught exception " << error.what() << std::endl;
+		std::cout << PINK << std::endl << "Caught exception " << error.what() << RESET << std::endl;
 	}
 	
 	
@@ -76,7 +77,7 @@ int main()
 	
 	catch (const char* sms)	
 	{
-		std::cout << "Exception message: " << sms << std::endl;
+		std::cout << PINK << "Exception message: " << sms << RESET << std::endl;
 	}
 	
 	return (0);
@@ -105,7 +106,7 @@ int main()
 	}
 	catch (const std::exception& e)  // Capturamos una excepción std::exception
 	{
-		std::cout << "Exception message: " << e.what() << std::endl;  // Usamos what() para obtener el mensaje
+		std::cout << PINK << "Exception message: " << e.what() << RESET << std::endl;  // Usamos what() para obtener el mensaje
 	}
 	
 	return (0);

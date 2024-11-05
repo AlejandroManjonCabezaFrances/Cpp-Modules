@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/05 12:17:01 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/05 23:27:28 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ Bureaucrat::Bureaucrat()
 {
 	this->name = "I am a Bureaucrat";
 	this->grade = 1;
-	std::cout << this->name << " Default constructor" << std::endl;
+	std::cout << GREEN << this->name << " Default constructor" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string _name, int _grade)
 	: name(_name), grade(_grade)
 {
-	std::cout << this->name << " Default parameterized constructor" << std::endl;
+	std::cout << GREEN << this->name << " Default parameterized constructor" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& constrCopy)
@@ -54,7 +54,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& constrCopy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Default destructor" << std::endl;
+	std::cout << RED <<"Default destructor" << RESET << std::endl;
 }
 
 std::string Bureaucrat::getName() const
@@ -86,8 +86,8 @@ int Bureaucrat::decrement()
 
 void	Bureaucrat::printAttributes()
 {
-	std::cout << "name = " << this->name << std::endl;
-	std::cout << "grade = " << this->grade << std::endl;
+	std::cout << YELLOW << "name = " << this->name << RESET << std::endl;
+	std::cout << YELLOW << "grade = " << this->grade << RESET << std::endl;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() 

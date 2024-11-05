@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/05 11:32:00 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/05 23:24:10 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
+
+#include "../include/Colors.hpp"
 
 #include <iostream>
 #include <iomanip>
