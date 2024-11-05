@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
+#    By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/24 16:48:11 by amanjon-          #+#    #+#              #
-#    Updated: 2024/09/23 13:30:37 by amanjon-         ###   ########.fr        #
+#    Updated: 2024/11/05 11:25:42 by amanjon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Polymorphism
+NAME = classInsideOtherClass
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/main.cpp srcs/Animal.cpp srcs/Dog.cpp srcs/Cat.cpp srcs/WrongAnimal.cpp srcs/WrongCat.cpp
+SRCS =  srcs/main.cpp srcs/Bureaucrat.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 

@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/04 10:18:30 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/05 12:17:01 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,14 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade)
 
 Bureaucrat::Bureaucrat(const Bureaucrat& constrCopy)
 {
-	try
-	{
-		if (this->grade < 1)
-			throw GradeTooHighExecption();
-		else if (this->grade > 150)
-			throw GradeTooLowExecption();
-	}
-
 	this->name = constrCopy.name;
 	this->grade = constrCopy.grade;
 
-	catch (GradeTooHighException& excp)
-	{
-		std::cout << "Caught exception" << excp.what() << std::endl;
-	}
-	catch (GradeTooLowException& excp)
-	{
-		std::cout << "Caught exception" << excp.what() << std::endl;
-	}
-
-}
+ 	if (this->grade < 1)
+		throw GradeTooHighException();
+	else if (this->grade > 150)
+		throw GradeTooLowException();
+} 
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& constrCopy)
 {
@@ -57,6 +44,11 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& constrCopy)
 		this->grade = constrCopy.grade;
 	}
 
+	if (this->grade < 1)
+		throw GradeTooHighException();
+	else if (this->grade > 150)
+		throw GradeTooLowException();
+
 	return (*this);
 }
 
@@ -65,12 +57,12 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Default destructor" << std::endl;
 }
 
-std::string getName() const
+std::string Bureaucrat::getName() const
 {
 	return (this->name);
 }
 
-int getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return (this->grade);
 }
@@ -79,23 +71,40 @@ int getGrade() const
 int Bureaucrat::increment()
 {
 	this->grade--;
+	if (this->grade < 1)
+		throw GradeTooHighException();
 	return (this->grade);
 }
 
 int Bureaucrat::decrement()
 {
 	this->grade++;
+	if (this->grade > 150)
+		throw GradeTooLowException();
 	return (this->grade);
 }
 
-const char*	Bureaucrat::GradeTooHighExecption::what()
+void	Bureaucrat::printAttributes()
+{
+	std::cout << "name = " << this->name << std::endl;
+	std::cout << "grade = " << this->grade << std::endl;
+}
+
+const char*	Bureaucrat::GradeTooHighException::what() 
 {
 	return ("Execption: Grade too high");
 	/* std::cout << "Execption: Grade too high" << std::endl; */
 }
 
-const char*	Bureaucrat::GradeTooLowExecption::what()
+const char*	Bureaucrat::GradeTooLowException::what() 
 {
 	return ("Execption: Grade too low");
 	/* std::cout << "Execption: Grade too low" << std::endl; */
+}
+
+
+std::ostream& operator<<(std::ostream &output, const Bureaucrat& constrCopy)
+{
+	output << constrCopy;
+	return (output);
 }

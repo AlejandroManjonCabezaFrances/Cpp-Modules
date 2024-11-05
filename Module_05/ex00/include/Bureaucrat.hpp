@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/04 10:47:08 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/05 11:32:00 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& constrCopy);
 		~Bureaucrat();
 		std::string getName() const;
-		int getGrade() const;
-		int increment();
-		int decrement();
+		int 		getGrade() const;
+		int 		increment();
+		int			decrement();
+		void		printAttributes();
 
-		class GradeTooHighExecption : public std::exception{
-			const char* what() const throw();                        	// probar sin "const throw()"
+		class GradeTooHighException : public std::exception{
+			const char* what();                    	// probar sin "const throw()"
 		};
-		class GradeTooLowExecption : public std::exception{
-			const char* what() const throw();                        	// probar sin "const throw()"
+		class GradeTooLowException : public std::exception{
+			const char* what();                        	// probar sin "const throw()"
 		};
 };      
 
