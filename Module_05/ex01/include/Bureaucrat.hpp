@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/07 12:49:56 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/07 12:52:05 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,8 @@
 
 #include <iostream>
 #include <iomanip>
+/* #include <stdexcept>  // Para std::runtime_error *prueba*  */
 
-/**
- * Arrojar/Capturar una execpción con los bloques: throw, try, catch.
- * Particularidad: una clase dentro de otra clase -->  class GradeTooHighException, 
- * hereda de std::exception, para beneficiarse de las características de manejo de 
- * errores de la biblioteca estándar.
- * const throw necesario para polimorfismo (sobreescribir función what()) de la clase que hereda
- * y no de la clase base --> std::exception
-*/
 class Bureaucrat
 {
 	private:
@@ -44,10 +37,10 @@ class Bureaucrat
 		void		printAttributes();
 
 		class GradeTooHighException : public std::exception{
-			const char* what() const throw();
+		const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception{
-			const char* what() const throw();
+		const char* what() const throw();
 		};
 };      
 

@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/07 12:51:28 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/07 12:53:37 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,12 @@ int Bureaucrat::getGrade() const
 	return (this->grade);
 }
 
-/**
- * Incrementing a grade 3 should give a grade 2 to the bureaucrat.
-*/
+
 int Bureaucrat::increment()
 {
 	this->grade--;
 	if (this->grade < 1)
 		throw GradeTooHighException();
-	
 	return (this->grade);
 }
 
@@ -84,7 +81,6 @@ int Bureaucrat::decrement()
 	this->grade++;
 	if (this->grade > 150)
 		throw GradeTooLowException();
-	
 	return (this->grade);
 }
 
@@ -94,12 +90,12 @@ void	Bureaucrat::printAttributes()
 	std::cout << YELLOW << "grade = " << this->grade << RESET << std::endl;
 }
 
-const char*	Bureaucrat::GradeTooHighException::what() const throw()
+const char*	Bureaucrat::GradeTooHighException::what() const throw
 {
 	return ("Execption: Grade too high");
 }
 
-const char*	Bureaucrat::GradeTooLowException::what() const throw()
+const char*	Bureaucrat::GradeTooLowException::what() const throw
 {
 	return ("Execption: Grade too low");
 }

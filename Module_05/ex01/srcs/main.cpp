@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/07 12:08:35 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/07 09:28:25 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int main()
 	{
 		std::cout << PINK << std::endl << "Caught exception " << error.what() << RESET << std::endl;
 	}
+	
+	
 	
 	return (0);	
 }
