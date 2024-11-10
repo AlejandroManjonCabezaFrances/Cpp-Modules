@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/07 12:52:46 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/10 11:16:20 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ class Form
 		Form(const Form& constrCopy);
 		Form& operator=(const Form& constrCopy);
 		~Form();
+		std::string getName() const;
+		int 		getGradeSign() const;
+		int 		getGradeExecute() const;
+		bool		getIsSigned() const;
+
+		void	beSigned(Bureaucrat& person);
+		void	signForm();
 
 		class GradeTooHighException : public std::exception{
 		const char* what() const throw();

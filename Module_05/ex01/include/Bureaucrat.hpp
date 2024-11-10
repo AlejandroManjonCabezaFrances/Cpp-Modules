@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/07 12:52:05 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/10 12:16:23 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 #include <iostream>
 #include <iomanip>
-/* #include <stdexcept>  // Para std::runtime_error *prueba*  */
 
 class Bureaucrat
 {
@@ -35,6 +34,7 @@ class Bureaucrat
 		int 		increment();
 		int			decrement();
 		void		printAttributes();
+		void		Bureaucrat::signForm();
 
 		class GradeTooHighException : public std::exception{
 		const char* what() const throw();

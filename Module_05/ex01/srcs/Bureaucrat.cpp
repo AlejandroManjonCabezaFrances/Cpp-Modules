@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/07 12:53:37 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/10 12:16:04 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ Bureaucrat::Bureaucrat()
 {
 	this->name = "I am a Bureaucrat";
 	this->grade = 1;
-	std::cout << GREEN << this->name << " Default constructor" << RESET << std::endl;
+	std::cout << GREEN << this->name << " Default constructor Bureaucrat" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string _name, int _grade)
 	: name(_name), grade(_grade)
 {
-	std::cout << GREEN << this->name << " Default parameterized constructor" << RESET << std::endl;
+	std::cout << GREEN << this->name << " Default parameterized constructor Bureaucrat" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& constrCopy)
@@ -54,7 +54,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& constrCopy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << RED <<"Default destructor" << RESET << std::endl;
+	std::cout << RED <<"Default destructor Bureaucrat" << RESET << std::endl;
 }
 
 std::string Bureaucrat::getName() const
@@ -90,6 +90,15 @@ void	Bureaucrat::printAttributes()
 	std::cout << YELLOW << "grade = " << this->grade << RESET << std::endl;
 }
 
+void	Bureaucrat::signForm()
+{
+	std::cout << "bureaucrat signed " << std::endl;
+	<bureaucrat> signed <form>
+
+	std::cout << "bureaucrat couldn’t sign " << std::endl;
+	<bureaucrat> couldn’t sign <form> because <reason>.
+}
+
 const char*	Bureaucrat::GradeTooHighException::what() const throw
 {
 	return ("Execption: Grade too high");
@@ -99,7 +108,6 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw
 {
 	return ("Execption: Grade too low");
 }
-
 
 std::ostream& operator<<(std::ostream &output, const Bureaucrat& constrCopy)
 {
