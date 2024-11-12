@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:50 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/10 12:15:35 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/12 11:40:42 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Form::Form()
 {
-	this->name = "Creating an activity";
+	this->name = "Creating an form";
 	this->gradeSign = 1;
 	this->gradeExecute = 1;
 	this->isSigned = FALSE;
@@ -85,7 +85,11 @@ bool	Form::getIsSigned() const
 
 void	Form::beSigned(Bureaucrat& person)
 {
-	
+	if (person.grade >= 150)
+		
+
+	else
+		throw GradeTooLowException();
 }
 
 const char*	Form::GradeTooHighException::what() const throw

@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/10 12:16:23 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/12 11:25:58 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat
 		int 		increment();
 		int			decrement();
 		void		printAttributes();
-		void		Bureaucrat::signForm();
+		void		signForm(Form& form);
 
 		class GradeTooHighException : public std::exception{
 		const char* what() const throw();
