@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/12 11:25:58 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/14 14:34:22 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 #include <iostream>
 #include <iomanip>
 
+/**
+ * grade: un valor más bajo representa un rango más alto 
+ * (un burócrata grado 1 tiene más autoridad que uno con grado 5)
+*/
 class Bureaucrat
 {
 	private:

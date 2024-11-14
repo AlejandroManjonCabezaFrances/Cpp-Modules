@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/12 11:24:17 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/14 14:34:29 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 #include <iostream>
 #include <iomanip>
+
+/**
+ * gradeSign: grado mínimo necesario para firmar el formulario.
+ * gradeExecute: grado mínimo necesario para ejecutar la acción del formulario.
+ * 
+*/
 
 class Form
 {
