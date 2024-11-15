@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/15 12:41:19 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/15 14:08:09 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
 int main()
 {
 	Bureaucrat	Ironman("Ironman", 2);
-	Form		a("a", 5, 5, 0);
-	
-	
-	
-	
+	Form		a("Document_A", 5, 5, false);
 	
 	std::cout << UNDERLINE << "Print attributes of \"Bureaucrat	Ironman\"" << RESET << std::endl;
 	Ironman.printAttributes();
@@ -28,7 +24,6 @@ int main()
 	std::cout << UNDERLINE << std::endl << "Print attributes of \"Form a\"" << RESET << std::endl;
 	a.printAttributes();
 	
-
 	std::cout << std::endl;
 	
 	/* try

@@ -6,11 +6,11 @@
 #    By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/24 16:48:11 by amanjon-          #+#    #+#              #
-#    Updated: 2024/11/15 12:33:01 by amanjon          ###   ########.fr        #
+#    Updated: 2024/11/15 13:57:03 by amanjon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = classInsideOtherClass
+NAME = Bureaucrat
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS =  srcs/main.cpp srcs/Bureaucrat.cpp srcs/Form.cpp
