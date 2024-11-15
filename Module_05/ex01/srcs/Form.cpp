@@ -6,55 +6,42 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:50 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/12 11:40:42 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/15 13:55:19 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Form.hpp"
+#include "../include/Bureaucrat.hpp"
 
 Form::Form()
+	: name("Document_A"), gradeSign(0), gradeExecute(0)
 {
-	this->name = "Creating an form";
-	this->gradeSign = 1;
-	this->gradeExecute = 1;
-	this->isSigned = FALSE;
+	this->isSigned = false;
 	std::cout << GREEN << this->name << " Default constructor Form" << RESET << std::endl;
 }
 
 Form::Form(const std::string _name, const int _gradeSign, const int _gradeExecute, bool _isSigned)
 	: name(_name), gradeSign(_gradeSign), gradeExecute(_gradeExecute), isSigned(_isSigned)
 {
+	if (this->gradeSign < 1 || this->gradeExecute < 1)
+		throw GradeTooHighException();
+	else if (this->gradeSign > 150 || this->gradeExecute > 150)	
+		throw GradeTooLowException();
 	std::cout << GREEN << this->name << " Default parameterized constructor Form" << RESET << std::endl;
 }
 
 Form::Form(const Form& constrCopy)
+	: name(constrCopy.name), gradeSign(constrCopy.gradeSign), gradeExecute(constrCopy.gradeExecute), isSigned(constrCopy.isSigned)
 {
-	this->name = constrCopy.name;
-	this->gradeSign = constrCopy.gradeSign;
-	this->gradeExecute = constrCopy.gradeExecute;
-	this->isSigned = constrCopy.isSigned;
-
-	if (this->grade < 1)
-		throw GradeTooHighException();
-	else if (this->grade > 150)
-		throw GradeTooLowException();
 }
 
 Form& Form::operator=(const Form& constrCopy)
 {
 	if (this != &constrCopy)
 	{
-		this->name = constrCopy.name;
-		this->gradeSign = constrCopy.gradeSign;
-		this->gradeExecute = constrCopy.gradeExecute;
 		this->isSigned = constrCopy.isSigned;
 	}
-
-	if (this->grade < 1)
-		throw GradeTooHighException();
-	else if (this->grade > 150)
-		throw GradeTooLowException();
-
+	
 	return (*this);
 }
 
@@ -83,21 +70,35 @@ bool	Form::getIsSigned() const
 	return (this->isSigned);
 }
 
-void	Form::beSigned(Bureaucrat& person)
+void	Form::printAttributes()
 {
-	if (person.grade >= 150)
-		
-
-	else
-		throw GradeTooLowException();
+	std::cout << YELLOW << "name = " << this->name << RESET << std::endl;
+	std::cout << YELLOW << "gradeSign = " << this->gradeSign << RESET << std::endl;
+	std::cout << YELLOW << "gradeExecute = " << this->gradeExecute << RESET << std::endl;
+	std::cout << YELLOW << "isSigned = " << this->isSigned << RESET << std::endl;
+	
 }
 
-const char*	Form::GradeTooHighException::what() const throw
+void	Form::beSigned(Bureaucrat& person)
+{
+	if (this->gradeSign >= person.getGrade())
+	{
+		this->isSigned = true; 
+		person.signForm(*this);
+	}
+	else
+	{
+		person.signForm(*this);
+		throw GradeTooLowException();
+	}
+}
+
+const char*	Form::GradeTooHighException::what() const throw()
 {
 	return ("Execption: Grade too high");
 }
 
-const char*	Form::GradeTooLowException::what() const throw
+const char*	Form::GradeTooLowException::what() const throw()
 {
 	return ("Execption: Grade too low");
 }

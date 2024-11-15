@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/14 14:34:22 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/15 13:53:07 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 #define BUREAUCRAT_HPP
 
 #include "../include/Colors.hpp"
+#include "../include/Form.hpp"
 
 #include <iostream>
 #include <iomanip>
 
 /**
- * grade: un valor más bajo representa un rango más alto 
+ * grade: grado de autoridad del burócrata
  * (un burócrata grado 1 tiene más autoridad que uno con grado 5)
 */
+class Form;		// Declaración adelantada por void signForm(Form& form);
+
 class Bureaucrat
 {
 	private:
@@ -38,7 +41,7 @@ class Bureaucrat
 		int 		increment();
 		int			decrement();
 		void		printAttributes();
-		void		signForm(Form& form);
+		void		signForm(Form& isSigned);
 
 		class GradeTooHighException : public std::exception{
 		const char* what() const throw();

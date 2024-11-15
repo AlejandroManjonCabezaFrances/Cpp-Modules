@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/14 14:34:29 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/15 13:06:44 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@
 #include <iostream>
 #include <iomanip>
 
+#include "../include/Bureaucrat.hpp"
+
+
 /**
  * gradeSign: grado mínimo necesario para firmar el formulario.
  * gradeExecute: grado mínimo necesario para ejecutar la acción del formulario.
  * 
 */
+
+class Bureaucrat;	// Declaración adelantada por void	beSigned(Bureaucrat& person);
 
 class Form
 {
@@ -39,9 +44,9 @@ class Form
 		int 		getGradeSign() const;
 		int 		getGradeExecute() const;
 		bool		getIsSigned() const;
+		void		printAttributes();
 
 		void	beSigned(Bureaucrat& person);
-		void	signForm();
 
 		class GradeTooHighException : public std::exception{
 		const char* what() const throw();

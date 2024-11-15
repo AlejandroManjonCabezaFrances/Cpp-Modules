@@ -6,11 +6,12 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/12 11:35:25 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/15 13:54:35 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
+#include "../include/Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -67,7 +68,6 @@ int Bureaucrat::getGrade() const
 	return (this->grade);
 }
 
-
 int Bureaucrat::increment()
 {
 	this->grade--;
@@ -92,19 +92,19 @@ void	Bureaucrat::printAttributes()
 
 void	Bureaucrat::signForm(Form& form)
 {
-	if (form.isSigned)
+	if (form.getIsSigned())
 		std::cout << this->getName() << "bureaucrat signed " << form.getName() << std::endl;
 	else
 		std::cout << this->getName() << "bureaucrat couldn’t sign " << form.getName()
 			<< " because the grade was too low or the form wasn't signed" << std::endl;
 }
 
-const char*	Bureaucrat::GradeTooHighException::what() const throw
+const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Execption: Grade too high");
 }
 
-const char*	Bureaucrat::GradeTooLowException::what() const throw
+const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Execption: Grade too low");
 }
