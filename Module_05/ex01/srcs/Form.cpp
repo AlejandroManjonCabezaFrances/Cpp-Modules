@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:50 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/15 13:55:19 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/19 02:08:37 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,26 @@ void	Form::printAttributes()
 	std::cout << YELLOW << "gradeSign = " << this->gradeSign << RESET << std::endl;
 	std::cout << YELLOW << "gradeExecute = " << this->gradeExecute << RESET << std::endl;
 	std::cout << YELLOW << "isSigned = " << this->isSigned << RESET << std::endl;
-	
 }
 
 void	Form::beSigned(Bureaucrat& person)
 {
-	if (this->gradeSign >= person.getGrade())
+
+	if (this->gradeSign >= person.getGrade() && person.getGrade() > 0)
 	{
 		this->isSigned = true; 
 		person.signForm(*this);
 	}
+/* 	else if (this->gradeSign < 1 || this->gradeExecute < 1)
+	{
+		std::cout << "gradeSign and/or gradeExecute have value too high" << std::endl;
+	} */
 	else
 	{
 		person.signForm(*this);
 		throw GradeTooLowException();
 	}
+		
 }
 
 const char*	Form::GradeTooHighException::what() const throw()

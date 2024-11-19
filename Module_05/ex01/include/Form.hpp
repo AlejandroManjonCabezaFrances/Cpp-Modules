@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/15 13:06:44 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/19 01:41:09 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 /**
  * gradeSign: grado mínimo necesario para firmar el formulario.
  * gradeExecute: grado mínimo necesario para ejecutar la acción del formulario.
- * 
 */
 
 class Bureaucrat;	// Declaración adelantada por void	beSigned(Bureaucrat& person);

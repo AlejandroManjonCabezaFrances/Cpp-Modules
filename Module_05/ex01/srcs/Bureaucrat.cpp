@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/15 13:54:35 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/19 01:59:32 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ void	Bureaucrat::printAttributes()
 void	Bureaucrat::signForm(Form& form)
 {
 	if (form.getIsSigned())
-		std::cout << this->getName() << "bureaucrat signed " << form.getName() << std::endl;
+		std::cout << BLUE << this->getName() << " bureaucrat signed " << RESET << form.getName() << std::endl << std::endl;
 	else
-		std::cout << this->getName() << "bureaucrat couldn’t sign " << form.getName()
+		std::cout << ORANGE << this->getName() << " bureaucrat couldn’t sign " << RESET << form.getName()
 			<< " because the grade was too low or the form wasn't signed" << std::endl;
 }
 
