@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/19 02:10:35 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/19 02:20:22 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int main()
 	Form		d("Document_E", 3, 3, false);
 	
 	
-	// std::cout << UNDERLINE << "Print attributes of \"Bureaucrat	Ironman\"" << RESET << std::endl;
-	// ironman.printAttributes();
+	std::cout << UNDERLINE << "Print attributes of \"Bureaucrat	Ironman\"" << RESET << std::endl;
+	ironman.printAttributes();
 	
-	// std::cout << UNDERLINE << std::endl << "Print attributes of \"Form a\"" << RESET << std::endl;
-	// a.printAttributes();
+	std::cout << UNDERLINE << std::endl << "Print attributes of \"Form a\"" << RESET << std::endl;
+	a.printAttributes();
 	
 	std::cout << std::endl;
 	
@@ -80,7 +80,7 @@ int main()
 	
 	try
 	{
-		Form		d("Document_D", 0, 0, false);  // después de esta linea, ejecuta el catch
+		Form		e("Document_e", 0, 0, false);  // después de esta linea, ejecuta el catch
 		e.beSigned(hulk);
 	}
 	catch (std::exception& error)
@@ -88,6 +88,5 @@ int main()
 		std::cerr << PINK << "Caught exception " << error.what() << RESET << std::endl ;
 	}
 
-	
 	return (0);	
 } 
