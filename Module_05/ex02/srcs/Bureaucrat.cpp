@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/19 01:59:32 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/20 05:49:20 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& constrCopy)
 {
 	this->name = constrCopy.name;
 	this->grade = constrCopy.grade;
+	std::cout << GREEN << this->name << " Default constructor copy Bureaucrat" << RESET << std::endl;
 
  	if (this->grade < 1)
 		throw GradeTooHighException();

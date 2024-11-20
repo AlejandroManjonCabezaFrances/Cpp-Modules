@@ -33,6 +33,7 @@ AForm::AForm(const std::string _name, const int _gradeSign, const int _gradeExec
 AForm::AForm(const AForm& constrCopy)
 	: name(constrCopy.name), gradeSign(constrCopy.gradeSign), gradeExecute(constrCopy.gradeExecute), isSigned(constrCopy.isSigned)
 {
+	std::cout << GREEN << this->name << " Default constructor copy AForm" << RESET << std::endl;
 }
 
 AForm& AForm::operator=(const AForm& constrCopy)
@@ -86,10 +87,6 @@ void	AForm::beSigned(Bureaucrat& person)
 		this->isSigned = true; 
 		person.signAForm(*this);
 	}
-/* 	else if (this->gradeSign < 1 || this->gradeExecute < 1)
-	{
-		std::cout << "gradeSign and/or gradeExecute have value too high" << std::endl;
-	} */
 	else
 	{
 		person.signAForm(*this);

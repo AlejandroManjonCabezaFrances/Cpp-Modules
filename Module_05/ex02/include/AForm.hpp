@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/19 23:18:39 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/20 04:55:39 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
-#include <iostream>
-#include <iomanip>
-
 #include "../include/Bureaucrat.hpp"
 
+#include <iostream>
+#include <iomanip>
 
 /**
  * gradeSign: grado mínimo necesario para firmar el formulario.
  * gradeExecute: grado mínimo necesario para ejecutar la acción del formulario.
+ * virtual ... conts = 0; - Método puro. Las clases derivadas deben tener su propia implementación
+ * en este método.
 */
 
 class Bureaucrat;	// Declaración adelantada por void	beSigned(Bureaucrat& person);
@@ -39,13 +40,14 @@ class AForm
 		AForm(const AForm& constrCopy);
 		AForm& operator=(const AForm& constrCopy);
 		~AForm();
-		std::string getName() const;
-		int 		getGradeSign() const;
-		int 		getGradeExecute() const;
-		bool		getIsSigned() const;
-		void		printAttributes();
+		std::string 	getName() const;
+		int 			getGradeSign() const;
+		int 			getGradeExecute() const;
+		bool			getIsSigned() const;
+		void			printAttributes();
 
-		void	beSigned(Bureaucrat& person);
+		void			beSigned(Bureaucrat& person);
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 		class GradeTooHighException : public std::exception{
 		const char* what() const throw();

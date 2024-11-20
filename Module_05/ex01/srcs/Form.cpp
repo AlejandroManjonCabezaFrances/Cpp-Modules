@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:50 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/19 02:08:37 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/20 05:50:09 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Form::Form(const std::string _name, const int _gradeSign, const int _gradeExecut
 Form::Form(const Form& constrCopy)
 	: name(constrCopy.name), gradeSign(constrCopy.gradeSign), gradeExecute(constrCopy.gradeExecute), isSigned(constrCopy.isSigned)
 {
+	std::cout << GREEN << this->name << " Default constructor copy Form" << RESET << std::endl;
 }
 
 Form& Form::operator=(const Form& constrCopy)
@@ -86,10 +87,6 @@ void	Form::beSigned(Bureaucrat& person)
 		this->isSigned = true; 
 		person.signForm(*this);
 	}
-/* 	else if (this->gradeSign < 1 || this->gradeExecute < 1)
-	{
-		std::cout << "gradeSign and/or gradeExecute have value too high" << std::endl;
-	} */
 	else
 	{
 		person.signForm(*this);
