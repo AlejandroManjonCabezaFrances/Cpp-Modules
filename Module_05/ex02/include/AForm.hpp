@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/22 00:52:20 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/22 03:44:47 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * gradeExecute: grado mínimo necesario para ejecutar la acción del formulario.
  * virtual ... conts = 0; - Así hacemos que la clase sea abstracta. Método puro. Todas 
  * las clases derivadas deberán proporcionar una implementación concreta para ese método 
- * si quieren ser instanciadas.
+ * si quieren ser instanciadas. En la clase AForm no está implementado este método.
 */
 
 class Bureaucrat;	// Declaración adelantada por void	beSigned(Bureaucrat& person);
@@ -56,6 +56,10 @@ class AForm
 		class GradeTooLowException : public std::exception{
 		const char* what() const throw();
 		};
+		class FormNotSignedException : public std::exception {
+		public:
+			/* virtual */ const char* what() const throw();
+	};
 };
 
 std::ostream& operator<<(std::ostream &output, const AForm& constrCopy);

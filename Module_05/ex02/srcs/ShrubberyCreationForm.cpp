@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:15 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/22 01:38:27 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/22 03:50:23 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,31 +52,54 @@ implementa una función para ejecutar la acción del formulario en las clases co
 - El formulario esté firmado.
 - Que el rango del burócrata que intenta ejecutar el formulario sea lo suficientemente alto. */
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
+void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
-	
-	
-	std::string		fileName;
-
-	fileName = this->target + _shrubbery
-	std::ofstream	file(fileName);
-	
-	file.open(fileName.c_str());
-	if(file.is_open())
+	if (this->getIsSigned != true)
+		throw (FormNotSignedException());
+	if (this->gradeSign)
 	{
-		file << "              *" << std::endl;
-		file << "             /*\\" << std::endl;
-		file << "            /o*o\\" << std::endl;
-		file << "           /*o*o*\\" << std::endl;
-		file << "          /o*o*o*o\\" << std::endl;
-		file << "         /*o*o*o*o*\\" << std::endl;
-		file << "        /o*o*o*o*o*o\\" << std::endl; 
-		file << "       /*************\\" << std::endl;
-		file << "             |||" << std::endl;
-		file << "             |||" << std::endl;
-		file << "			  |||" << std::endl;
+		
 	}
-	else
-		std::cerr << "Error: cannot open the file " << std::endl;
-	file.close();
+	{
+		
+	
+		std::ofstream	file;
+		std::string		fileName = this->target + "_shrubbery";
+		
+		file.open(fileName.c_str());
+		if(file.is_open())
+		{
+			file << "              *" << std::endl;
+			file << "             /*\\" << std::endl;
+			file << "            /o*o\\" << std::endl;
+			file << "           /*o*o*\\" << std::endl;
+			file << "          /o*o*o*o\\" << std::endl;
+			file << "         /*o*o*o*o*\\" << std::endl;
+			file << "        /o*o*o*o*o*o\\" << std::endl; 
+			file << "       /*************\\" << std::endl;
+			file << "             |||" << std::endl;
+			file << "             |||" << std::endl;
+			file << "			  |||" << std::endl;
+			
+			file.close();
+		}
+		else
+			std::cerr << "Error: cannot open the file " << std::endl;
+	}
+}
+
+const char*	ShrubberyCreationForm::GradeTooHighException::what() const throw()
+{
+	return ("Execption: Grade too high");
+}
+
+const char*	ShrubberyCreationForm::GradeTooLowException::what() const throw()
+{
+	return ("Execption: Grade too low");
+}
+
+std::ostream& operator<<(std::ostream &output, const AForm& constrCopy)
+{
+	output << constrCopy;
+	return (output);
 }
