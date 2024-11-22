@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/20 05:49:20 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/22 01:26:09 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	Bureaucrat::printAttributes()
 	std::cout << YELLOW << "grade = " << this->grade << RESET << std::endl;
 }
 
-void	Bureaucrat::signForm(Form& form)
+void	Bureaucrat::signAForm(Form& form)
 {
 	if (form.getIsSigned())
 		std::cout << BLUE << this->getName() << " bureaucrat signed " << RESET << form.getName() << std::endl << std::endl;

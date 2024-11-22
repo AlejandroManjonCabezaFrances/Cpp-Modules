@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/22 00:44:51 by amanjon           #+#    #+#             */
+/*   Updated: 2024/11/22 00:45:57 by amanjon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
@@ -6,22 +18,20 @@
 #include <iostream>
 #include <iomanip>
 
-/* • ShrubberyCreationForm: Required grades: sign 145, exec 137
-Create a file <target>_shrubbery in the working directory, and writes ASCII trees
-inside it.
-• RobotomyRequestForm: Required grades: sign 72, exec 45
-Makes some drilling noises. Then, informs that <target> has been robotomized
-successfully 50% of the time. Otherwise, informs that the robotomy failed.
-• PresidentialPardonForm: Required grades: sign 25, exec 5
-Informs that <target> has been pardoned by Zaphod Beeblebrox. */
+/**
+ * No es necesario hacer getter/setters en las clases derivadas (ya que la lógica no la
+ * necesito cambiar), ya que podría usar los de la clase base, sobreescribiría la función base.
+*/
 
 class ShrubberyCreationForm : public AForm
 {
 	private:
-		int gradeSign;
-		int	gradeExecute;
+		std::string	target;
+		int 		gradeSign;
+		int			gradeExecute;
 	public:
 		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm& constrCopy);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& constrCopy);
 		~ShrubberyCreationForm();

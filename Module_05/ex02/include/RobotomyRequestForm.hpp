@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/22 00:45:00 by amanjon           #+#    #+#             */
+/*   Updated: 2024/11/22 00:45:03 by amanjon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
@@ -18,10 +30,12 @@ Informs that <target> has been pardoned by Zaphod Beeblebrox. */
 class RobotomyRequestForm : public AForm
 {
 	private:
-		int gradeSign;
-		int	gradeExecute;
+		std::string	target;
+		int 		gradeSign;
+		int			gradeExecute;
 	public:
 		RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(const RobotomyRequestForm& constrCopy);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& constrCopy);
 		~RobotomyRequestForm();

@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/20 04:55:39 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/22 00:52:20 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 /**
  * gradeSign: grado mínimo necesario para firmar el formulario.
  * gradeExecute: grado mínimo necesario para ejecutar la acción del formulario.
- * virtual ... conts = 0; - Método puro. Las clases derivadas deben tener su propia implementación
- * en este método.
+ * virtual ... conts = 0; - Así hacemos que la clase sea abstracta. Método puro. Todas 
+ * las clases derivadas deberán proporcionar una implementación concreta para ese método 
+ * si quieren ser instanciadas.
 */
 
 class Bureaucrat;	// Declaración adelantada por void	beSigned(Bureaucrat& person);
