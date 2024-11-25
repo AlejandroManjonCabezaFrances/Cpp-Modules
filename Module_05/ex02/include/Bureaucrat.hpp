@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:17 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/19 23:20:45 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/25 03:38:07 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define BUREAUCRAT_HPP
 
 #include "../include/Colors.hpp"
-#include "../include/AForm.hpp"
 
 #include <iostream>
 #include <iomanip>

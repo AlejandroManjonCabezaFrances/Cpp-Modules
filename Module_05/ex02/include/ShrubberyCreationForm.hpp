@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:44:51 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/25 02:28:14 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/25 03:28:01 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,6 @@ class ShrubberyCreationForm : public AForm
 
 		void	execute(Bureaucrat const& executor) const;
 		void	printTree() const;
-
-		class GradeTooHighException : public std::exception{
-		const char* what() const throw();
-		};
-		class GradeTooLowException : public std::exception{
-		const char* what() const throw();
-		};
 };
 
 #endif

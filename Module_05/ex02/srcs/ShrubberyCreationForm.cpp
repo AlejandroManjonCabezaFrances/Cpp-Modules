@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:15 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/25 02:28:23 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/25 03:15:32 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,4 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 	else
 		throw (GradeTooLowException());
 
-}
-
-const char*	ShrubberyCreationForm::GradeTooHighException::what() const throw()
-{
-	return ("Exception: Grade too high");
-}
-
-const char*	ShrubberyCreationForm::GradeTooLowException::what() const throw()
-{
-	return ("Exception: Grade too low");
 }

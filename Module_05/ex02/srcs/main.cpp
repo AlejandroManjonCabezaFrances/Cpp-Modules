@@ -6,12 +6,13 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/25 02:29:23 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/25 03:41:31 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
-#include "../include/AForm.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
+/* #include "../include/AForm.hpp" */
 
 int main()
 {
@@ -20,6 +21,7 @@ int main()
 	ShrubberyCreationForm a;
 
 	std::cout << a << std::endl;
+	a.printAttributes();
 	
 	return (0);
 }
