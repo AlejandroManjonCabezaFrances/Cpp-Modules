@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:00 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/22 00:45:03 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/25 02:28:08 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,5 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& constrCopy);
 		~RobotomyRequestForm();
 };
-
-std::ostream& operator<<(std::ostream &output, const RobotomyRequestForm& constrCopy);
 
 #endif

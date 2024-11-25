@@ -6,12 +6,12 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/22 01:26:09 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/25 02:04:28 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
-#include "../include/Form.hpp"
+#include "../include/AForm.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -91,7 +91,7 @@ void	Bureaucrat::printAttributes()
 	std::cout << YELLOW << "grade = " << this->grade << RESET << std::endl;
 }
 
-void	Bureaucrat::signAForm(Form& form)
+void	Bureaucrat::signAForm(AForm& form)
 {
 	if (form.getIsSigned())
 		std::cout << BLUE << this->getName() << " bureaucrat signed " << RESET << form.getName() << std::endl << std::endl;

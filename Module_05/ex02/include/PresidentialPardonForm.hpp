@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:07 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/22 00:45:10 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/25 02:27:59 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,5 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& constrCopy);
 		~PresidentialPardonForm();
 };
-
-std::ostream& operator<<(std::ostream &output, const PresidentialPardonForm& constrCopy);
 
 #endif

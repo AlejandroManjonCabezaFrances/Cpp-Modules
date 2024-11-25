@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/22 03:44:47 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/25 02:50:28 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 
 /**
  * gradeSign: grado mínimo necesario para firmar el formulario.
@@ -62,6 +63,6 @@ class AForm
 	};
 };
 
-std::ostream& operator<<(std::ostream &output, const AForm& constrCopy);
+std::ostream& operator<<(std::ostream &output, const AForm& AForm);
 
 #endif
