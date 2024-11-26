@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/25 03:41:31 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/26 12:12:45 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,23 @@
 
 int main()
 {
-	Bureaucrat Murphy("Murphy", 10);
+	Bureaucrat Murphy("Murphy", 136);
 
 	ShrubberyCreationForm a;
 
-	std::cout << a << std::endl;
-	a.printAttributes();
+/* 	std::cout << a << std::endl;
+	a.printAttributes(); */
+
+	try
+	{
+		a.beSigned(Murphy);
+		std::cout << a << std::endl;
+		Murphy.executeForm(a);
+	}
+	catch(std::exception& error)
+	{
+		std::cerr << PINK << std::endl << "Caught exception " << error.what() << RESET << std::endl;
+	}
 	
 	return (0);
 }

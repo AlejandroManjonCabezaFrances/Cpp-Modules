@@ -81,7 +81,7 @@ void	AForm::printAttributes()
 
 void	AForm::beSigned(Bureaucrat& person)
 {
-
+	
 	if (this->gradeSign >= person.getGrade() && person.getGrade() > 0)
 	{
 		this->isSigned = true; 

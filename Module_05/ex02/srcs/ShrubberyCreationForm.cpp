@@ -6,20 +6,20 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:15 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/25 03:15:32 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/26 12:13:53 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-	: target("Garden"), gradeSign(145), gradeExecute(137)
+	: AForm("ShrubberyCreationForm", 145, 137, false), target("Garden"), gradeSign(145), gradeExecute(137)
 {
 	std::cout << GREEN << " Default constructor ShrubberyCreationForm" << RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	: target(target), gradeSign(145), gradeExecute(137)
+	: AForm("ShrubberyCreationForm", 145, 137, false), target(target), gradeSign(145), gradeExecute(137)
 {
 	std::cout << GREEN << " Default parameterized constructor ShrubberyCreationForm" << RESET << std::endl;
 }
@@ -46,12 +46,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << RED <<"Default destructor ShrubberyCreationForm" << RESET << std::endl;
 }
 
-
-/* Ahora, agrega la función miembro execute(Bureaucrat const& executor) const a la clase base e
-implementa una función para ejecutar la acción del formulario en las clases concretas. Debes verificar que:
-- El formulario esté firmado.
-- Que el rango del burócrata que intenta ejecutar el formulario sea lo suficientemente alto. */
-
 void	ShrubberyCreationForm::printTree() const
 {
 		std::ofstream	file;
@@ -60,17 +54,17 @@ void	ShrubberyCreationForm::printTree() const
 		file.open(fileName.c_str());
 		if(file.is_open())
 		{
-			file << GREEN << "        *" << RESET << std::endl;
-			file << GREEN << "       /*\\" << RESET <<  std::endl;
-			file << GREEN << "      /o*o\\" << RESET <<  std::endl;
-			file << GREEN << "     /*o*o*\\" << RESET <<  std::endl;
-			file << GREEN << "    /o*o*o*o\\" << RESET <<  std::endl;
-			file << GREEN << "   /*o*o*o*o*\\" << RESET <<  std::endl;
-			file << GREEN << "  /o*o*o*o*o*o\\" << RESET <<  std::endl; 
-			file << GREEN << " /*************\\" << RESET <<  std::endl;
-			file << BROWN << "       |||" << RESET <<  std::endl;
-			file << BROWN << "       |||" << RESET <<  std::endl;
-			file << BROWN << "	  	 |||" << RESET <<  std::endl;
+			file << "        *" << std::endl;
+			file << "       /*\\" << std::endl;
+			file << "      /o*o\\" << std::endl;
+			file << "     /*o*o*\\" << std::endl;
+			file << "    /o*o*o*o\\" << std::endl;
+			file << "   /*o*o*o*o*\\" << std::endl;
+			file << "  /o*o*o*o*o*o\\" << std::endl; 
+			file << " /*************\\" << std::endl;
+			file << "       |||" << std::endl;
+			file << "       |||" << std::endl;
+			file << "       |||" << std::endl;
 			
 			file.close();
 		}
@@ -82,11 +76,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
 	if (this->getIsSigned() != true)
 		throw (FormNotSignedException());
-	if (executor.getGrade() > this->gradeSign && executor.getGrade() < this->gradeExecute)
+	if (executor.getGrade() < this->gradeSign && executor.getGrade() < this->gradeExecute)
 	{
 		this->printTree();
 	}
 	else
 		throw (GradeTooLowException());
-
 }

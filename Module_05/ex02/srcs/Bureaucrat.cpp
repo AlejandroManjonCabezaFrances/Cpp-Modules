@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:27 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/25 02:04:28 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/26 11:25:00 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,20 @@ void	Bureaucrat::signAForm(AForm& form)
 	if (form.getIsSigned())
 		std::cout << BLUE << this->getName() << " bureaucrat signed " << RESET << form.getName() << std::endl << std::endl;
 	else
+	{
+		std::cout << "printeando onjeto AForm ***********" << std::endl;
+		form.printAttributes();
 		std::cout << ORANGE << this->getName() << " bureaucrat couldn’t sign " << RESET << form.getName()
 			<< " because the grade was too low or the form wasn't signed" << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const& form) const
+{
+	if (form.getIsSigned())
+		form.execute(*this);
+	else
+		std::cerr << form.getName() << " is not signed" << std::endl;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
