@@ -6,26 +6,26 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:21 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/25 02:24:50 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/28 10:53:34 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-	: target("R2D2"), gradeSign(72), gradeExecute(45)
+	: AForm("RobotomyRequestForm", 72, 45, false), target("R2D2"), gradeSign(72), gradeExecute(45)
 {
 	std::cout << GREEN << " Default constructor RobotomyRequestForm" << RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: target(target), gradeSign(72), gradeExecute(45)
+	: AForm("RobotomyRequestForm", 72, 45, false), target(target), gradeSign(72), gradeExecute(45)
 {
 	std::cout << GREEN << " Default parameterized constructor RobotomyRequestForm" << RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& constrCopy)
-	: target(constrCopy.target), gradeSign(constrCopy.gradeSign), gradeExecute(constrCopy.gradeExecute)
+	: AForm(), target(constrCopy.target), gradeSign(constrCopy.gradeSign), gradeExecute(constrCopy.gradeExecute)
 {
 	std::cout << GREEN << " Default constructor copy RobotomyRequestForm" << RESET << std::endl;
 }
@@ -46,7 +46,20 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << RED <<"Default destructor RobotomyRequestForm" << RESET << std::endl;
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor)
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
+	if (this->getIsSigned() != true)
+		throw (FormNotSignedException());
+	if (executor.getGrade() > this->gradeSign || executor.getGrade() > this->gradeExecute)
+		throw (GradeTooLowException());
 	
+	std::cout << "Brrrr... Brrr... Drilling noises!! ..." << std::endl;
+	
+	std::srand(std::time(NULL));
+	int randomNumber = std::rand() % 100;
+
+	if (randomNumber < 50)
+		std::cout << this->target << " has been robotomized" << std::endl;
+	else
+		std::cout << "the robotomy failed on " << this->target << std::endl;
 }

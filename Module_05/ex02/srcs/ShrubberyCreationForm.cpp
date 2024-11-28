@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:15 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/26 12:13:53 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/11/28 11:13:22 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
 	if (this->getIsSigned() != true)
 		throw (FormNotSignedException());
-	if (executor.getGrade() < this->gradeSign && executor.getGrade() < this->gradeExecute)
-	{
+	if (executor.getGrade() <= this->gradeSign && executor.getGrade() <= this->gradeExecute)
 		this->printTree();
-	}
 	else
 		throw (GradeTooLowException());
 }
