@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/28 11:14:30 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/05 11:28:12 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,22 @@
 #include "../include/ShrubberyCreationForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/PresidentialPardonForm.hpp"
+#include "../include/Intern.hpp"
 
 int main()
+{
+	Intern	Mike;
+
+	Mike.makeForm("Mike", "Prueba");
+	return (0);
+}
+
+
+
+
+
+
+/* int main()
 {
 	Bureaucrat Murphy("Murphy", 137);
 	Bureaucrat Turing("Turing", 45);
@@ -59,4 +73,4 @@ int main()
 	}
 	
 	return (0);
-}
+} */
