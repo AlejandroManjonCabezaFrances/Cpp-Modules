@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:15 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/28 11:13:22 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/10 11:36:58 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 ShrubberyCreationForm::ShrubberyCreationForm()
 	: AForm("ShrubberyCreationForm", 145, 137, false), target("Garden"), gradeSign(145), gradeExecute(137)
 {
-	std::cout << GREEN << " Default constructor ShrubberyCreationForm" << RESET << std::endl;
+	std::cout << GREEN << "Default constructor ShrubberyCreationForm" << RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: AForm("ShrubberyCreationForm", 145, 137, false), target(target), gradeSign(145), gradeExecute(137)
 {
-	std::cout << GREEN << " Default parameterized constructor ShrubberyCreationForm" << RESET << std::endl;
+	std::cout << GREEN << "Default parameterized constructor ShrubberyCreationForm" << RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& constrCopy)
 	: AForm(), target(constrCopy.target), gradeSign(constrCopy.gradeSign), gradeExecute(constrCopy.gradeExecute)
 {
-	std::cout << GREEN << " Default constructor copy ShrubberyCreationForm" << RESET << std::endl;
+	std::cout << GREEN << "Default constructor copy ShrubberyCreationForm" << RESET << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& constrCopy)

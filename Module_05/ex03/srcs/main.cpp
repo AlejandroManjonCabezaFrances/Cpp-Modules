@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/05 11:28:12 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/10 11:34:42 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,13 @@
 
 int main()
 {
-	Intern	Mike;
+	Intern	intern;
+	AForm* form1;
+/* 	AForm* form2;
+	AForm* form3; */
 
-	Mike.makeForm("Mike", "Prueba");
+	form1 = intern.makeForm("Shrubbery Creation Form", "Tree");
+	delete (form1);
 	return (0);
 }
 

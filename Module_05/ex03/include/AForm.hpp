@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/02 14:26:46 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/10 11:36:04 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class AForm
 		AForm(const std::string _name, const int _gradeSign, const int _gradeExecute, bool _isSigned);
 		AForm(const AForm& constrCopy);
 		AForm& operator=(const AForm& constrCopy);
-		~AForm();
+		virtual ~AForm();
 		std::string 	getName() const;
 		int 			getGradeSign() const;
 		int 			getGradeExecute() const;

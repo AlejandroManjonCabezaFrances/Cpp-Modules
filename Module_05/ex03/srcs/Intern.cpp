@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 08:24:26 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/12/10 08:54:31 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/12/10 11:36:40 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Intern::Intern()
 {
-	std::cout << GREEN << " Default constructor Intern" << RESET << std::endl;
+	std::cout << GREEN << "Default constructor Intern" << RESET << std::endl;
 }
 
 Intern::Intern(const Intern& constrCopy)
 {
-	std::cout << GREEN << " Default constructor copy Intern" << RESET << std::endl;
+	std::cout << GREEN << "Default constructor copy Intern" << RESET << std::endl;
 	*this = constrCopy;
 }
 
