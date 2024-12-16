@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:44:51 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/28 11:17:01 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/16 19:56:13 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& constrCopy);
 		~ShrubberyCreationForm();
 
-		void	execute(Bureaucrat const& executor) const;
 		void	printTree() const;
+		void	execute(Bureaucrat const& executor) const;
+		void	actionByIntern() const;
 };
 
 #endif

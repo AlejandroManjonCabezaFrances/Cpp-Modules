@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 08:24:26 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/12/10 11:36:40 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:30:16 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,15 @@ AForm*  Intern::makeForm(const std::string& nameForm, const std::string& target)
 	{
 		case 0:
 			internForm = new ShrubberyCreationForm(target);
+			std::cout << "Intern creates " << nameForm << std::endl;
 			return (internForm);
 		case 1:
 			internForm = new RobotomyRequestForm(target);
+			std::cout << "Intern creates " << nameForm << std::endl;
 			return (internForm);
 		case 2:
 			internForm = new PresidentialPardonForm(target);
+			std::cout << "Intern creates " << nameForm << std::endl;
 			return (internForm);
 		default:
 			std::cerr << "Error: Form not found" << std::endl;

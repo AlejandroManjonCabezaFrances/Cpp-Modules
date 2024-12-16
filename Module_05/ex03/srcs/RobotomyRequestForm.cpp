@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:21 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/10 11:37:16 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:01:47 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,17 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	
 	std::cout << "Brrrr... Brrr... Drilling noises!! ..." << std::endl;
 	
+	std::srand(std::time(NULL));
+	int randomNumber = std::rand() % 100;
+
+	if (randomNumber < 50)
+		std::cout << this->target << " has been robotomized" << std::endl;
+	else
+		std::cout << "the robotomy failed on " << this->target << std::endl;
+}
+
+void	RobotomyRequestForm::actionByIntern() const
+{	
 	std::srand(std::time(NULL));
 	int randomNumber = std::rand() % 100;
 

@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:07 by amanjon           #+#    #+#             */
-/*   Updated: 2024/11/28 11:16:30 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/16 19:56:10 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class PresidentialPardonForm : public AForm
 		~PresidentialPardonForm();
 		
 		void	execute(Bureaucrat const& executor) const;
+		void	actionByIntern() const;
 };
 
 #endif

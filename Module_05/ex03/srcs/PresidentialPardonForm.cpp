@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:26 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/10 11:37:34 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:55:50 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,9 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	else
 		throw (GradeTooLowException());
+}
+
+void	PresidentialPardonForm::actionByIntern() const
+{
+	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

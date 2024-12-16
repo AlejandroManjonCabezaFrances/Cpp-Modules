@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:56:33 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/10 11:36:04 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:06:28 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
  * virtual ... conts = 0; - Así hacemos que la clase sea abstracta. Método puro. Todas 
  * las clases derivadas deberán proporcionar una implementación concreta para ese método 
  * si quieren ser instanciadas. En la clase AForm no está implementado este método.
+ * virtual void	actionByIntern() const = 0; --> Método abstracto, así he podido implementar
+ * una lógica distinta a cada clase derivada para que los formularios firmados por los interinos,
+ * realicen su acción del formulario.
 */
 
 class Bureaucrat;	// Declaración adelantada por void	beSigned(Bureaucrat& person);
@@ -50,7 +53,9 @@ class AForm
 
 		void			beSigned(Bureaucrat& person);
 		virtual void	execute(Bureaucrat const & executor) const = 0;
-
+		virtual void	actionByIntern() const = 0;
+		
+		
 		class GradeTooHighException : public std::exception{
 		const char* what() const throw();
 		};

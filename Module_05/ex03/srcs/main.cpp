@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:18:34 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/10 11:34:42 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:10:15 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,37 @@
 
 int main()
 {
-	Intern	intern;
-	AForm* form1;
-/* 	AForm* form2;
-	AForm* form3; */
+	try
+	{
+		Intern 	intern;
+		AForm*	form1;
+		AForm*	form2;
+		AForm*	form3;
+		AForm*	form4;
 
-	form1 = intern.makeForm("Shrubbery Creation Form", "Tree");
-	delete (form1);
+		form1 = intern.makeForm("Shrubbery Creation Form", "Tree");
+		form1->actionByIntern();
+		delete (form1);
+		
+		form2 = intern.makeForm("Robotomy Request Form", "Brrrr... Brrr...");
+		form2->actionByIntern();
+		delete (form2);
+		
+		form3 = intern.makeForm("Presidential Pardon Form", "Carles Puigdemont");
+		form3->actionByIntern();
+		delete (form3);
+		
+		form4 = intern.makeForm("What up my weapon !", "Error");
+		delete (form4);
+	}
+
+	catch(std::exception& error)
+	{
+		std::cerr << PINK << std::endl << "Caught exception " << error.what() << RESET << std::endl;
+	}
+	
 	return (0);
 }
-
-
-
-
-
 
 /* int main()
 {

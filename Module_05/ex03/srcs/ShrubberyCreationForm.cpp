@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:45:15 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/10 11:36:58 by amanjon-         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:56:03 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,9 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		this->printTree();
 	else
 		throw (GradeTooLowException());
+}
+
+void	ShrubberyCreationForm::actionByIntern() const
+{
+	this->printTree();
 }
