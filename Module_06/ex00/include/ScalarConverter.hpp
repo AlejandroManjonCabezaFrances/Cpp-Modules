@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:32 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/16 20:51:51 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/19 18:34:56 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 
 class ScalarConverter
 {
-    private:
+	private:
+		ScalarConverter();				// No instanciable
+	public:
+		ScalarConverter(const ScalarConverter& constrCopy);
+		ScalarConverter& operator=(const ScalarConverter& constrCopy);
+		~ScalarConverter();
 
-    public:
-        ScalarConverter();
-        ScalarConverter(const ScalarConverter& constrCopy);
-        ScalarConverter& operator=(const ScalarConverter& constrCopy);
-        ~ScalarConverter();
-
-        virtual void convert(std::string& literalString) const = 0;
+		static void convert(std::string& literalString);
 };
 
 std::ostream& operator<<(std::ostream &output, const ScalarConverter& constrCopy);
