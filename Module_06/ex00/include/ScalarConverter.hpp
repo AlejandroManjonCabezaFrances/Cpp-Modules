@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:32 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/21 17:50:20 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/21 20:12:10 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 /**
  * "nan": Not a Number:  verificar un valor NaN en código con funciones como std::isnan().

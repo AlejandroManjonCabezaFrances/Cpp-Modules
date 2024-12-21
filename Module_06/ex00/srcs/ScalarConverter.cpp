@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:39 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/21 18:20:27 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/21 20:25:37 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,69 @@ ScalarConverter::~ScalarConverter()
 
 }
 
+void	isNumber(std::string& input)
+{
+	int 	integer = atoi(input.c_str());
+	
+	if (integer != -1)
+	{
+		std::cout << "char: Non displayable " << std::endl;
+		std::cout << "int: " << integer << std::endl;
+		std::cout << "float: " << static_cast<float>(integer) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(integer) << ".0" << std::endl;
+	}
+	else
+		std::cout << "Your number is probably bigger than an INT: " <<  std::endl;
+}
+
+/**
+ * c++11: "generador de -Not a Number- o -Infinito-"
+ *	- float pseudoFloat = std::numeric_limits<float>::quiet_NaN();
+ *	- float pseudoDouble = std::numeric_limits<double>::quiet_NaN();
+ *	- pseudoFloat = std::numeric_limits<float>::infinity();
+ *	- pseudoDouble = std::numeric_limits<double>::infinity();
+*/
+
+void	pseudoLiteral(std::string& input)
+{
+	
+	if (input == "nanf" || input == "nan")
+	{
+		float pseudoFloat = 0.0f / 0.0f;
+		float pseudoDouble = 0.0 / 0.0;
+
+		pseudoFloat *= -1;
+		pseudoDouble *= -1;
+
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << pseudoFloat << "f" << std::endl;
+		std::cout << "double: " << pseudoDouble << std::endl;
+	}
+	else if (input == "inff" || input == "inf" || input == "+inff" || input == "+inf")
+	{
+		float pseudoFloat = 1.0f / 0.0f;
+		float pseudoDouble = 1.0 / 0.0;
+
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << pseudoFloat << "f" << std::endl;
+		std::cout << "double: " << pseudoDouble << std::endl;
+		
+	}
+	else if (input == "-inff" || input == "-inf")
+	{
+		float pseudoFloat = -1.0f / 0.0f;
+		float pseudoDouble = -1.0 / 0.0;
+
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << pseudoFloat << "f" << std::endl;
+		std::cout << "double: " << pseudoDouble << std::endl;
+		
+	}
+}
+
 /**
  * tipo char: 'c', 'a', ...
  * tipo int: 0, -42, 42, ...
@@ -45,25 +108,25 @@ ScalarConverter::~ScalarConverter()
  * tipo double: 0.0, -4.2, 4.2, ...
  * pseudo literales (por diversión): -inf, +inf y nan.
 */
-void	charConversion(std::string& input)
+void	isChar(std::string& input)
 {
 	char	c;
 
 	c = input[0];
-	std::cout << "char = " << c << std::endl;
-	std::cout << "int = " << static_cast<int>(c) << std::endl;
-	std::cout << "float = " << static_cast<float>(c) << std::endl;
-	std::cout << "double = " << static_cast<double>(c) << std::endl;
+	std::cout << "char: " << c << std::endl;
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 	
 }
 
 void  ScalarConverter::convert(std::string& input)
 {
 	if (std::isalpha(input[0]) && input.size() == 1)
-		charConversion(input);
-	else if (input == "+inff" || input == "-inff" || input == "nanf"
-			|| input == "+inf" || input == "-inf" || input == "nan")
-				std::cout << "ok" << std::endl;
-	else
-		std::cout << "input no es ni alfanumerico o mide más de 1" << std::endl;
+		isChar(input);
+	else if (input == "inff" || input == "+inff" || input == "-inff" || input == "nanf"
+			|| input == "inf"|| input == "+inf" || input == "-inf" || input == "nan")
+				pseudoLiteral(input);
+	else if (std::isdigit(input[0]))
+		isNumber(input);
 }
