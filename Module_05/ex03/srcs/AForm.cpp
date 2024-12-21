@@ -48,7 +48,7 @@ AForm& AForm::operator=(const AForm& constrCopy)
 
 AForm::~AForm()
 {
-	std::cout << RED <<"Default destructor AForm" << RESET << std::endl;
+	std::cout << RED << " Default destructor AForm" << RESET << std::endl;
 }
 
 std::string AForm::getName() const
