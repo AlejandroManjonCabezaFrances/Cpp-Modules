@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:39 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/21 20:25:37 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/21 21:05:15 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,18 @@ ScalarConverter::~ScalarConverter()
 
 }
 
-void	isNumber(std::string& input)
+void	conversionNumber(std::string& input)
 {
 	int 	integer = atoi(input.c_str());
 	
-	if (integer != -1)
+	if (integer != -1 && integer != 0)
+	{
+		std::cout << "char: " << static_cast<char>(integer) << std::endl;
+		std::cout << "int: " << integer << std::endl;
+		std::cout << "float: " << static_cast<float>(integer) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(integer) << ".0" << std::endl;
+	}
+	else if (integer == 0)
 	{
 		std::cout << "char: Non displayable " << std::endl;
 		std::cout << "int: " << integer << std::endl;
@@ -50,6 +57,20 @@ void	isNumber(std::string& input)
 	}
 	else
 		std::cout << "Your number is probably bigger than an INT: " <<  std::endl;
+}
+
+int	isNumber(std::string& input)
+{
+	std::string::size_type i = 0;
+	
+	while (i < input.size())
+	{
+		if (isdigit(input[i]))
+			i++;
+		else
+			return (false);
+	}
+	return (true);
 }
 
 /**
@@ -108,7 +129,7 @@ void	pseudoLiteral(std::string& input)
  * tipo double: 0.0, -4.2, 4.2, ...
  * pseudo literales (por diversión): -inf, +inf y nan.
 */
-void	isChar(std::string& input)
+void	conversionChar(std::string& input)
 {
 	char	c;
 
@@ -123,10 +144,10 @@ void	isChar(std::string& input)
 void  ScalarConverter::convert(std::string& input)
 {
 	if (std::isalpha(input[0]) && input.size() == 1)
-		isChar(input);
+		conversionChar(input);
 	else if (input == "inff" || input == "+inff" || input == "-inff" || input == "nanf"
 			|| input == "inf"|| input == "+inf" || input == "-inf" || input == "nan")
 				pseudoLiteral(input);
-	else if (std::isdigit(input[0]))
-		isNumber(input);
+	else if (isNumber(input))
+		conversionNumber(input);
 }

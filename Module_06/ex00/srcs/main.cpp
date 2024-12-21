@@ -6,26 +6,53 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:18:03 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/12/21 17:48:12 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/21 20:54:11 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ScalarConverter.hpp"
 
+/**
+ * Ejemplos de uso:
+
+bash
+./convert 0  
+
+char: Non displayable  
+int: 0  
+float: 0.0f  
+double: 0.0  
+
+bash
+./convert nan  
+
+char: impossible  
+int: impossible  
+float: nanf  
+double: nan  
+
+bash
+./convert 42.0f  
+
+char: '*'  
+int: 42  
+float: 42.0f  
+double: 42.0 
+*/
 int main()
 {
 	std::string input;
 	
 	while (1)
 	{
-		std::cout << "Enter a single argument: " << std::endl;
+		std::cout << "Enter a single argument: one letter or numebrs " << std::endl;
 		std::getline(std::cin, input);
 		if (input.find(' ') == std::string::npos)
 		{
 			ScalarConverter::convert(input);
-			break;
+			if (input == "exit")
+				break;
 		}
-		std::cout << "your input is: " << input << std::endl;
 	}
 
 	return (0);
