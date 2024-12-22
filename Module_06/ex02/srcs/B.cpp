@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 18:49:00 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/22 18:49:01 by amanjon          ###   ########.fr       */
+/*   Created: 2024/12/22 19:52:44 by amanjon           #+#    #+#             */
+/*   Updated: 2024/12/22 19:57:08 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,10 @@
 
 B::B()
 {
-}
-
-B::B()
-{
-}
-
-B::B(const B& constrCopy)
-{
-
-}
-
-B& B::operator=(const B& constrCopy)
-{
-    if (this != &constrCopy)
-    {
-
-    }
-
-    return (*this);
+    std::cout << GREEN << " Default constructor B" << RESET << std::endl;
 }
 
 B::~B()
 {
+    std::cout << RED << " Default destructor B" << RESET << std::endl;
 }
-

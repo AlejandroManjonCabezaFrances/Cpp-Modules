@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:48:42 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/22 18:51:49 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 19:42:46 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,21 @@
 #include <iostream>
 #include <iomanip>
 
+/**
+ * Base* ptr = new A();
+   - En tiempo de compilación, el tipo de ptr es Base.
+   - En tiempo de ejecución, el tipo del objeto al que apunta ptr es A.
+*/
 class Base
 {
-    private:
+	private:
 
-    public:
-        Base();
-        Base(const Base& constrCopy);
-        Base& operator=(const Base& constrCopy);
-        ~Base();
+	public:
+		virtual ~Base();
 };
+
+Base*	generate(void);
+void	identify(Base* p);
+void	identify(Base& p);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:48:48 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/22 18:51:27 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 19:56:42 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 #define B_HPP
 
 #include "../include/Base.hpp"
+#include "../include/Colors.hpp"
 
 #include <iostream>
 #include <iomanip>
 
 class B : public Base
 {
-    private:
-
-    public:
-        B();
-        B(const B& constrCopy);
-        B& operator=(const B& constrCopy);
-        ~B();
 };
-
-std::ostream& operator<<(std::ostream &output, const B& constrCopy);
 
 #endif

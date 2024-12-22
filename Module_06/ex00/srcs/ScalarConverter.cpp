@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:39 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/22 16:36:46 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 19:21:33 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ void	pseudoLiteral(std::string& input)
 		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: " << pseudoFloat << "f" << std::endl;
 		std::cout << "double: " << pseudoDouble << std::endl;
-		
 	}
 }
 
@@ -154,9 +153,6 @@ void	conversionChar(std::string& input)
 */
 void	isFloat(std::string& input, int posPoint)
 {
-	std::cout << "input = " << input << std::endl;
-	std::cout << "posPoint = " << posPoint << std::endl;
-	
 	std::string parseInput;
 	
 	if (std::isdigit(input[0]))
@@ -164,8 +160,6 @@ void	isFloat(std::string& input, int posPoint)
 		parseInput = input.substr(0, posPoint);
 		conversionNumber(parseInput);
 	}
-
-	std::cout << "parseInput = " << parseInput << std::endl;
 }
 
 /**

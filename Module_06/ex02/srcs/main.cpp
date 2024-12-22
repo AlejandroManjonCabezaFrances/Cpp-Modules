@@ -6,14 +6,19 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:48:53 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/22 18:50:16 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 20:08:20 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Base.hpp"
 
+Base*	generate(void)
+{
+	srand
+}
+
 int main()
 {
-    
-    return (0);
+	
+	return (0);
 }
