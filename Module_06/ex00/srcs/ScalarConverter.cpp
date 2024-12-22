@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:39 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/22 15:16:14 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:33:58 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ ScalarConverter::~ScalarConverter()
 
 }
 
+/**
+ * Transformo un std::string en un int y luego lo casteo en los diferentes tipos de datos
+*/
 void	conversionNumber(std::string& input)
 {
 	int 	integer = atoi(input.c_str());
@@ -59,6 +62,9 @@ void	conversionNumber(std::string& input)
 		std::cout << "Your number is probably bigger than an INT: " <<  std::endl;
 }
 
+/**
+ * Checkeo que el input, son números
+*/
 int	isNumber(std::string& input)
 {
 	std::string::size_type i = 0;
@@ -79,15 +85,16 @@ int	isNumber(std::string& input)
  *	- float pseudoDouble = std::numeric_limits<double>::quiet_NaN();
  *	- pseudoFloat = std::numeric_limits<float>::infinity();
  *	- pseudoDouble = std::numeric_limits<double>::infinity();
+ * 
+ * Genero un NAN y un inf y lo guardo en un float/double
 */
-
 void	pseudoLiteral(std::string& input)
 {
 	
 	if (input == "nanf" || input == "nan")
 	{
 		float pseudoFloat = 0.0f / 0.0f;
-		float pseudoDouble = 0.0 / 0.0;
+		double pseudoDouble = 0.0 / 0.0;
 
 		pseudoFloat *= -1;
 		pseudoDouble *= -1;
@@ -100,7 +107,7 @@ void	pseudoLiteral(std::string& input)
 	else if (input == "inff" || input == "inf" || input == "+inff" || input == "+inf")
 	{
 		float pseudoFloat = 1.0f / 0.0f;
-		float pseudoDouble = 1.0 / 0.0;
+		double pseudoDouble = 1.0 / 0.0;
 
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
@@ -111,7 +118,7 @@ void	pseudoLiteral(std::string& input)
 	else if (input == "-inff" || input == "-inf")
 	{
 		float pseudoFloat = -1.0f / 0.0f;
-		float pseudoDouble = -1.0 / 0.0;
+		double pseudoDouble = -1.0 / 0.0;
 
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
@@ -141,12 +148,34 @@ void	conversionChar(std::string& input)
 	
 }
 
+/**
+ * Cuando el input es 42.0f, guardo el número entero y envío el parseInput a la función
+ * "conversionNumber" para transformar los tipos de datos (char, int, float, double)
+*/
 void	isFloat(std::string& input, int posPoint)
 {
 	std::cout << "input = " << input << std::endl;
 	std::cout << "posPoint = " << posPoint << std::endl;
+	
+	std::string parseInput;
+	
+	if (std::isdigit(input[0]))
+	{
+		parseInput = input.substr(0, posPoint);
+		conversionNumber(parseInput);
+	}
+
+	std::cout << "parseInput = " << parseInput << std::endl;
 }
 
+/**
+ * 1.- input = "un char"
+ * 2.- input = "parámetro literal"
+ * 3.- input = "42"
+ * 4.- input = "float"
+ * todo lo recibido, es en realidad un std::string, luego lo transformo en los distintos
+ * tipos de datos
+*/
 void  ScalarConverter::convert(std::string& input)
 {
 	size_t	posPoint = input.find('.');

@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:32 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/21 20:12:10 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:24:28 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <string>
 
 /**
  * "nan": Not a Number:  verificar un valor NaN en código con funciones como std::isnan().
@@ -35,7 +36,5 @@ class ScalarConverter
 
 		static void convert(std::string& input);
 };
-
-std::ostream& operator<<(std::ostream &output, const ScalarConverter& constrCopy);
 
 #endif

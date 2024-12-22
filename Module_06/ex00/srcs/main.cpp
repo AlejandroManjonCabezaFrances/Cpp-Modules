@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:18:03 by amanjon-          #+#    #+#             */
-/*   Updated: 2024/12/21 20:54:11 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:13:25 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main()
 	
 	while (1)
 	{
-		std::cout << "Enter a single argument: one letter or numebrs " << std::endl;
+		std::cout << "Enter a single argument: one letter or numbers " << std::endl;
 		std::getline(std::cin, input);
 		if (input.find(' ') == std::string::npos)
 		{
