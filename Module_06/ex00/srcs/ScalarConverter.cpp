@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:39 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/21 21:05:15 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 15:16:14 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,8 +141,16 @@ void	conversionChar(std::string& input)
 	
 }
 
+void	isFloat(std::string& input, int posPoint)
+{
+	std::cout << "input = " << input << std::endl;
+	std::cout << "posPoint = " << posPoint << std::endl;
+}
+
 void  ScalarConverter::convert(std::string& input)
 {
+	size_t	posPoint = input.find('.');
+	
 	if (std::isalpha(input[0]) && input.size() == 1)
 		conversionChar(input);
 	else if (input == "inff" || input == "+inff" || input == "-inff" || input == "nanf"
@@ -150,4 +158,6 @@ void  ScalarConverter::convert(std::string& input)
 				pseudoLiteral(input);
 	else if (isNumber(input))
 		conversionNumber(input);
+	else if (posPoint != std::string::npos)
+		isFloat(input, posPoint);	
 }
