@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:50:39 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/22 16:33:58 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:36:46 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	isNumber(std::string& input)
  *	- pseudoFloat = std::numeric_limits<float>::infinity();
  *	- pseudoDouble = std::numeric_limits<double>::infinity();
  * 
- * Genero un NAN y un inf y lo guardo en un float/double
+ * Genero un NAN y un INF y lo guardo en un float/double
 */
 void	pseudoLiteral(std::string& input)
 {
