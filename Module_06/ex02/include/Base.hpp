@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:48:42 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/22 19:42:46 by amanjon          ###   ########.fr       */
+/*   Updated: 2024/12/29 09:38:29 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
+#include <stdexcept>
 
 /**
  * Base* ptr = new A();
@@ -28,6 +31,8 @@ class Base
 	public:
 		virtual ~Base();
 };
+
+std::ostream& operator<<(std::ostream &output, const Base& constrCopy);
 
 Base*	generate(void);
 void	identify(Base* p);

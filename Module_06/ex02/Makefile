@@ -6,14 +6,14 @@
 #    By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/24 16:48:11 by amanjon-          #+#    #+#              #
-#    Updated: 2024/12/22 18:47:47 by amanjon          ###   ########.fr        #
+#    Updated: 2024/12/29 08:48:15 by amanjon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Base
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS =  srcs/main.cpp srcs/base.cpp srcs/A.cpp srcs/B.cpp srcs/C.cpp
+SRCS =  srcs/main.cpp srcs/Base.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
