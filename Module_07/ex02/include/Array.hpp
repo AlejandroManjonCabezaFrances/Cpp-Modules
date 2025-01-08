@@ -4,6 +4,8 @@
 #include <iostream>
 #include <iomanip>
 
+#include "../include/Colors.hpp"
+
 class Array
 {
     private:
