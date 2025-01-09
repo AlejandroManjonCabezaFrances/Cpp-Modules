@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:48:53 by amanjon           #+#    #+#             */
-/*   Updated: 2024/12/29 09:51:01 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/09 01:50:27 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Base*	generate(void)
 {
 	int randomNumber;
 	
-	srand(std::time(0));
+	srand(static_cast<unsigned int>(time(0)));
 	randomNumber = rand() % 3;
 
 	if (randomNumber == 0)
