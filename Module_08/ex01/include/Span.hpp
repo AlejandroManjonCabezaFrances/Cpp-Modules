@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:43 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/13 02:52:58 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/13 03:01:16 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class Span
 		int		longestSpan();
 
 		void	printNumbers();
+		// funcion metodo para crear 10.000 numeros aleatorios con srand()...
 };
 
 std::ostream& operator<<(std::ostream &output, const Span& constrCopy);

@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:46 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/13 02:18:46 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/13 03:00:43 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main()
 
 		
 
-		// 2.- Crear función meter números (10.000) aleatoriamente
+		// 2.- Crear función metodo meter números (10.000) aleatoriamente con srand
 		
 	}
 		catch (std::exception& error)
