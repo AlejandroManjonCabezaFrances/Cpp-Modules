@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:43 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/14 17:24:05 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:53:45 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,17 @@ class Span
 		~Span();
 
 		void	addNumber(int number);
-		int		shortestSpan();
-		int		longestSpan();
+		int		shortestSpan() const;
+		int		longestSpan() const;
 
 		void	printNumbers();
 		void	randomNumbersCreator(Span mySpan);
 
 		int		getMaxSize();
+		
+		friend std::ostream& operator<<(std::ostream& output, const Span& constrCopy);
 };
 
-std::ostream& operator<<(std::ostream& output, const Span& constrCopy);
 
 
 #endif

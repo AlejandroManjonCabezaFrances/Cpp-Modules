@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:46 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/14 17:27:26 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:59:03 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
  * Meter más de 10.000 elementos en el contenedor, arroja una excepción.
 */
-int main()
+/* int main()
 {
 	try
 	{
@@ -34,8 +34,10 @@ int main()
 		mySpan.printNumbers();
 		
 		std::cout << std::endl;
-		mySpan.longestSpan();
-		mySpan.shortestSpan();
+		std::cout << mySpan << std::endl;
+
+		//std::cout << mySpan.shortestSpan() << std::endl;
+		//std::cout << mySpan.longestSpan() << std::endl;
 
 		
 		// 2.- Meter números con función (10.000)
@@ -54,10 +56,17 @@ int main()
 	}
 	
 	return (0);
-}
+} */
 
 /**
- * Main del Subject
+ * Output sunject:
+ 
+   $> ./ex01
+    2
+    14
+$> 
+
+ * Main del Subject: 
 */
 int main()
 {
