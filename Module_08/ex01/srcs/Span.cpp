@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:49 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/14 16:44:36 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:23:34 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	Span::addNumber(int number)
 /**
  * Esta función resta el máximo número con el mínimo del contenedor (vector::numbers) y lo printea
 */
-void	Span::longestSpan()
+int	Span::longestSpan()
 {
 	int minNumber;
 	int maxNumber;
@@ -67,12 +67,14 @@ void	Span::longestSpan()
 	minNumber = *std::min_element(numbers.begin(), numbers.end());
 
 	std::cout << "longestSpan: " << maxNumber - minNumber << std::endl;
+	
+	return (maxNumber - minNumber);
 }
 
 /**
  * Esta función checkea la distancia más pequeña entre todos los números del contenedor y lo printea
 */
-void	Span::shortestSpan()
+int	Span::shortestSpan()
 {
 	int shortest;
 	int absoluteNumber;
@@ -90,6 +92,8 @@ void	Span::shortestSpan()
 		}
 	}
 	std::cout << "shortestSpan: " << shortest << std::endl;
+
+	return (shortest);
 }
 
 void	Span::printNumbers()
@@ -117,3 +121,8 @@ void	Span::randomNumbersCreator(Span mySpan)
 	}
 }
 
+std::ostream& operator<<(std::ostream& output, const Span& constrCopy)
+{
+	output << constrCopy;
+	return (output);
+}

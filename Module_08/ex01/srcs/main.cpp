@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:46 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/14 16:38:35 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:27:26 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 		Span mySpan(10000);
 
 		// 1.- Meter números Manualmente
-/* 
+
 		mySpan.addNumber(16);
 		mySpan.addNumber(12);
 		mySpan.addNumber(100);
@@ -35,7 +35,7 @@ int main()
 		
 		std::cout << std::endl;
 		mySpan.longestSpan();
-		mySpan.shortestSpan(); */
+		mySpan.shortestSpan();
 
 		
 		// 2.- Meter números con función (10.000)
@@ -47,8 +47,7 @@ int main()
 		std::cout << std::endl;
 		mySpan.longestSpan();
 		mySpan.shortestSpan();
-/* 		std::cout << "getter: " << mySpan.getMaxSize() << std::endl;
- */	}
+	}
 	catch (std::exception& error)
 	{
 		std::cout << PINK << std::endl << "Caught exception " << error.what() << RESET << std::endl;
@@ -60,15 +59,17 @@ int main()
 /**
  * Main del Subject
 */
-/* int main()
+int main()
 {
-Span sp = Span(5);
-sp.addNumber(6);
-sp.addNumber(3);
-sp.addNumber(17);
-sp.addNumber(9);
-sp.addNumber(11);
-std::cout << sp.shortestSpan() << std::endl;
-std::cout << sp.longestSpan() << std::endl;
-return 0;
-} */
+	Span sp = Span(5);
+	
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	
+	return (0);
+}
