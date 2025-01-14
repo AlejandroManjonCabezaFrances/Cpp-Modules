@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:49 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/13 02:58:11 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:44:36 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ Span& Span::operator=(const Span& constrCopy)
 {
 	if (this != &constrCopy)
 	{
-		*this = constrCopy;
+		this->numbers = constrCopy.numbers;
+		this->maxSize = constrCopy.maxSize;
 	}
 	std::cout << GREEN << " Default assignment operator Array" << RESET << std::endl;
 
@@ -51,7 +52,10 @@ void	Span::addNumber(int number)
 	numbers.push_back(number);
 }
 
-int	Span::longestSpan()
+/**
+ * Esta función resta el máximo número con el mínimo del contenedor (vector::numbers) y lo printea
+*/
+void	Span::longestSpan()
 {
 	int minNumber;
 	int maxNumber;
@@ -59,20 +63,22 @@ int	Span::longestSpan()
 	if (numbers.size() <= 1)
 		throw (std::logic_error("vector size is less than 2"));
 
+	maxNumber = *std::max_element(numbers.begin(), numbers.end());
 	minNumber = *std::min_element(numbers.begin(), numbers.end());
-	maxNumber = *std::min_element(numbers.begin(), numbers.end());
 
-	return (maxNumber - minNumber);
+	std::cout << "longestSpan: " << maxNumber - minNumber << std::endl;
 }
 
-int	Span::shortestSpan()
+/**
+ * Esta función checkea la distancia más pequeña entre todos los números del contenedor y lo printea
+*/
+void	Span::shortestSpan()
 {
 	int shortest;
 	int absoluteNumber;
 	
 	if (numbers.size() <= 1)
 		throw (std::logic_error("vector size is less than 2"));
-
 	shortest = std::numeric_limits<int>::max();
 	for (size_t i = 0; i < numbers.size(); ++i)
 	{
@@ -83,8 +89,7 @@ int	Span::shortestSpan()
 				shortest = absoluteNumber;
 		}
 	}
-	
-	return (shortest);
+	std::cout << "shortestSpan: " << shortest << std::endl;
 }
 
 void	Span::printNumbers()
@@ -92,5 +97,23 @@ void	Span::printNumbers()
 	size_t	i;
 
 	for (i = 0; i < numbers.size(); ++i)
-		std::cout << "numners = " << numbers[i] << std::endl;
+		std::cout << "numners[" << i << "] = " << numbers[i] << std::endl;
 }
+
+int	Span::getMaxSize()
+{
+	return (this->maxSize);
+}
+void	Span::randomNumbersCreator(Span mySpan)
+{
+	int	i;
+	
+	srand(static_cast<unsigned int>(time(0)));
+	i = 0;
+	while (i < mySpan.getMaxSize())
+	{
+		addNumber(rand());
+		i++;
+	}
+}
+

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:46 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/13 03:00:43 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:38:35 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,46 @@
 
 /**
  * Llenar el atributo numbers con 10.000 números aleatorios y 
+
+ * Meter más de 10.000 elementos en el contenedor, arroja una excepción.
 */
 int main()
 {
 	try
 	{
-		
-	
-		// 1.- Meter números Manualmente
 		Span mySpan(10000);
 
-		mySpan.addNumber(5);
-		mySpan.addNumber(3);
-		mySpan.addNumber(6);
-		mySpan.addNumber(1);
+		// 1.- Meter números Manualmente
+/* 
+		mySpan.addNumber(16);
 		mySpan.addNumber(12);
+		mySpan.addNumber(100);
+		mySpan.addNumber(20);
+		mySpan.addNumber(3);
+
+		mySpan.printNumbers();
+		
+		std::cout << std::endl;
+		mySpan.longestSpan();
+		mySpan.shortestSpan(); */
+
+		
+		// 2.- Meter números con función (10.000)
+
+		mySpan.randomNumbersCreator(mySpan);
 
 		mySpan.printNumbers();
 
-		
-
-		// 2.- Crear función metodo meter números (10.000) aleatoriamente con srand
-		
+		std::cout << std::endl;
+		mySpan.longestSpan();
+		mySpan.shortestSpan();
+/* 		std::cout << "getter: " << mySpan.getMaxSize() << std::endl;
+ */	}
+	catch (std::exception& error)
+	{
+		std::cout << PINK << std::endl << "Caught exception " << error.what() << RESET << std::endl;
 	}
-		catch (std::exception& error)
-		{
-			std::cout << PINK << std::endl << "Caught exception " << error.what() << RESET << std::endl;
-		}
 	
-	
-
 	return (0);
 }
 

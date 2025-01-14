@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:43 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/13 03:01:16 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:38:31 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+/* #include <cstdlib> */
 
 #include "../include/Colors.hpp"
 
@@ -45,13 +46,13 @@ class Span
 		~Span();
 
 		void	addNumber(int number);
-		int		shortestSpan();
-		int		longestSpan();
+		void	shortestSpan();
+		void	longestSpan();
 
 		void	printNumbers();
-		// funcion metodo para crear 10.000 numeros aleatorios con srand()...
-};
+		void	randomNumbersCreator(Span mySpan);
 
-std::ostream& operator<<(std::ostream &output, const Span& constrCopy);
+		int		getMaxSize();
+};
 
 #endif
