@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:49 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/14 17:58:31 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/17 10:59:35 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int	Span::getMaxSize()
 {
 	return (this->maxSize);
 }
+
 void	Span::randomNumbersCreator(Span mySpan)
 {
 	int	i;

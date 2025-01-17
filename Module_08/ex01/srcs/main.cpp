@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:46 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/14 17:59:03 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:11:04 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
  * Meter más de 10.000 elementos en el contenedor, arroja una excepción.
 */
-/* int main()
+int main()
 {
 	try
 	{
@@ -34,29 +34,27 @@
 		mySpan.printNumbers();
 		
 		std::cout << std::endl;
-		std::cout << mySpan << std::endl;
+		std::cout << "shortestSpan: " << mySpan.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << mySpan.longestSpan() << std::endl;
 
-		//std::cout << mySpan.shortestSpan() << std::endl;
-		//std::cout << mySpan.longestSpan() << std::endl;
 
-		
 		// 2.- Meter números con función (10.000)
 
-		mySpan.randomNumbersCreator(mySpan);
+/* 		mySpan.randomNumbersCreator(mySpan);
 
 		mySpan.printNumbers();
 
 		std::cout << std::endl;
-		mySpan.longestSpan();
-		mySpan.shortestSpan();
-	}
+		std::cout << "shortestSpan: " << mySpan.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << mySpan.longestSpan() << std::endl; */
+	} 
 	catch (std::exception& error)
 	{
 		std::cout << PINK << std::endl << "Caught exception " << error.what() << RESET << std::endl;
 	}
 	
 	return (0);
-} */
+}
 
 /**
  * Output sunject:
@@ -68,7 +66,7 @@ $>
 
  * Main del Subject: 
 */
-int main()
+/* int main()
 {
 	Span sp = Span(5);
 	
@@ -77,8 +75,9 @@ int main()
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
+
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 	
 	return (0);
-}
+} */
