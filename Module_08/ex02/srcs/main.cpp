@@ -6,20 +6,30 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:36:51 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/17 11:38:06 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/17 16:04:56 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/MutantStack.hpp"
 
-int main()
+/* int main()
 {
     
     return (0);
-}
+} */
 
 /**
  * int main(); SUBJECT
+
+ * mstack.top()
+   Muestra el valor del elemento superior de la pila sin eliminarlo.
+
+ * mstack.pop();
+   Elimina el elemento superior de la pila
+ 
+ * std::stack<int> s(mstack);
+   Crea una copia de mstack en una nueva pila llamada s (otro objeto), con el contructor en copia de std::stack
+
 */
 int main()
 {

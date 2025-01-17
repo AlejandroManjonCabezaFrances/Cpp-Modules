@@ -1,7 +1,7 @@
 NAME = a.out
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = srcs/main.cpp srcs/MutantStack.cpp
+SRCS = srcs/main.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
