@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 01:25:43 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/14 17:53:45 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:58:04 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
-/* #include <cstdlib> */
 
 #include "../include/Colors.hpp"
 
