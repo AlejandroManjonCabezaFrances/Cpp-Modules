@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:36:43 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/17 15:58:00 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/20 18:17:37 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,47 +52,48 @@ No permite acceso aleatorio: debes iterar para llegar a un elemento.
 template <typename T>
 class MutantStack : public std::stack<T>
 {
-    private:
+	private:
 
-    public:
-        MutantStack() : std::stack<T>()
-        {
-            std::cout << GREEN << "Default Constructor MutantStack" << RESET << std::endl;
-        }
-        
-        MutantStack(const MutantStack& constrCopy) : std::stack<T>(constrCopy)
-        {
-            std::cout << GREEN << "Copy Constructor MutantStack" << RESET << std::endl;
-        }
-        
-        MutantStack& operator=(const MutantStack& constrCopy)
-        {
-            if (this != constrCopy)
-                std::stack<T>::operator=(constrCopy);
-            std::cout << GREEN << " Default assignment operator Serializer" << RESET << std::endl;
+	public:
+		MutantStack() : std::stack<T>()
+		{
+			std::cout << GREEN << "Default Constructor MutantStack" << RESET << std::endl;
+		}
+		
+		MutantStack(const MutantStack& constrCopy) : std::stack<T>(constrCopy)
+		{
+			std::cout << GREEN << "Copy Constructor MutantStack" << RESET << std::endl;
+		}
+		
+		MutantStack& operator=(const MutantStack& constrCopy)
+		{
+			if (this != constrCopy)
+				std::stack<T>::operator=(constrCopy);
+			std::cout << GREEN << " Default assignment operator Serializer" << RESET << std::endl;
 
-            return (*this);
-        }
+			return (*this);
+		}
 
-        ~MutantStack()
-        {
-            std::cout << RED << " Default destructor Serializer" << RESET << std::endl;
-        }
+		~MutantStack()
+		{
+			std::cout << RED << " Default destructor Serializer" << RESET << std::endl;
+		}
 
 
-        // Alias de tipos de iteradores
-            
-        typedef typename std::deque<T>::iterator iterator;
-        typedef typename std::deque<T>::reverse_iterator reverseIterator;
-        
-        
-        // Métodos de iteradores: "c" proviene del contenedor subyacente de la clase base (std::stack)
-        
-        iterator begin() {return (this->c.begin());}
-        iterator end() {return (this->c.end());}
+		// Alias de tipos de iteradores
+			
+		typedef typename std::deque<T>::iterator iterator;
+		typedef typename std::deque<T>::reverse_iterator reverseIterator;
+		
+		
+		// La implementación de begin() y end() permite acceder directamente a los iteradores 
+		// del contenedor subyacente, haciendo que MutantStack sea iterable
+		
+		iterator begin() {return (this->c.begin());}
+		iterator end() {return (this->c.end());}
 
-        reverseIterator rbegin() {return (this->c.rbegin());}
-        reverseIterator rend() {return (this->c.rend());}
+		reverseIterator rbegin() {return (this->c.rbegin());}
+		reverseIterator rend() {return (this->c.rend());}
 };
 
 /* std::ostream& operator<<(std::ostream &output, const MutantStack& constrCopy); */
