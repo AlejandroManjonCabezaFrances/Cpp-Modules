@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/21 18:19:27 by amanjon-          #+#    #+#              #
-#    Updated: 2025/01/21 18:19:28 by amanjon-         ###   ########.fr        #
+#    Created: 2025/01/21 18:18:44 by amanjon-          #+#    #+#              #
+#    Updated: 2025/01/21 18:18:45 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = btc
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = srcs/main.cpp srcs/Span.cpp
+SRCS = srcs/main.cpp srcs/BitcoinExchange.cpp
 DEBUG = -g3 -fsanitize=address
 OBJS = $(SRCS:srcs/%.cpp=objs/%.o)
 
