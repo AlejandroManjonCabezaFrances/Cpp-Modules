@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 03:24:48 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/10 01:00:39 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:34:34 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,16 @@
    no genera información y runtime_error, indicar un error que ocurre durante la ejecución del programa.
 */
 template <typename T>
-void    easyfind(T vec, int i)
+void    easyfind(T vec, int numberFind)
 {
 	std::vector<int>::iterator it;
 
-	it = std::find(vec.begin(), vec.end(), i);
+	it = std::find(vec.begin(), vec.end(), numberFind);
 
 	if (it != vec.end())
 		std::cout << "Occurrence was found in the vector: " << *it << std::endl; 
 	else
 		throw std::runtime_error ("No occurrence found in the vector");
-		/* std::cout << "No occurrence found in the vector" << std::endl; */
 }
 
 #endif

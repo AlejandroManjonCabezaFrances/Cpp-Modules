@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 03:24:40 by amanjon           #+#    #+#             */
-/*   Updated: 2025/01/10 01:07:14 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/24 13:05:10 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ int main()
 {
 	std::vector<int>::iterator  it;
 	std::vector<int>            vec;
+
+	for (int i = 1; i < 6; i++)
+		vec.push_back(i);
 		
-	vec.push_back(1);
-	vec.push_back(2);
-	vec.push_back(3);
-	vec.push_back(4);
-	vec.push_back(5);
 	try
 	{
 
