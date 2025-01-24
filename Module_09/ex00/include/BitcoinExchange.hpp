@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -23,9 +24,8 @@
 /**
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
-
-void    btcExchange(char *dataTxt);
-void	ParseFileTxt(char *dataTxt);
+void    btcExchange(/* char *dataTxt */);
+void	ParseFileTxt(/* char *dataTxt */);
 
 
 
