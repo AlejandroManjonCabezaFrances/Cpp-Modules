@@ -17,15 +17,18 @@
 #include <iostream>
 #include <iomanip>
 #include <map>
-#include <fstream>
+#include <fstream> // (flujo de entrada de archivo)
+#include <sstream> // (flujo de entrada de cadena)
 
 #include "../include/Colors.hpp"
 
 /**
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
-void    btcExchange(/* char *dataTxt */);
-void	ParseFileTxt(/* char *dataTxt */);
+void	readFile(const std::string &fileName, char delimiter);
+void    btcExchange();
+void	parseFile(std::string &line, std::string delimiter);
+
 
 
 
