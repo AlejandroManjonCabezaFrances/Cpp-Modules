@@ -20,6 +20,7 @@
 #include <map>
 #include <fstream> // (flujo de entrada de archivo)
 #include <sstream> // (flujo de entrada de cadena)
+/* #include <string> */
 
 #include "../include/Colors.hpp"
 
@@ -29,7 +30,8 @@
 void	readFile(const std::string &fileName, char delimiter);
 void    btcExchange();
 void	parseFile(std::string &line, std::string delimiter);
-
+void	parseFile1(std::string &value);
+int		stringToInt(const std::string &value);
 
 
 

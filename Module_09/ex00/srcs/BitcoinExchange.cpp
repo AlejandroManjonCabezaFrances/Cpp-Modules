@@ -3,17 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/25 17:21:26 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/25 23:58:57 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
 
 /**
- * Guada la fecha y valor en sus atributos correspondientes, pudiéndole pasar a la función
+ * std::stoi(value) --> c++11 . 
+ * Función (std::stoi y stringToInt), convierten un cadena std::string en un int
+ * iss >> num; --> creas un flujo de entrada para la manipulacion de std::string a int
+*/
+int	stringToInt(const std::string &value)
+{
+	std::istringstream	iss(value);
+	int					num;
+	
+	iss >> num;
+	
+	if (iss.fail())
+		throw (std::invalid_argument("argument is not a number valid"));
+
+	return (num);		 
+}
+
+/**
+ * Parseo del valor (value) del archivo .txt (no negativos, rango adecuado)
+*/
+void	parseFile1( std::string &value)
+{
+	if (value[0] == '-')
+	{
+		throw (std::runtime_error("Error: not a positive number."));
+		return;
+	}
+	if (stringToInt(value) > 0 && stringToInt(value) <= 1000)
+	{
+		std::cout << "parseo del .txt ok: transformar value x valor btc .csv" << std::endl;
+	}
+	else
+	{
+		throw (std::runtime_error("Error: too large a number."));
+		return;
+	}
+		
+}
+
+
+/**
+ * Guarda la fecha y valor en sus atributos correspondientes, pudiéndole pasar a la función
    un delimitador u otro (',' / '|')
  * std::istringstream (flujo de entrada de cadena)
 */
@@ -23,11 +64,15 @@ void	parseFile(std::string &line, char delimiter)
 	std::string	value;
 	std::istringstream iss(line);	// Se crea nuevo flujo de entrada para la linea
 	
-	if (getline(iss, date, delimiter) && getline(iss, value))
+	if (getline(iss, date, delimiter) && getline(iss, value) && line.find(delimiter))
 	{
-		std::cout << "date: " << date << std::endl;
-		std::cout << "value: " << value << std::endl;
+		/* std::cout << "date: " << date << std::endl;
+		std::cout << "value: " << value << std::endl; */
+		parseFile1(value);
 	}
+	else
+		std::cout << "Error: bad input => " << date << std::endl;
+	
 }
 
 /**
@@ -48,7 +93,7 @@ void	readFile(const std::string &fileName, char delimiter)
 
 	while (std::getline(file, line))
 	{
-		std::cout << line << std::endl;
+		/* std::cout << line << std::endl; */
 		parseFile(line, delimiter);
 		usleep(10000);
 	}
@@ -61,13 +106,14 @@ void	readFile(const std::string &fileName, char delimiter)
 */
 void    btcExchange()
 {
-	std::string fileTxt = "input.txt";
-	std::string	fileCsv = "data.csv";
+	std::string fileTxt = "input_prueba.txt";
+	/* std::string fileTxt = "inpu.txt"; */
+	/* std::string	fileCsv = "data.csv"; */
 	char		delimiterOne = '|';
-	char		delimiterTwo = ',';
+	/* char		delimiterTwo = ','; */
 
 	readFile(fileTxt, delimiterOne);
-	readFile(fileCsv, delimiterTwo);
+	/* readFile(fileCsv, delimiterTwo); */
 }
 
 
