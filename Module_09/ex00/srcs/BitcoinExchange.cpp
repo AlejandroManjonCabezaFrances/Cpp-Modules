@@ -6,14 +6,16 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/25 10:58:14 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/25 17:21:26 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
 
 /**
- * 
+ * Guada la fecha y valor en sus atributos correspondientes, pudiéndole pasar a la función
+   un delimitador u otro (',' / '|')
+ * std::istringstream (flujo de entrada de cadena)
 */
 void	parseFile(std::string &line, char delimiter)
 {
@@ -29,7 +31,8 @@ void	parseFile(std::string &line, char delimiter)
 }
 
 /**
- * 
+ * Guardamos cada linea del archivo pasado
+ * std::ifstream (flujo de entrada de archivo)
 */
 void	readFile(const std::string &fileName, char delimiter)
 {
@@ -47,10 +50,10 @@ void	readFile(const std::string &fileName, char delimiter)
 	{
 		std::cout << line << std::endl;
 		parseFile(line, delimiter);
+		usleep(10000);
 	}
 		
 	file.close();
-
 }
 
 /**

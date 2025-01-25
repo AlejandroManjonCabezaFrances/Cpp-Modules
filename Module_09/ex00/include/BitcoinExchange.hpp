@@ -14,6 +14,7 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
+#include <unistd.h>
 #include <iostream>
 #include <iomanip>
 #include <map>

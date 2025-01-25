@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:31 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/24 15:14:39 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/25 17:02:28 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
-
 
 /**
  * $> ./btc
