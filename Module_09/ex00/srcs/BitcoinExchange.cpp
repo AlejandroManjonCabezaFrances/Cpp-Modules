@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/25 23:58:57 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/26 13:44:49 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	stringToInt(const std::string &value)
 	
 	iss >> num;
 	
-	if (iss.fail())
-		throw (std::invalid_argument("argument is not a number valid"));
+	if (iss.fail() || num > INT_MAX)
+		throw (std::invalid_argument("Error: too large a number."));
 
 	return (num);		 
 }
@@ -35,20 +35,14 @@ int	stringToInt(const std::string &value)
 */
 void	parseFile1( std::string &value)
 {
-	if (value[0] == '-')
+	if (value[1] == '-')
 	{
-		throw (std::runtime_error("Error: not a positive number."));
+		std::cerr << "Error: not a positive number." << std::endl;
 		return;
 	}
 	if (stringToInt(value) > 0 && stringToInt(value) <= 1000)
-	{
 		std::cout << "parseo del .txt ok: transformar value x valor btc .csv" << std::endl;
-	}
-	else
-	{
-		throw (std::runtime_error("Error: too large a number."));
-		return;
-	}
+
 		
 }
 
@@ -88,7 +82,6 @@ void	readFile(const std::string &fileName, char delimiter)
 	if (!file.is_open())
 	{
 		throw (std::runtime_error("Error: could not open file."));
-		return;
 	}
 
 	while (std::getline(file, line))

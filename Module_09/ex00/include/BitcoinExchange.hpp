@@ -20,7 +20,7 @@
 #include <map>
 #include <fstream> // (flujo de entrada de archivo)
 #include <sstream> // (flujo de entrada de cadena)
-/* #include <string> */
+#include <climits>
 
 #include "../include/Colors.hpp"
 

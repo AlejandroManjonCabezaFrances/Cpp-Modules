@@ -52,6 +52,8 @@
         "fstream": "cpp",
         "chrono": "cpp",
         "codecvt": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "list": "cpp",
+        "map": "cpp"
     }
 }
