@@ -29,10 +29,10 @@
 */
 void	readFile(const std::string &fileName, char delimiter);
 void    btcExchange();
-void	parseFile(std::string &line, std::string delimiter);
-void	parseFile1(std::string &value);
+void	parseFileTxt(std::string &line, std::string delimiter);
+void	parseFileTxt1(std::string &value);
 int		stringToInt(const std::string &value);
-
+void	parseFileCsv(std::string &date, std::string &value);
 
 
 
