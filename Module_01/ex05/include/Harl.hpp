@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/04 13:18:26 by amanjon-          #+#    #+#             */
+/*   Updated: 2024/07/05 13:40:54 by amanjon-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef HARL_HPP
+#define HARL_HPP
+
+#include <iostream>
+
+class Harl
+{
+	private:
+		std::string level;
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+	public:
+		Harl();
+		~Harl();
+		void complain(std::string level);
+};
+
+enum Level
+{
+	DEBUG,
+	INFO,
+	WARNING,
+	ERROR	
+};
+
+#endif
