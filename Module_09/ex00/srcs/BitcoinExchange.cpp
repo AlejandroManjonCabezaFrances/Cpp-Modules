@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/27 22:48:53 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/01/28 12:16:23 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	stringToInt(const std::string &value)
 	iss >> num;
 	
 	if (iss.fail() || num > INT_MAX)
-		throw (std::invalid_argument("Error: too large a number."));
+		std::cerr << "Error: too large a number." << std::endl;
+		/* throw (std::invalid_argument("Error: too large a number.")); */
 
 	return (num);		 
 }
@@ -33,17 +34,19 @@ int	stringToInt(const std::string &value)
 /**
  * Parseo del valor (value) del archivo .txt (no negativos, rango adecuado)
 */
-void	parseFileTxt1( std::string &value)
+std::string	parseFileTxt1( std::string &value)
 {
 	if (value[1] == '-')
 	{
+		/* throw (std::invalid_argument("Error: not a positive number.")); */
 		std::cerr << "Error: not a positive number." << std::endl;
-		return;
+		return ("");
 	}
 	if (stringToInt(value) > 0 && stringToInt(value) <= 1000)
-		std::cout << "parseo del .txt ok: transformar value x valor btc .csv" << std::endl;
-
-		
+	{
+		return (value);
+	}	
+	return ("");
 }
 
 /**
@@ -61,7 +64,7 @@ std::pair<std::string, std::string>	parseFileTxt(std::string &line, char delimit
 	{
 		/* std::cout << "date: " << date << std::endl;
 		std::cout << "value: " << value << std::endl; */
-		parseFileTxt1(value);
+		value = parseFileTxt1(value);
 	}
 	else
 		std::cout << "Error: bad input => " << date << std::endl;
@@ -79,7 +82,7 @@ void	parseFileCsv(std::string &date, std::string &value)
  * Guardamos cada linea del archivo pasado
  * std::ifstream (flujo de entrada de archivo)
 */
-void	readFile(const std::string &fileName, char delimiter)
+void	FileProcessor::readFile(const std::string &fileName, char delimiter)
 {
 	std::map<std::string, double> data;
 	std::ifstream file(fileName.c_str());
@@ -94,14 +97,18 @@ void	readFile(const std::string &fileName, char delimiter)
 	while (std::getline(file, line))
 	{
 		/* std::cout << line << std::endl; */
-		if (fileName == "input.txt")
+		if (fileName == "input_prueba.txt")
 		{
 			pair = parseFileTxt(line, delimiter);
-/* 			std::cout << "pair.first = " << pair.first << std::endl;
-			std::cout << "pair.second = " << pair.second << std::endl; */
+			data[pair.first] = std::atof(pair.second.c_str());
 		}
 		else
+		{
+			
+			std::cout << "pair.first = " << pair.first << std::endl;
+			std::cout << "pair.second = " << pair.second << std::endl;
 			parseFileCsv(pair.first, pair.second);
+		}
 			
 		usleep(10000);
 	}
@@ -112,16 +119,16 @@ void	readFile(const std::string &fileName, char delimiter)
 /**
  * 
 */
-void    btcExchange()
+void    FileProcessor::btcExchange()
 {
 	std::string fileTxt = "input_prueba.txt";
-	/* std::string fileTxt = "inpu.txt"; */
-	/* std::string	fileCsv = "data.csv"; */
+	/* std::string fileTxt = "input.txt"; */
+	std::string	fileCsv = "data.csv";
 	char		delimiterOne = '|';
-	/* char		delimiterTwo = ','; */
+	char		delimiterTwo = ',';
 
 	readFile(fileTxt, delimiterOne);
-	/* readFile(fileCsv, delimiterTwo); */
+	readFile(fileCsv, delimiterTwo);
 }
 
 

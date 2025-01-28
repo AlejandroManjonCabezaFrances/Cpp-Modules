@@ -21,18 +21,26 @@
 #include <fstream> // (flujo de entrada de archivo)
 #include <sstream> // (flujo de entrada de cadena)
 #include <climits>
+#include <cstdlib>
 
 #include "../include/Colors.hpp"
+
+class FileProcessor
+{
+	private:
+		std::map<std::string, double> data;
+	public:
+		void		readFile(const std::string &fileName, char delimiter);
+		void  		btcExchange();
+};
 
 /**
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
-void	readFile(const std::string &fileName, char delimiter);
-void    btcExchange();
-void	parseFileTxt(std::string &line, std::string delimiter);
-void	parseFileTxt1(std::string &value);
-int		stringToInt(const std::string &value);
-void	parseFileCsv(std::string &date, std::string &value);
+void		parseFileTxt(std::string &line, std::string delimiter);
+std::string	parseFileTxt1(std::string &value);
+int			stringToInt(const std::string &value);
+void		parseFileCsv(std::string &date, std::string &value);
 
 
 
