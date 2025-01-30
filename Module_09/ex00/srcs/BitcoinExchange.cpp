@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/30 18:13:52 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/30 22:59:34 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
 
 /**
- * std::stoi(value) --> c++11 . 
- * Función (std::stoi y stringToInt), convierten un cadena std::string en un int
- * iss >> num; --> creas un flujo de entrada para la manipulacion de std::string a int
+ * std::stoi(value) --> c++11 . función convierte std::string a int
+ * std::stod(value) --> c++11 . función convierte std::string a double
+ * Función (stringToDouble), convierten un cadena std::string en un double
+ * iss >> num; --> creas un flujo de entrada para la manipulacion de std::string a double
 */
 double	stringToDouble(const std::string &value)
 {
@@ -23,18 +24,16 @@ double	stringToDouble(const std::string &value)
 	double				num;
 	
 	iss >> num;
-	std::cout << "stringToDouble*****" << std::endl;
-	std::cout << "value = " << value << std::endl;
 	if ((iss.fail() || num > INT_MAX) && value != "exchange_rate")
 	{
 		std::cerr << "Error: too large a number." << std::endl;
 		return (0);
 	}
-	std::cout << "num = " << num << std::endl;
+
 	return (num);		 
 }
 
-void	parseFileCsv(std::string &line, std::map<std::string, double> &data)
+double	parseFileCsv(std::string &line, std::map<std::string, double> &data)
 {
 	std::istringstream	iss(line);
 	std::string 		dateCsv;
@@ -48,27 +47,30 @@ void	parseFileCsv(std::string &line, std::map<std::string, double> &data)
 	{
 		valueCsv = stringToDouble(valueCsv1);
 		std::map<std::string, double>::iterator it = data.find(dateCsv);
-		
+
 		if (it != data.end())
 		{
 			valueTxt = it->second;
 			resultBtc = valueTxt * valueCsv;
-			std::cout << "resultBtc = " << resultBtc << std::endl;
 		}
-		usleep(50000);
+		/* usleep(50000); */
 	}
+	return (resultBtc);
 }
 
 void	readFileCsv(std::map<std::string, double> &data)
 {
-	std::string	fileCsv = "data.csv";
-	std::string line;
-	std::ifstream file(fileCsv.c_str());
+	std::string		fileCsv = "data.csv";
+	std::string 	line;
+	std::ifstream 	file(fileCsv.c_str());
+	double			resultBtc;
 
 	if (!file.is_open())
 		throw (std::runtime_error("Error: could not open file."));
 	while (std::getline(file, line))
-		parseFileCsv(line, data);
+		resultBtc = parseFileCsv(line, data);
+	for (std::map<std::string, double>::iterator it = data.begin(); it != data.end(); ++it)
+   		std::cout << it->first << " => " << it->second << " = " << resultBtc << std::endl;
 	
 	file.close();
 }
@@ -95,12 +97,9 @@ void	parseFileTxt(std::string &line, char delimiter)
 			std::cerr << "Error: not a positive number." << std::endl;
 		if (valueTxt > 0 && valueTxt <= 1000)
 		{
+			date.erase(0, date.find_first_not_of(" \t\r\n"));  // Elimina espacios al inicio
+			date.erase(date.find_last_not_of(" \t\r\n") + 1);  // Elimina espacios al final
 			data[date] = valueTxt;
-/* 			for (std::map<std::string, double>::iterator it = data.begin(); it != data.end(); ++it)
-			{
-				std::cout << "dateTxt = " << it->first << std::endl;
-				std::cout << "valueTxt = " << it->second << std::endl;
-			} */
 			readFileCsv(data);
 		}
 	}

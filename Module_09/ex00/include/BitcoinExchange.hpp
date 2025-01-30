@@ -37,7 +37,7 @@
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
 double	stringToDouble(const std::string &value);
-void	parseFileCsv(std::string &line, std::map<std::string, double> &data);
+double	parseFileCsv(std::string &line, std::map<std::string, double> &data);
 void	readFileCsv(std::map<std::string, double> &data);
 void	readFileTxt(const std::string &fileTxt, char delimiter);
 void  	btcExchange();
