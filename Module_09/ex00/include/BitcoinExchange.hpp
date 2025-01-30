@@ -39,7 +39,7 @@ class FileProcessor
 /**
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
-int		stringToInt(const std::string &value);
+double	stringToDouble(const std::string &value);
 void	ParseFileCsv(std::string &line, std::string &dateTxt, std::string &valueTxt);
 
 

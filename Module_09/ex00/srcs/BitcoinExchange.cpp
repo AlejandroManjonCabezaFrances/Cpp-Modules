@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/28 22:47:38 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/30 14:29:30 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
  * Función (std::stoi y stringToInt), convierten un cadena std::string en un int
  * iss >> num; --> creas un flujo de entrada para la manipulacion de std::string a int
 */
-int	stringToInt(const std::string &value)
+double	stringToDouble(const std::string &value)
 {
 	std::istringstream	iss(value);
-	int					num;
+	double				num;
 	
 	iss >> num;
 	
@@ -33,27 +33,42 @@ int	stringToInt(const std::string &value)
 	return (num);		 
 }
 
-void	ParseFileCsv(std::string &line, std::string &dateTxt, std::string &valueTxt)
+
+void	ParseFileCsv(std::string &line, std::string &dateTxt, double &valueTxt)
 {
 	std::istringstream	iss(line);
 	std::string 		dateCsv;
-	std::string 		valueCsv;
+	std::string 		valueCsvS;
 	char 				delimiter = ',';
+	double				resultBtc;
+	double				valueCsv;
 
-	dateTxt = ""; // silenciar compilados "not used"
-	valueTxt = "";
+
+/* 	dateTxt = ""; // silenciar compilados "not used"
+	valueTxt = ""; */
 	
-
-	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsv))
+	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsvS))
 	{
-		// Tengo tanto los datos parseados del txt como los del csv, me falta hacer funcion que busque fecha, y cambie valor del bitcoin
-		// make function "looking for date" and "change value of Bitcoin""
-		std::cout << "dateCsv: " << dateCsv << std::endl;
-		std::cout << "valueCsv: " << valueCsv << std::endl;
+		valueCsv = stringToDouble(valueCsvS);
+		if (dateTxt == dateCsv)
+		{
+			resultBtc = valueTxt * valueCsv;
+		}
+		std::cout << "**********stringToDouble(valueCsv) = " << stringToDouble(valueCsvS) << std::endl;
+		std::cout << "valueTxt = " << valueTxt << std::endl;
+		std::cout << "valueCsv = " << valueCsv << std::endl;
+		std::cout << "dateCsv = " << dateCsv << std::endl;
+		std::cout << "resultBtc = " << resultBtc << std::endl;
+		usleep(50000);
 	}
+	/* 		std::cout << "dateTxt: " << dateTxt << std::endl;
+		std::cout << "valueTxt: " << valueTxt << std::endl; */
+		// funcion que busque fecha, y cambie valor del bitcoin
+/* 		std::cout << "dateCsv: " << dateCsv << std::endl;
+		std::cout << "valueCsv: " << valueCsv << std::endl; */
 }
 
-void	readFileCsv(std::string &dateTxt, std::string &valueTxt)
+void	readFileCsv(std::string &dateTxt, double &valueTxt)
 {
 	std::string	fileCsv = "data.csv";
 	std::string line;
@@ -62,11 +77,11 @@ void	readFileCsv(std::string &dateTxt, std::string &valueTxt)
 	if (!file.is_open())
 		throw (std::runtime_error("Error: could not open file."));
 	while (std::getline(file, line))
+	{
 		ParseFileCsv(line, dateTxt, valueTxt);
+	}
 	
 	file.close();
-
-	
 }
 
 /**
@@ -74,10 +89,13 @@ void	readFileCsv(std::string &dateTxt, std::string &valueTxt)
 */
 void	FileProcessor::parseFileTxt1(std::string date, std::string &value)
 {
+	double numTxt;
+	
+	numTxt = stringToDouble(value);
 	if (value[1] == '-')
 		std::cerr << "Error: not a positive number." << std::endl;
-	if (stringToInt(value) > 0 && stringToInt(value) <= 1000)
-		readFileCsv(date, value);
+	if (numTxt > 0 && numTxt <= 1000)
+		readFileCsv(date, numTxt);
 }
 
 /**
