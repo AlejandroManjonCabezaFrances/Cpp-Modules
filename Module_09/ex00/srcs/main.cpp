@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:31 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/28 13:32:02 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:42:03 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int main(int argc, char **argv)
 		if (argc != 2)
 		{
 			throw (std::invalid_argument("Error: could not open file."));
-			return (1);
 		}
 		else
 			processor.btcExchange(/* argv[1] */);

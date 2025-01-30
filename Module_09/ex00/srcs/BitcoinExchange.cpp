@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/30 14:29:30 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:40:31 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ double	stringToDouble(const std::string &value)
 }
 
 
-void	ParseFileCsv(std::string &line, std::string &dateTxt, double &valueTxt)
+void	parseFileCsv(std::string &line, std::map<std::string, double> &data)
 {
 	std::istringstream	iss(line);
 	std::string 		dateCsv;
@@ -42,33 +42,22 @@ void	ParseFileCsv(std::string &line, std::string &dateTxt, double &valueTxt)
 	char 				delimiter = ',';
 	double				resultBtc;
 	double				valueCsv;
-
-
-/* 	dateTxt = ""; // silenciar compilados "not used"
-	valueTxt = ""; */
+	double 				valueTxt;
 	
 	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsvS))
 	{
 		valueCsv = stringToDouble(valueCsvS);
-		if (dateTxt == dateCsv)
+		std::map<std::string, double>::iterator it = data.find(dateCsv);
+		if (it != data.end())
 		{
+			valueTxt = it->second;
 			resultBtc = valueTxt * valueCsv;
 		}
-		std::cout << "**********stringToDouble(valueCsv) = " << stringToDouble(valueCsvS) << std::endl;
-		std::cout << "valueTxt = " << valueTxt << std::endl;
-		std::cout << "valueCsv = " << valueCsv << std::endl;
-		std::cout << "dateCsv = " << dateCsv << std::endl;
-		std::cout << "resultBtc = " << resultBtc << std::endl;
 		usleep(50000);
 	}
-	/* 		std::cout << "dateTxt: " << dateTxt << std::endl;
-		std::cout << "valueTxt: " << valueTxt << std::endl; */
-		// funcion que busque fecha, y cambie valor del bitcoin
-/* 		std::cout << "dateCsv: " << dateCsv << std::endl;
-		std::cout << "valueCsv: " << valueCsv << std::endl; */
 }
 
-void	readFileCsv(std::string &dateTxt, double &valueTxt)
+void	readFileCsv(std::map<std::string, double> &data)
 {
 	std::string	fileCsv = "data.csv";
 	std::string line;
@@ -78,7 +67,7 @@ void	readFileCsv(std::string &dateTxt, double &valueTxt)
 		throw (std::runtime_error("Error: could not open file."));
 	while (std::getline(file, line))
 	{
-		ParseFileCsv(line, dateTxt, valueTxt);
+		parseFileCsv(line, data);
 	}
 	
 	file.close();
@@ -87,7 +76,7 @@ void	readFileCsv(std::string &dateTxt, double &valueTxt)
 /**
  * Parseo del valor (value) del archivo .txt (no negativos, rango adecuado)
 */
-void	FileProcessor::parseFileTxt1(std::string date, std::string &value)
+/* void	FileProcessor::parseFileTxt1(std::string date, std::string &value)
 {
 	double numTxt;
 	
@@ -96,21 +85,33 @@ void	FileProcessor::parseFileTxt1(std::string date, std::string &value)
 		std::cerr << "Error: not a positive number." << std::endl;
 	if (numTxt > 0 && numTxt <= 1000)
 		readFileCsv(date, numTxt);
-}
+} */
 
 /**
  * Guarda la fecha y valor en sus atributos correspondientes, pudiéndole pasar a la función
    un delimitador u otro (',' / '|')
  * std::istringstream (flujo de entrada de cadena)
+ * Parseo del valor (value) del archivo .txt (no negativos, rango adecuado)
 */
 void	FileProcessor::parseFileTxt(std::string &line, char delimiter)
 {
-	std::string	date;
-	std::string	value;
-	std::istringstream iss(line);	// Se crea nuevo flujo de entrada para la linea
+	std::map<std::string, double>	data;
+	std::istringstream 				iss(line);
+	std::string						date;
+	std::string						value;
+	double 							valueTxt;
 	
 	if (getline(iss, date, delimiter) && getline(iss, value) && line.find(delimiter))
-		parseFileTxt1(date, value);
+	{
+		valueTxt = stringToDouble(value);
+	
+		if (value[1] == '-')
+			std::cerr << "Error: not a positive number." << std::endl;
+		if (valueTxt > 0 && valueTxt <= 1000)
+			data[date] = valueTxt;
+			readFileCsv(data);
+			/* parseFileTxt1(date, value); */
+	}
 	else
 		std::cout << "Error: bad input => " << date << std::endl;
 	

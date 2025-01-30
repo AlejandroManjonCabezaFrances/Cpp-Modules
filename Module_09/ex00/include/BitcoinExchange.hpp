@@ -27,8 +27,8 @@
 
 class FileProcessor
 {
-	private:
-		std::map<std::string, double> data;
+/* 	private:
+		std::map<std::string, double> data; */
 	public:
 		void		readFileTxt(const std::string &fileName, char delimiter);
 		void  		btcExchange();
@@ -40,8 +40,9 @@ class FileProcessor
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
 double	stringToDouble(const std::string &value);
-void	ParseFileCsv(std::string &line, std::string &dateTxt, std::string &valueTxt);
-
+void	parseFileCsv(std::string &line, std::map<std::string, double> &data);
+void	readFileCsv(std::map<std::string, double> &data)
+	
 
 
 
