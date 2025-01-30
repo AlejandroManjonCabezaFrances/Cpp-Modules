@@ -25,23 +25,23 @@
 
 #include "../include/Colors.hpp"
 
-class FileProcessor
+/* class FileProcessor
 {
-/* 	private:
-		std::map<std::string, double> data; */
+	private:
+		std::map<std::string, double> data;
 	public:
-		void		readFileTxt(const std::string &fileName, char delimiter);
-		void  		btcExchange();
-		void		parseFileTxt(std::string &line, char delimiter);
-		void 		parseFileTxt1(std::string date, std::string &value);
-};
+
+}; */
 
 /**
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
 double	stringToDouble(const std::string &value);
 void	parseFileCsv(std::string &line, std::map<std::string, double> &data);
-void	readFileCsv(std::map<std::string, double> &data)
+void	readFileCsv(std::map<std::string, double> &data);
+void	readFileTxt(const std::string &fileTxt, char delimiter);
+void  	btcExchange();
+void	parseFileTxt(std::string &line, char delimiter);
 	
 
 

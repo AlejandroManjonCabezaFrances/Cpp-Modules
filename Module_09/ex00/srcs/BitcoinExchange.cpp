@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/30 17:40:31 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:13:52 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,35 +23,37 @@ double	stringToDouble(const std::string &value)
 	double				num;
 	
 	iss >> num;
-	
-	if (iss.fail() || num > INT_MAX)
+	std::cout << "stringToDouble*****" << std::endl;
+	std::cout << "value = " << value << std::endl;
+	if ((iss.fail() || num > INT_MAX) && value != "exchange_rate")
 	{
 		std::cerr << "Error: too large a number." << std::endl;
 		return (0);
 	}
-		
+	std::cout << "num = " << num << std::endl;
 	return (num);		 
 }
-
 
 void	parseFileCsv(std::string &line, std::map<std::string, double> &data)
 {
 	std::istringstream	iss(line);
 	std::string 		dateCsv;
-	std::string 		valueCsvS;
+	std::string 		valueCsv1;
 	char 				delimiter = ',';
 	double				resultBtc;
 	double				valueCsv;
 	double 				valueTxt;
 	
-	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsvS))
+	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsv1))
 	{
-		valueCsv = stringToDouble(valueCsvS);
+		valueCsv = stringToDouble(valueCsv1);
 		std::map<std::string, double>::iterator it = data.find(dateCsv);
+		
 		if (it != data.end())
 		{
 			valueTxt = it->second;
 			resultBtc = valueTxt * valueCsv;
+			std::cout << "resultBtc = " << resultBtc << std::endl;
 		}
 		usleep(50000);
 	}
@@ -66,26 +68,10 @@ void	readFileCsv(std::map<std::string, double> &data)
 	if (!file.is_open())
 		throw (std::runtime_error("Error: could not open file."));
 	while (std::getline(file, line))
-	{
 		parseFileCsv(line, data);
-	}
 	
 	file.close();
 }
-
-/**
- * Parseo del valor (value) del archivo .txt (no negativos, rango adecuado)
-*/
-/* void	FileProcessor::parseFileTxt1(std::string date, std::string &value)
-{
-	double numTxt;
-	
-	numTxt = stringToDouble(value);
-	if (value[1] == '-')
-		std::cerr << "Error: not a positive number." << std::endl;
-	if (numTxt > 0 && numTxt <= 1000)
-		readFileCsv(date, numTxt);
-} */
 
 /**
  * Guarda la fecha y valor en sus atributos correspondientes, pudiéndole pasar a la función
@@ -93,7 +79,7 @@ void	readFileCsv(std::map<std::string, double> &data)
  * std::istringstream (flujo de entrada de cadena)
  * Parseo del valor (value) del archivo .txt (no negativos, rango adecuado)
 */
-void	FileProcessor::parseFileTxt(std::string &line, char delimiter)
+void	parseFileTxt(std::string &line, char delimiter)
 {
 	std::map<std::string, double>	data;
 	std::istringstream 				iss(line);
@@ -108,9 +94,15 @@ void	FileProcessor::parseFileTxt(std::string &line, char delimiter)
 		if (value[1] == '-')
 			std::cerr << "Error: not a positive number." << std::endl;
 		if (valueTxt > 0 && valueTxt <= 1000)
+		{
 			data[date] = valueTxt;
+/* 			for (std::map<std::string, double>::iterator it = data.begin(); it != data.end(); ++it)
+			{
+				std::cout << "dateTxt = " << it->first << std::endl;
+				std::cout << "valueTxt = " << it->second << std::endl;
+			} */
 			readFileCsv(data);
-			/* parseFileTxt1(date, value); */
+		}
 	}
 	else
 		std::cout << "Error: bad input => " << date << std::endl;
@@ -121,10 +113,10 @@ void	FileProcessor::parseFileTxt(std::string &line, char delimiter)
  * Guardamos cada linea del archivo pasado
  * std::ifstream (flujo de entrada de archivo)
 */
-void	FileProcessor::readFileTxt(const std::string &fileName, char delimiter)
+void	readFileTxt(const std::string &fileTxt, char delimiter)
 {
 	std::map<std::string, double>::iterator it;
-	std::ifstream file(fileName.c_str());
+	std::ifstream file(fileTxt.c_str());
 	std::string line;
 
 	if (!file.is_open())
@@ -137,15 +129,15 @@ void	FileProcessor::readFileTxt(const std::string &fileName, char delimiter)
 /**
  * 
 */
-void    FileProcessor::btcExchange()
+void    btcExchange()
 {
 	std::string fileTxt = "input_prueba.txt";
 	/* std::string fileTxt = "input.txt"; */
 	/* std::string	fileCsv = "data.csv"; */
-	char		delimiterOne = '|';
+	char		delimiter = '|';
 	/* char		delimiterTwo = ','; */
 
-	readFileTxt(fileTxt, delimiterOne);
+	readFileTxt(fileTxt, delimiter);
 	/* readFile(fileCsv, delimiterTwo); */
 }
 
