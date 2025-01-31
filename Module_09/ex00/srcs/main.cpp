@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:31 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/31 10:15:29 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/31 12:37:48 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ Error: bad input => 2001-42-42
 2012-01-11 => 1 = 7.1
 Error: too large a number.
 $>
+*/
+/**
+ * RESUMEN --> el contenedor std::map<std::string, double> guardo los datos de .txt 
+ * Los datos del .csv --> de momento están guardados en std::string "date - value"
 */
 int main(int argc, char **argv)
 {
