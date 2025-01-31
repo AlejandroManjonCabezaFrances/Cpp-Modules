@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:31 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/30 17:45:47 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/01/31 10:15:29 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 			throw (std::invalid_argument("Error: could not open file."));
 		}
 		else
-			btcExchange(/* argv[1] */);
+			readFileTxt(/* argv[1] */);
 	}
 	catch(const std::exception &error)
 	{
