@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/31 12:35:29 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/02/02 01:02:23 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,45 +33,56 @@ double	stringToDouble(const std::string &value)
 	return (num);		 
 }
 /**
- * 
+ * Buscando en el archivo .csv
+   - if(la fecha existe en el archivo .csv)
+   - else(la fecha no se encuentra, hay que buscar la fecha anterior a la puesta en el .txt)
+ 
+ * - Un valor negativo si la cadena de la izquierda es menor que la de la derecha.
+   - Cero si ambas cadenas son iguales.
+   - Un valor positivo si la cadena de la izquierda es mayor que la de la derecha.
 */
-double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &data)
+double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &dataTxt)
 {
 	std::istringstream	iss(line);
 	std::string 		dateCsv;
-	std::string 		valueCsv1;
+	std::string 		valueCsvStr;
 	double				resultBtc;
 	double				valueCsv;
 	double 				valueTxt;
 	char 				delimiter = ',';
+
+	int resultCompare = 99;;
 	
-	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsv1))
+	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsvStr))
 	{
-		valueCsv = stringToDouble(valueCsv1);
-		std::map<std::string, double>::iterator it = data.find(dateCsv);
+		valueCsv = stringToDouble(valueCsvStr);
+		std::map<std::string, double>::iterator it = dataTxt.find(dateCsv);
 		
 
-		if (it != data.end()) // Revisar el contenedor (archivo txt y no csv que me he liado)
+		if (it != dataTxt.end())
 		{
 			valueTxt = it->second;
 			resultBtc = valueTxt * valueCsv;
 		}
 		else
 		{
-			std::map<std::string, double>::iterator ite = data.begin();
-			if (it != data.begin())
-			{
-				if (ite->first.compare(dateCsv) < 0)
+			it = dataTxt.begin();
+			/* if (it != dataTxt.begin())
+			{ */
+				/* if (ite->first.compare(dateCsv) < 0) */
+				resultCompare = it->first.compare(dateCsv);
+				std::cout << "resultCompare = " << resultCompare << std::endl;
+				if (resultCompare < 0)
 				{
-					std::cout << "ite = " << ite->first << std::endl;
-					--ite;
-					std::cout << "ite prev = " << ite->first << std::endl;
+					// la logica esta bien yo creo, el compare devualve -1 justo en la fecha superior a la del .txt
+					// falta ir guardando la anterior fecha a la primera ocurrencia -1 del compare() y gestionar con alguna banderilla
+					// salir de while() --> SearchingInTheFileCsv
+					std::cout << "dateCsv: " << dateCsv << std::endl;
+					return (0.0);
 				}
-/* 				std::cout << "Resultado de compare(): " << ite->first.compare(dateCsv) << std::endl;
-				std::cout << "dateCsv: " << dateCsv << std::endl; */
-				
-				/* usleep(50000); */
-			}
+ 				/* std::cout << "Resultado de compare(): " << ite->first.compare(dateCsv) << std::endl; */
+				usleep(50000);
+			/* } */
 		}
 	}
 	return (resultBtc);
@@ -82,7 +93,7 @@ double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &d
  * Función "SearchingInTheFileCsv", busca fecha en .csv y multiplica valor de btc
  * Si todo es correcto, imprimimos resultado final "fecha => Nº btc = $"
 */
-void	readFileCsv(std::map<std::string, double> &data)
+void	readFileCsv(std::map<std::string, double> &dataTxt)
 {
 	std::string		fileCsv = "data.csv";
 	std::string 	line;
@@ -92,8 +103,8 @@ void	readFileCsv(std::map<std::string, double> &data)
 	if (!file.is_open())
 		throw (std::runtime_error("Error: could not open file."));
 	while (std::getline(file, line))
-		resultBtc = SearchingInTheFileCsv(line, data);
-	for (std::map<std::string, double>::iterator it = data.begin(); it != data.end(); ++it)
+		resultBtc = SearchingInTheFileCsv(line, dataTxt);
+	for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
    		std::cout << it->first << " => " << it->second << " = " << resultBtc << std::endl;
 	
 	file.close();
@@ -102,32 +113,32 @@ void	readFileCsv(std::map<std::string, double> &data)
 /**
  * Guardamos la info del archivo .txt en date y value y ckeckeamos existencia del delimiter "|"
  * Chekeamos números neg. y eliminamos espacios al principio y al final
- * data[date] = valueTxt; --> Contenedor std::map que almacena pares "clave-valor" / "date-value"
+ * dataTxt[date] = valueTxt; --> Contenedor std::map que almacena pares "clave-valor" / "date-value"
 */
 void	parseFileTxt(std::string &line, char delimiter)
 {
-	std::map<std::string, double>	data;
+	std::map<std::string, double>	dataTxt;
 	std::istringstream 				iss(line);
-	std::string						date;
-	std::string						value;
+	std::string						dateTxt;
+	std::string						valueTxTStr;
 	double 							valueTxt;
 	
-	if (getline(iss, date, delimiter) && getline(iss, value) && line.find(delimiter))
+	if (getline(iss, dateTxt, delimiter) && getline(iss, valueTxTStr) && line.find(delimiter))
 	{
-		valueTxt = stringToDouble(value);
+		valueTxt = stringToDouble(valueTxTStr);
 	
-		if (value[1] == '-')
+		if (valueTxTStr[1] == '-')
 			std::cerr << "Error: not a positive number." << std::endl;
 		if (valueTxt > 0 && valueTxt <= 1000)
 		{
-			date.erase(0, date.find_first_not_of(" \t\r\n"));
-			date.erase(date.find_last_not_of(" \t\r\n") + 1);
-			data[date] = valueTxt;
-			readFileCsv(data);
+			dateTxt.erase(0, dateTxt.find_first_not_of(" \t\r\n"));
+			dateTxt.erase(dateTxt.find_last_not_of(" \t\r\n") + 1);
+			dataTxt[dateTxt] = valueTxt;
+			readFileCsv(dataTxt);
 		}
 	}
 	else
-		std::cout << "Error: bad input => " << date << std::endl;
+		std::cout << "Error: bad input => " << dateTxt << std::endl;
 }
 
 /**
