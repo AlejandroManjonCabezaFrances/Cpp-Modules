@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/02/02 01:02:23 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/02/02 17:16:12 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ double	stringToDouble(const std::string &value)
    - Cero si ambas cadenas son iguales.
    - Un valor positivo si la cadena de la izquierda es mayor que la de la derecha.
 */
-double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &dataTxt)
+double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &dataTxt, std::string &previousLine)
 {
 	std::istringstream	iss(line);
 	std::string 		dateCsv;
@@ -51,40 +51,35 @@ double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &d
 	double 				valueTxt;
 	char 				delimiter = ',';
 
-	int resultCompare = 99;;
+	int resultCompare = 99;
 	
 	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsvStr))
 	{
 		valueCsv = stringToDouble(valueCsvStr);
 		std::map<std::string, double>::iterator it = dataTxt.find(dateCsv);
 		
-
+		
 		if (it != dataTxt.end())
 		{
 			valueTxt = it->second;
 			resultBtc = valueTxt * valueCsv;
 		}
-		else
+ 		else
 		{
 			it = dataTxt.begin();
-			/* if (it != dataTxt.begin())
-			{ */
-				/* if (ite->first.compare(dateCsv) < 0) */
-				resultCompare = it->first.compare(dateCsv);
-				std::cout << "resultCompare = " << resultCompare << std::endl;
-				if (resultCompare < 0)
-				{
-					// la logica esta bien yo creo, el compare devualve -1 justo en la fecha superior a la del .txt
-					// falta ir guardando la anterior fecha a la primera ocurrencia -1 del compare() y gestionar con alguna banderilla
-					// salir de while() --> SearchingInTheFileCsv
-					std::cout << "dateCsv: " << dateCsv << std::endl;
-					return (0.0);
-				}
- 				/* std::cout << "Resultado de compare(): " << ite->first.compare(dateCsv) << std::endl; */
+			
+			resultCompare = it->first.compare(dateCsv);
+			std::cout << "resultCompare = " << resultCompare << std::endl;
+			if (resultCompare < 0)
+			{
+				std::cout << "previousLine: " << previousLine << std::endl;
+				previousLine = line;
 				usleep(50000);
-			/* } */
+				return (0.0);
+			}
+			usleep(50000);
 		}
-	}
+	} 
 	return (resultBtc);
 }
 
@@ -98,12 +93,21 @@ void	readFileCsv(std::map<std::string, double> &dataTxt)
 	std::string		fileCsv = "data.csv";
 	std::string 	line;
 	std::ifstream 	file(fileCsv.c_str());
-	double			resultBtc;
+	double			resultBtc = 0;
+	std::string 	currentLine;  
+	std::string 	previousLine;
 
 	if (!file.is_open())
 		throw (std::runtime_error("Error: could not open file."));
-	while (std::getline(file, line))
-		resultBtc = SearchingInTheFileCsv(line, dataTxt);
+	while (std::getline(file, currentLine))
+	{
+		resultBtc = SearchingInTheFileCsv(currentLine, dataTxt, previousLine);
+		std::cout << "previousLine**********: " << previousLine << std::endl;
+
+		previousLine = currentLine; // este condicional podria ser el problema
+/* 		if (resultBtc == -1.0)
+			break; */
+	}
 	for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
    		std::cout << it->first << " => " << it->second << " = " << resultBtc << std::endl;
 	
