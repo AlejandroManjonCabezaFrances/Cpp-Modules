@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/02/02 17:16:12 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/02/11 13:44:21 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,33 +49,54 @@ double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &d
 	double				resultBtc;
 	double				valueCsv;
 	double 				valueTxt;
-	char 				delimiter = ',';
+
+	// Prev.
+	std::string			dateCsvPrev;
+	std::string			valueCsvStrPrev;
+	double				valueCsvPrev;
+	std::string			resultBtcPrev;
 
 	int resultCompare = 99;
+	/* previousLine = ' '; */
 	
-	if (getline(iss, dateCsv, delimiter) && getline(iss, valueCsvStr))
+	if (getline(iss, dateCsv, ',') && getline(iss, valueCsvStr))
 	{
 		valueCsv = stringToDouble(valueCsvStr);
 		std::map<std::string, double>::iterator it = dataTxt.find(dateCsv);
 		
-		
 		if (it != dataTxt.end())
 		{
 			valueTxt = it->second;
+			std::cout << "valueTxt: " << std::endl;
 			resultBtc = valueTxt * valueCsv;
 		}
- 		else
+  		else
 		{
 			it = dataTxt.begin();
 			
 			resultCompare = it->first.compare(dateCsv);
-			std::cout << "resultCompare = " << resultCompare << std::endl;
+				std::cout << "resulCompare: " << resultCompare << std::endl;
 			if (resultCompare < 0)
 			{
 				std::cout << "previousLine: " << previousLine << std::endl;
-				previousLine = line;
+				std::istringstream	issPrev(previousLine);
+				getline(issPrev, dateCsvPrev, ',') && getline(issPrev, valueCsvStrPrev);
+				valueCsvPrev = stringToDouble(valueCsvStrPrev);
+				std::map<std::string, double>::iterator itPrev = dataTxt.find(dateCsvPrev);
+				
+				resultBtcPrev = itPrev->second * valueCsvPrev;
+				std::cout << "itPrev->second* * * * * * * *: " << itPrev->second << std::endl;
+				std::cout << "valueCsvPrev* * * * * * * *: " << valueCsvPrev << std::endl;
+				for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
+   					std::cout << it->first << " => " << it->second << " = " << resultBtcPrev << std::endl;
+
+				
+				std::cout << "dateCsvPrev: " << dateCsvPrev << std::endl;
+				std::cout << "valueCsvPrev: " << valueCsvPrev << std::endl;
 				usleep(50000);
-				return (0.0);
+				/* return (resultBtc); */
+				
+				
 			}
 			usleep(50000);
 		}
