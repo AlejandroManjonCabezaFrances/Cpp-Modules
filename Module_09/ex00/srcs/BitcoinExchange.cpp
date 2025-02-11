@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:35 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/02/11 13:44:21 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:12:39 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,12 @@ double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &d
 	double				resultBtc;
 	double				valueCsv;
 	double 				valueTxt;
-
-	// Prev.
+	
 	std::string			dateCsvPrev;
 	std::string			valueCsvStrPrev;
 	double				valueCsvPrev;
-	std::string			resultBtcPrev;
-
-	int resultCompare = 99;
-	/* previousLine = ' '; */
+	double				resultBtcPrev;
+	int 				resultCompare = 99;
 	
 	if (getline(iss, dateCsv, ',') && getline(iss, valueCsvStr))
 	{
@@ -67,7 +64,6 @@ double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &d
 		if (it != dataTxt.end())
 		{
 			valueTxt = it->second;
-			std::cout << "valueTxt: " << std::endl;
 			resultBtc = valueTxt * valueCsv;
 		}
   		else
@@ -75,30 +71,22 @@ double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &d
 			it = dataTxt.begin();
 			
 			resultCompare = it->first.compare(dateCsv);
-				std::cout << "resulCompare: " << resultCompare << std::endl;
+			std::cout << "resultCompare: " << resultCompare << std::endl;
 			if (resultCompare < 0)
 			{
-				std::cout << "previousLine: " << previousLine << std::endl;
 				std::istringstream	issPrev(previousLine);
 				getline(issPrev, dateCsvPrev, ',') && getline(issPrev, valueCsvStrPrev);
 				valueCsvPrev = stringToDouble(valueCsvStrPrev);
-				std::map<std::string, double>::iterator itPrev = dataTxt.find(dateCsvPrev);
-				
-				resultBtcPrev = itPrev->second * valueCsvPrev;
-				std::cout << "itPrev->second* * * * * * * *: " << itPrev->second << std::endl;
-				std::cout << "valueCsvPrev* * * * * * * *: " << valueCsvPrev << std::endl;
+				std::cout << "it->second: " << it->second << std::endl;
+				std::cout << "valueCsvPrev: " << valueCsvPrev << std::endl;
+				resultBtcPrev = (it->second) * valueCsvPrev;
+				std::cout << "resultBtcPrev: " << resultBtcPrev << std::endl;
 				for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
    					std::cout << it->first << " => " << it->second << " = " << resultBtcPrev << std::endl;
 
-				
-				std::cout << "dateCsvPrev: " << dateCsvPrev << std::endl;
-				std::cout << "valueCsvPrev: " << valueCsvPrev << std::endl;
 				usleep(50000);
-				/* return (resultBtc); */
-				
-				
 			}
-			usleep(50000);
+			/* usleep(50000); */
 		}
 	} 
 	return (resultBtc);
@@ -123,11 +111,8 @@ void	readFileCsv(std::map<std::string, double> &dataTxt)
 	while (std::getline(file, currentLine))
 	{
 		resultBtc = SearchingInTheFileCsv(currentLine, dataTxt, previousLine);
-		std::cout << "previousLine**********: " << previousLine << std::endl;
 
-		previousLine = currentLine; // este condicional podria ser el problema
-/* 		if (resultBtc == -1.0)
-			break; */
+		previousLine = currentLine;
 	}
 	for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
    		std::cout << it->first << " => " << it->second << " = " << resultBtc << std::endl;
@@ -185,41 +170,3 @@ void    readFileTxt()
 		
 	file.close();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* BitcoinExchange::BitcoinExchange()
-{
-}
-
-BitcoinExchange::BitcoinExchange()
-{
-}
-
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& constrCopy)
-{	
-}
-
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& constrCopy)
-{
-	if (this != &constrCopy)
-	{
-
-	}
-
-	return (*this);
-}
-
-BitcoinExchange::~BitcoinExchange()
-{
-} */
