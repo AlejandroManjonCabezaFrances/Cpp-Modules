@@ -37,7 +37,7 @@
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
 double	stringToDouble(const std::string &value);
-double	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &dataTxt, std::string &previousLine);
+std::pair<double, int>	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &dataTxt, std::string &previousLine);
 void	readFileCsv(std::map<std::string, double> &data);
 
 void  	readFileTxt();
