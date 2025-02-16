@@ -36,17 +36,20 @@
 /**
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
-double	stringToDouble(const std::string &value);
+// BitcoinExchange.cpp
+/* double	stringToDouble(const std::string &value);
 std::pair<double, int>	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &dataTxt, std::string &previousLine);
 void	readFileCsv(std::map<std::string, double> &data);
-
 void  	readFileTxt();
 void	parseFileTxt(std::string &line, char delimiter);
-	
+ */
 
-
-
-
+// BitcoinExchangeNew.cpp
+void  							readFileTxt();
+std::map<std::string, double>	parseFileTxt(std::string &line, char delimiter);
+double							stringToDouble(const std::string &value);
+void							readFileCsv(std::map<std::string, double> &dataTxt);
+std::pair<double, int>			SearchingInTheFileCsv(std::map<std::string, double> &dataTxt, std::string &line, std::string &previousLine);
 
 
 
