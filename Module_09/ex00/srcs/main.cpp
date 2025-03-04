@@ -6,7 +6,7 @@
 /*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:18:31 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/01/31 12:37:48 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/03/04 13:04:27 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 			throw (std::invalid_argument("Error: could not open file."));
 		}
 		else
-			readFileTxt(/* argv[1] */);
+			readFileTxt(argv[1]);
 	}
 	catch(const std::exception &error)
 	{

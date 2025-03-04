@@ -45,7 +45,7 @@ void	parseFileTxt(std::string &line, char delimiter);
  */
 
 // BitcoinExchangeNew.cpp
-void  							readFileTxt();
+void  							readFileTxt(char *fileTxt);
 std::map<std::string, double>	parseFileTxt(std::string &line, char delimiter);
 double							stringToDouble(const std::string &value);
 void							readFileCsv(std::map<std::string, double> &dataTxt);
