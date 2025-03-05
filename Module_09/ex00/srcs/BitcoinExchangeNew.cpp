@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchangeNew.cpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 07:34:42 by amanjon           #+#    #+#             */
-/*   Updated: 2025/03/04 13:59:07 by amanjon          ###   ########.fr       */
+/*   Updated: 2025/03/05 20:27:22 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,30 +66,37 @@ std::map<std::string, double>	parseFileTxt(std::string &line, char delimiter)
 	return (dataTxt);
 }
 
-int dateDontMatch(std::map<std::string, double> &dataTxt, std::map<std::string, double>::iterator it, std::string &dateCsv, std::string &previousLine)
+double	dateDontMatch(std::map<std::string, double> &dataTxt, std::map<std::string, double>::iterator &it, std::string &dateCsv, std::string &previousLine)
 {
 	int			resultCompare = 0; // local
 	std::string	dateCsvPrev; // local
 	std::string	valueCsvStrPrev; // local
-	double		valueCsvPrev; // local
-	double		resultBtcPrev; // local
+	double		valueCsvPrev = 0.0; // local
+	double		resultBtcPrev = 0.0; // local
 	
-	if (!dataTxt.empty())
+/* 	std::cout << "LLEGA 3" << std::endl;
+ */	if (!dataTxt.empty())
 	{
-		it = dataTxt.begin();
+/* 		std::cout << "LLEGA 4" << std::endl;
+ */		it = dataTxt.begin();
+		/* std::cout << "dateCsv = " << std::endl; */
 		resultCompare = it->first.compare(dateCsv);
-	}
+/* 		std::cout << "LLEGA 5" << std::endl;
+ */	}
 	
+	/* std::cout << "resultCompare = " << valueCsvPrev << std::endl; */
 	if (resultCompare < 0 && resultCompare != -50)
 	{
-		std::istringstream	issPrev(previousLine);
+/* 		std::cout << "LLEGA 6" << std::endl;
+ */		std::istringstream	issPrev(previousLine);
 		getline(issPrev, dateCsvPrev, ',') && getline(issPrev, valueCsvStrPrev);
 		valueCsvPrev = stringToDouble(valueCsvStrPrev);
-		resultBtcPrev = (it->second) * valueCsvPrev;
+/* 		std::cout << "valueCsvPrev" << valueCsvPrev << std::endl;
+ */		resultBtcPrev = (it->second) * valueCsvPrev;
 		
 		/* return (std::make_pair(resultBtcPrev, -1)); */
 	}
-	std::cout << "resultBtcPrev = " << resultBtcPrev << std::endl;
+	/* std::cout << "resultBtcPrev = " << resultBtcPrev << std::endl; */
 	
 	return (resultBtcPrev);
 }
@@ -111,31 +118,34 @@ std::pair<double, int>	SearchingInTheFileCsv(std::map<std::string, double> &data
 	std::istringstream	iss(line);
 	std::string 		dateCsv;
 	std::string 		valueCsvStr;
-	double				resultBtc;
-	double				valueCsv;
-	double 				valueTxt;
+	double				resultBtc = 0.0;
+	double				valueCsv = 0.0;
+	double 				valueTxt = 0.0;
 	
 /* 	std::string			dateCsvPrev; // local
 	std::string			valueCsvStrPrev; // local
 	double				valueCsvPrev; // local
-	double				resultBtcPrev; // local
 	int 				resultCompare = 0; // local */
+	
+	double				resultBtcPrev; // local
 	
 	if (getline(iss, dateCsv, ',') && getline(iss, valueCsvStr))
 	{
 		valueCsv = stringToDouble(valueCsvStr);
-		std::map<std::string, double>::iterator it = dataTxt.find(dateCsv);
+/* 		std::cout << "dateCsv = " << dateCsv << std::endl;
+ */		std::map<std::string, double>::iterator it = dataTxt.find(dateCsv);
 		
+/* 		std::cout << "LLEGA 1" << std::endl;
+ */		
 		if (it != dataTxt.end()) // la fecha coincide en .Cvs y .Txt
 		{
-			valueTxt = it->second;
+/* 			std::cout << "LLEGA 2" << std::endl;
+ */			valueTxt = it->second;
 			resultBtc = valueTxt * valueCsv;
 			return (std::make_pair(resultBtc, 1));
 		}
   		else					// no coincide fechas
-		{
-			/* dateDontMatch(dataTxt, it, dateCsv, previousLine); */
-			
+		{			
 /* 			if (!dataTxt.empty())
 			{
 				it = dataTxt.begin();
@@ -148,12 +158,15 @@ std::pair<double, int>	SearchingInTheFileCsv(std::map<std::string, double> &data
 				getline(issPrev, dateCsvPrev, ',') && getline(issPrev, valueCsvStrPrev);
 				valueCsvPrev = stringToDouble(valueCsvStrPrev);
 				resultBtcPrev = (it->second) * valueCsvPrev; */
+
 				
-				return (std::make_pair(dateDontMatch(dataTxt, it, dateCsv, previousLine), -1));
+				resultBtcPrev = dateDontMatch(dataTxt, it, dateCsv, previousLine);
+				
+				/* return (std::make_pair(dateDontMatch(dataTxt, it, dateCsv, previousLine), -1)); */
+				return (std::make_pair(resultBtcPrev, -1));
 			/* } */
 		}
 	} 
-	
 	return (std::make_pair(resultBtc, 0));
 }
 
@@ -174,19 +187,25 @@ void	readFileCsv(std::map<std::string, double> &dataTxt)
 
 	if (!file.is_open())
 		throw (std::runtime_error("Error: could not open file."));
-	while (std::getline(file, currentLine))
+	
+		
 	{
+		/* std::cout << "currentLine = " << currentLine << std::endl;  */
 		resultBtc = SearchingInTheFileCsv(dataTxt, currentLine, previousLine);
-		previousLine = currentLine;
+/* 		std::cout << "LLEGA 7" << std::endl;
+ */		previousLine = currentLine;
+ 		/* sleep (1); */
 		if (resultBtc.second == 1)
 		{
-			for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
+/* 			std::cout << "LLEGA 8" << std::endl;
+ */			for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
 				std::cout << it->first << " => " << it->second << " = " << resultBtc.first << std::endl;
 			break;
 		}
 		else if (resultBtc.second == -1)
 		{
-			for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
+/* 			std::cout << "LLEGA 9" << std::endl;
+ */			for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
    				std::cout << it->first << " => " << it->second << " = " << resultBtc.first << std::endl;
 			break;
 		}
