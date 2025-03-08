@@ -25,48 +25,15 @@
 
 #include "../include/Colors.hpp"
 
-/* class FileProcessor
-{
-	private:
-		std::map<std::string, double> data;
-	public:
-
-}; */
-
 /**
  *Un "stream (flujo)" puede ser de entrada (istream), de salida (ostream), o de entrada y salida (iostream).
 */
-// BitcoinExchange.cpp
-/* double	stringToDouble(const std::string &value);
-std::pair<double, int>	SearchingInTheFileCsv(std::string &line, std::map<std::string, double> &dataTxt, std::string &previousLine);
-void	readFileCsv(std::map<std::string, double> &data);
-void  	readFileTxt();
-void	parseFileTxt(std::string &line, char delimiter);
- */
-
-// BitcoinExchangeNew.cpp
-void  							readFileTxt(char *fileTxt);
+int main(int argc, char **argv);
+void    readFileTxt(char *fileTxt);
+void	readFileCsv(std::map<std::string, double> &dataTxt);
+std::pair<double, int>	SearchingInTheFileCsv(std::map<std::string, double> &dataTxt, std::string &line, std::string &previousLine);
+double	returnResultPreviousLine(std::string &previousLine, std::map<std::string, double>::iterator &it);
 std::map<std::string, double>	parseFileTxt(std::string &line, char delimiter);
-double							stringToDouble(const std::string &value);
-void							readFileCsv(std::map<std::string, double> &dataTxt);
-std::pair<double, int>			SearchingInTheFileCsv(std::map<std::string, double> &dataTxt, std::string &line, std::string &previousLine);
-
-
-
-
-
-
-/* class BitcoinExchange
-{
-	private:
-
-	public:
-		BitcoinExchange();
-		BitcoinExchange(const BitcoinExchange& constrCopy);
-		BitcoinExchange& operator=(const BitcoinExchange& constrCopy);
-		~BitcoinExchange();
-};
-
-std::ostream& operator<<(std::ostream &output, const BitcoinExchange& constrCopy); */
+double	stringToDouble(const std::string &value);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*   BitcoinExchangeNew.cpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amanjon <amanjon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 07:34:42 by amanjon           #+#    #+#             */
-/*   Updated: 2025/03/05 20:30:07 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/03/08 10:50:19 by amanjon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ double	stringToDouble(const std::string &value)
 }
 
 /**
- * 
+ * Parseamos nº negativos y valueTxt valga entre 1 y 1000
+ * En dateTxt, eliminamos al principio y al final los espacios, tabulaciones, retorno carro y salto línea
+ * dataTxt[dateTxt] = valueTxt; --> insertamos la clave-valor (string-double)
 */
 std::map<std::string, double>	parseFileTxt(std::string &line, char delimiter)
 {
@@ -67,6 +69,25 @@ std::map<std::string, double>	parseFileTxt(std::string &line, char delimiter)
 }
 
 /**
+ * Retornamos el resultado de la multiplicación de btc, de la línea anterior (ya que no se ha encontrado
+ *  la fecha del input) 
+*/
+double	returnResultPreviousLine(std::string &previousLine, std::map<std::string, double>::iterator &it)
+{
+	std::string			dateCsvPrev;
+	std::string			valueCsvStrPrev;
+	double				valueCsvPrev;
+	double				resultBtcPrev;
+
+	std::istringstream	issPrev(previousLine);
+	getline(issPrev, dateCsvPrev, ',') && getline(issPrev, valueCsvStrPrev);
+	valueCsvPrev = stringToDouble(valueCsvStrPrev);
+	resultBtcPrev = (it->second) * valueCsvPrev;
+
+	return (resultBtcPrev);
+}
+
+/**
  * Buscando en el archivo .csv
 	- if(la fecha existe en el archivo .csv)
 	- else(la fecha no se encuentra, hay que buscar la fecha anterior a la puesta en el .txt)
@@ -83,14 +104,10 @@ std::pair<double, int>	SearchingInTheFileCsv(std::map<std::string, double> &data
 	std::istringstream	iss(line);
 	std::string 		dateCsv;
 	std::string 		valueCsvStr;
-	double				resultBtc;
-	double				valueCsv;
-	double 				valueTxt;
-	
-	std::string			dateCsvPrev;
-	std::string			valueCsvStrPrev;
-	double				valueCsvPrev;
-	double				resultBtcPrev;
+	double				resultBtc = 0.0;
+	double				valueCsv = 0.0;
+	double 				valueTxt = 0.0;
+	double				resultBtcPrev = 0.0;
 	int 				resultCompare = 0;
 	
 	if (getline(iss, dateCsv, ',') && getline(iss, valueCsvStr))
@@ -98,13 +115,13 @@ std::pair<double, int>	SearchingInTheFileCsv(std::map<std::string, double> &data
 		valueCsv = stringToDouble(valueCsvStr);
 		std::map<std::string, double>::iterator it = dataTxt.find(dateCsv);
 		
-		if (it != dataTxt.end()) // la fecha coincide en .Cvs y .Txt
+		if (it != dataTxt.end())
 		{
 			valueTxt = it->second;
 			resultBtc = valueTxt * valueCsv;
 			return (std::make_pair(resultBtc, 1));
 		}
-  		else					// no coincide fechas
+  		else
 		{
 			if (!dataTxt.empty())
 			{
@@ -114,11 +131,7 @@ std::pair<double, int>	SearchingInTheFileCsv(std::map<std::string, double> &data
 			
 			if (resultCompare < 0 && resultCompare != -50)
 			{
-				std::istringstream	issPrev(previousLine);
-				getline(issPrev, dateCsvPrev, ',') && getline(issPrev, valueCsvStrPrev);
-				valueCsvPrev = stringToDouble(valueCsvStrPrev);
-				resultBtcPrev = (it->second) * valueCsvPrev;
-				
+				resultBtcPrev = returnResultPreviousLine(previousLine, it);
 				return (std::make_pair(resultBtcPrev, -1));
 			}
 		}
@@ -148,16 +161,10 @@ void	readFileCsv(std::map<std::string, double> &dataTxt)
 	{
 		resultBtc = SearchingInTheFileCsv(dataTxt, currentLine, previousLine);
 		previousLine = currentLine;
-		if (resultBtc.second == 1)
+		if (resultBtc.second == 1 || resultBtc.second == -1)
 		{
 			for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
 				std::cout << it->first << " => " << it->second << " = " << resultBtc.first << std::endl;
-			break;
-		}
-		else if (resultBtc.second == -1)
-		{
-			for (std::map<std::string, double>::iterator it = dataTxt.begin(); it != dataTxt.end(); ++it)
-   				std::cout << it->first << " => " << it->second << " = " << resultBtc.first << std::endl;
 			break;
 		}
 	}
@@ -167,6 +174,7 @@ void	readFileCsv(std::map<std::string, double> &dataTxt)
 /**
  * Abrimos y guardamos cada línea del archivo pasado
  * std::ifstream (flujo de entrada del archivo .txt)
+ * Parseamos el .Txt y luego leemos el .Csv
 */
 void    readFileTxt(char *fileTxt)
 {
