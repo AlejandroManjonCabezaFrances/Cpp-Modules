@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:24:55 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/09/28 22:19:44 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/09/28 22:28:24 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int    parsingArguments(char *argv)
 	
 	while (iss >> token)
 	{
+		std::cout << "token: " << token << std::endl;
 		if (token.size() == 1 && isdigit(token[0]))
 			container.push(token[0] - '0');
 
