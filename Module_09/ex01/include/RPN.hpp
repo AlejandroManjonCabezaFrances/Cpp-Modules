@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:25:01 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/09/28 15:12:02 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/09/28 22:11:07 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 #include "../include/Colors.hpp"
 
-void    RpnFunction(char *argv);
-void    parsingArguments(char *argv);
+void	RpnFunction(char *argv);
+int		parsingArguments(char *argv);
 
 #endif

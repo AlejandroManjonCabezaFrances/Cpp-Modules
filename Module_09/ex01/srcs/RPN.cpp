@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:24:55 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/09/28 16:44:25 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/09/28 22:19:44 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,55 @@ Resultado final = 23.
   --> 56 - 48 = 8 pasado a int
 */
 
-void    parsingArguments(char *argv)
+int    parsingArguments(char *argv)
 {
 	std::istringstream 	iss(argv);
 	std::stack<int>		container;
 	std::string			token; 			
+	int 				resultTotal;
 	
 	while (iss >> token)
 	{
-	/* 	std::cout << "token: " << token << std::endl; */
 		if (token.size() == 1 && isdigit(token[0]))
 			container.push(token[0] - '0');
 
 		else if (token == "+" || token == "-" || token == "*" || token == "/")
-			if (container.size() < 2)
+		{
+			if (container.size() != 1)
+			{
+				int result = 0;
 				int b = container.top();
 				container.pop();
 				int a = container.top();
 				container.pop();
-		
-		
-/* 		std::cout << "tamaño pila: " << container.size() << std::endl;
-		std::cout << "top pila: " << container.top() << std::endl; */
+
+				if (token == "+")
+					result = a + b;
+				else if (token == "-")
+					result = a - b;
+				else if (token == "*")
+					result = a * b;
+				else if (token == "/")
+					result = a / b;
+				
+				container.push(result);
+				resultTotal = result;
+			}
+		}		
 	}
-	return;
+	return (resultTotal);
 }
 
 void    RpnFunction(char *argv)
 {
-	parsingArguments(argv);
+	int result;
+	
+	result = parsingArguments(argv);
+	std::cout << result << std::endl;
 }
+
+/* 		if (!container.empty())
+		{
+			std::cout << "tamaño pila: " << container.size() << std::endl;
+			std::cout << "top pila: " << container.top() << std::endl;
+		} */
