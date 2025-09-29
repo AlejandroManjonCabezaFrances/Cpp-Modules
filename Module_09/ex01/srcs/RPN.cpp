@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:24:55 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/09/28 22:28:24 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/09/29 11:22:55 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,23 @@ int    parsingArguments(char *argv)
 	while (iss >> token)
 	{
 		std::cout << "token: " << token << std::endl;
+		if (token.find("(") != std::string::npos || token.find(")") != std::string::npos)
+		{
+			std::cerr << "Error" << std::endl;
+			exit(EXIT_FAILURE);
+		}
 		if (token.size() == 1 && isdigit(token[0]))
 			container.push(token[0] - '0');
-
 		else if (token == "+" || token == "-" || token == "*" || token == "/")
 		{
-			if (container.size() != 1)
+			if (container.size() > 1)
 			{
 				int result = 0;
 				int b = container.top();
 				container.pop();
 				int a = container.top();
 				container.pop();
-
+				
 				if (token == "+")
 					result = a + b;
 				else if (token == "-")
@@ -89,9 +93,3 @@ void    RpnFunction(char *argv)
 	result = parsingArguments(argv);
 	std::cout << result << std::endl;
 }
-
-/* 		if (!container.empty())
-		{
-			std::cout << "tamaño pila: " << container.size() << std::endl;
-			std::cout << "top pila: " << container.top() << std::endl;
-		} */
