@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:24:55 by amanjon-          #+#    #+#             */
-/*   Updated: 2025/09/29 11:22:55 by amanjon-         ###   ########.fr       */
+/*   Updated: 2025/10/02 07:30:05 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int    parsingArguments(char *argv)
 	
 	while (iss >> token)
 	{
-		std::cout << "token: " << token << std::endl;
+		/* std::cout << "token: " << token << std::endl; */
 		if (token.find("(") != std::string::npos || token.find(")") != std::string::npos)
 		{
 			std::cerr << "Error" << std::endl;
